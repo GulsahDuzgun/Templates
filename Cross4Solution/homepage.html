@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          fontFamily: {
+            sans: ['Poppins', 'sans-serif'],
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="min-h-screen flex font-sans">
+    <aside
+      class="w-64 bg-white p-9 flex flex-col border-r border-[#eee] h-screen"
+    >
+      <!-- Logo/Username -->
+      <div class="mb-[64px]">
+        <h2 class="text-2xl font-semibold leading-9">eteyit</h2>
+        <div class="h-0.5 bg-blue-500 w-12 mt-1"></div>
+      </div>
+
+      <!-- Menu Items -->
+      <nav class="flex flex-col gap-8">
+        <a href="#" class="group flex items-center relative">
+          <div
+            class="absolute -left-9 top-0 h-full w-1 bg-blue-500 opacity-0 group-hover:opacity-100 transition-opacity"
+          ></div>
+          <svg
+            class="w-5 h-5 mr-5 text-[#999] group-hover:text-[#111] transition-colors"
+            viewBox="0 0 24 24"
+            fill="none"
+          >
+            <path
+              d="M4 4h4v4H4V4zm6 0h4v4h-4V4zm6 0h4v4h-4V4z"
+              stroke="currentColor"
+              stroke-width="2"
+            />
+          </svg>
+          <span
+            class="font-poppins text-xs leading-[18px] text-[#999] group-hover:text-[#111] transition-colors"
+            >Anasayfa</span
+          >
+        </a>
+
+        <a href="#" class="group flex items-center relative">
+          <div
+            class="absolute -left-9 top-0 h-full w-1 bg-blue-500 opacity-0 group-hover:opacity-100 transition-opacity"
+          ></div>
+          <svg
+            class="w-5 h-5 mr-5 text-[#999] group-hover:text-[#111] transition-colors"
+            viewBox="0 0 24 24"
+            fill="none"
+          >
+            <path
+              d="M11 4H4v7h7V4zm9 0h-7v7h7V4zm-9 9H4v7h7v-7zm9 0h-7v7h7v-7z"
+              stroke="currentColor"
+              stroke-width="2"
+            />
+          </svg>
+          <span
+            class="font-poppins text-xs leading-[18px] text-[#999] group-hover:text-[#111] transition-colors"
+            >İşlem Tayiti</span
+          >
+        </a>
+
+        <a href="#" class="group flex items-center relative">
+          <div
+            class="absolute -left-9 top-0 h-full w-1 bg-blue-500 opacity-0 group-hover:opacity-100 transition-opacity"
+          ></div>
+          <svg
+            class="w-5 h-5 mr-5 text-[#999] group-hover:text-[#111] transition-colors"
+            viewBox="0 0 24 24"
+            fill="none"
+          >
+            <path
+              d="M8 12h8M8 16h8M8 8h8"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+          </svg>
+          <span
+            class="font-poppins text-xs leading-[18px] text-[#999] group-hover:text-[#111] transition-colors"
+            >Değerlendirmeler</span
+          >
+        </a>
+
+        <a href="#" class="group flex items-center relative">
+          <div
+            class="absolute -left-9 top-0 h-full w-1 bg-blue-500 opacity-0 group-hover:opacity-100 transition-opacity"
+          ></div>
+          <svg
+            class="w-5 h-5 mr-5 text-[#999] group-hover:text-[#111] transition-colors"
+            viewBox="0 0 24 24"
+            fill="none"
+          >
+            <path
+              d="M16 8l-8 8M8 8l8 8"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+          </svg>
+          <span
+            class="font-poppins text-xs leading-[18px] text-[#999] group-hover:text-[#111] transition-colors"
+            >İstatistikler</span
+          >
+        </a>
+
+        <a href="#" class="group flex items-center relative">
+          <div
+            class="absolute -left-9 top-0 h-full w-1 bg-blue-500 opacity-0 group-hover:opacity-100 transition-opacity"
+          ></div>
+          <svg
+            class="w-5 h-5 mr-5 text-[#999] group-hover:text-[#111] transition-colors"
+            viewBox="0 0 24 24"
+            fill="none"
+          >
+            <path
+              d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"
+              stroke="currentColor"
+              stroke-width="2"
+            />
+          </svg>
+          <span
+            class="font-poppins text-xs leading-[18px] text-[#999] group-hover:text-[#111] transition-colors"
+            >Aylık Analiz Raporları</span
+          >
+        </a>
+
+        <a href="#" class="group flex items-center relative">
+          <div
+            class="absolute -left-9 top-0 h-full w-1 bg-blue-500 opacity-0 group-hover:opacity-100 transition-opacity"
+          ></div>
+          <svg
+            class="w-5 h-5 mr-5 text-[#999] group-hover:text-[#111] transition-colors"
+            viewBox="0 0 24 24"
+            fill="none"
+          >
+            <path
+              d="M12 6V4m0 2a6 6 0 100 12 6 6 0 000-12z"
+              stroke="currentColor"
+              stroke-width="2"
+            />
+          </svg>
+          <span
+            class="font-poppins text-xs leading-[18px] text-[#999] group-hover:text-[#111] transition-colors"
+            >Ayarlar</span
+          >
+        </a>
+
+        <a href="#" class="group flex items-center relative">
+          <div
+            class="absolute -left-9 top-0 h-full w-1 bg-blue-500 opacity-0 group-hover:opacity-100 transition-opacity"
+          ></div>
+          <svg
+            class="w-5 h-5 mr-5 text-[#999] group-hover:text-[#111] transition-colors"
+            viewBox="0 0 24 24"
+            fill="none"
+          >
+            <path
+              d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+              stroke="currentColor"
+              stroke-width="2"
+            />
+          </svg>
+          <span
+            class="font-poppins text-xs leading-[18px] text-[#999] group-hover:text-[#111] transition-colors"
+            >Yardım</span
+          >
+        </a>
+      </nav>
+    </aside>
+
+    <div class="flex-1 flex flex-col">
+      <header class="p-4 h-[72px] flex items-center justify-between">
+        <h1 class="text-xl font-semibold">Hoşgeldin, Eteyit</h1>
+
+        <div class="flex items-center gap-4">
+          <!-- Search Bar -->
+          <div class="relative">
+            <input type="text" placeholder="Arama yap" class="pl-11 pr-4 py-2
+            bg-white rounded-[14px] border-[1px] border-[#ECECEC] font-poppins
+            text-sm font-normal leading-[21px] placeholder:text-sm
+            placeholder:font-normal placeholder:leading-[21px]
+            placeholder:font-poppins"" />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 absolute left-[18px] top-1/2 -translate-y-1/2 text-gray-400"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              />
+            </svg>
+          </div>
+
+          <!-- Bell Icon -->
+          <button class="p-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
+              />
+            </svg>
+          </button>
+          <div class="flex gap-2">
+            <img src="./assests/logo.jpg" class="h-[36px] w-[36px] alt="Eteyit
+            Logo" />
+
+            <!-- Settings/Language Dropdown -->
+            <button class="p-0">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </header>
+      <main class="bg-gray-100 p-4 flex-1">Main Content Area</main>
+    </div>
+  </body>
+</html>
