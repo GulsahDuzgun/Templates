@@ -515,155 +515,479 @@
             </div>
           </div>
         </section>
-        <section class="section-weekly-overview mr-4">
-          <div class="max-w-md w-full p-6 rounded-[16px] bg-[#FCFCFC]">
-            <!-- Header -->
-            <div class="mb-6">
-              <h2 class="font-poppins font-[500] text-[#111111] text-[16px]">
-                Haftalık Bakış
-              </h2>
-              <p class="text-sm text-gray-500">25-31 Mart</p>
-            </div>
+        <div class="container-box flex gap-4">
+          <section class="section-last-confirmations flex-1 mt-4">
+            <div class="p-6 rounded-[16px] bg-[#FCFCFC]">
+              <div class="flex justify-between items-center mb-4">
+                <h2 class="font-poppins text-[16px] font-[500] text-[#111111]">
+                  Son Teyitlemeler
+                </h2>
+                <div class="flex items-center gap-4">
+                  <button
+                    class="flex items-center appearance-none text-[#8F949C] py-1 px-2 border border-[#D7DBE2] rounded-[8px] font-poppins text-[14px] font-[400] leading-[21px]"
+                  >
+                    Dışarı Aktar
+                    <svg
+                      class="ml-2"
+                      width="16"
+                      height="17"
+                      viewBox="0 0 16 17"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9.33301 2.5V5.16667C9.33301 5.34348 9.40325 5.51305 9.52827 5.63807C9.65329 5.7631 9.82286 5.83333 9.99967 5.83333H12.6663M9.33301 2.5H4.66634C4.31272 2.5 3.97358 2.64048 3.72353 2.89052C3.47348 3.14057 3.33301 3.47971 3.33301 3.83333V13.1667C3.33301 13.5203 3.47348 13.8594 3.72353 14.1095C3.97358 14.3595 4.31272 14.5 4.66634 14.5H11.333C11.6866 14.5 12.0258 14.3595 12.2758 14.1095C12.5259 13.8594 12.6663 13.5203 12.6663 13.1667V5.83333M9.33301 2.5L12.6663 5.83333M9.99967 10.5H5.99967M5.99967 10.5L7.66634 12.1667M5.99967 10.5L7.66634 8.83333"
+                        stroke="#8F949C"
+                        stroke-width="1.25"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </button>
 
-            <!-- Chart Container -->
-            <div class="mb-4 pb-4 border-b border-[#EEEEEE]">
-              <!-- Chart Bars -->
-              <div class="flex items-end justify-between h-48 relative">
-                <!-- Monday -->
-                <div class="flex flex-col items-center gap-2">
-                  <div class="relative w-[22px] h-32">
-                    <div
-                      class="absolute inset-0 bg-[#FFE5E5] rounded-full"
-                    ></div>
-                    <div
-                      class="absolute bottom-0 w-full bg-[#FD5757] rounded-full transition-all duration-300"
-                      style="height: 45%"
-                    ></div>
+                  <div class="relative">
+                    <select
+                      class="appearance-none text-[#8F949C] py-1 pl-2 pr-6 border border-[#D7DBE2] rounded-[8px] font-normal font-poppins text-[14px] font-[400] leading-[21px]"
+                    >
+                      <option
+                        class="text-[#8F949C] py-1 border border-[#D7DBE2] rounded-[8px] font-poppins text-[14px] font-[400] leading-[21px]"
+                      >
+                        Onaylanan Teyitler
+                      </option>
+                    </select>
+                    <svg
+                      class="absolute right-1 top-1/2 -translate-y-1/2 pointer-events-none"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 22 22"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M5.5 8.25L11 13.75L16.5 8.25"
+                        stroke="#8F949C"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
                   </div>
-                  <span class="text-xs text-[#000] mt-2">Pzt</span>
-                </div>
-
-                <!-- Tuesday -->
-                <div class="flex flex-col items-center gap-2">
-                  <div class="relative w-[22px] h-32">
-                    <div
-                      class="absolute inset-0 bg-[#FFE5E5] rounded-full"
-                    ></div>
-                    <div
-                      class="absolute bottom-0 w-full bg-[#FD5757] rounded-full transition-all duration-300"
-                      style="height: 65%"
-                    ></div>
+                  <div class="relative">
+                    <select
+                      class="appearance-none pl-4 pr-8 py-1 border text-[#8F949C] border-[#D7DBE2] rounded-[8px] font-poppins text-[14px] font-[400] leading-[21px]"
+                    >
+                      <option>Filtrele</option>
+                    </select>
+                    <svg
+                      class="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none"
+                      width="16"
+                      height="17"
+                      viewBox="0 0 16 17"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M6.00016 4.5H13.3335M8.00016 8.5H13.3335M10.0002 12.5H13.3335M3.3335 4.5V4.50667M5.3335 8.5V8.50667M7.3335 12.5V12.5067"
+                        stroke="#8F949C"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
                   </div>
-                  <span class="text-xs text-[#000] mt-2">Salı</span>
-                </div>
-
-                <!-- Wednesday -->
-                <div class="flex flex-col items-center gap-2">
-                  <div class="relative w-[22px] h-32">
-                    <div
-                      class="absolute inset-0 bg-[#FFE5E5] rounded-full"
-                    ></div>
-                    <div
-                      class="absolute bottom-0 w-full bg-[#FD5757] rounded-full transition-all duration-300"
-                      style="height: 85%"
-                    ></div>
-                  </div>
-                  <span class="text-xs text-[#000] mt-2">Çrş</span>
-                </div>
-
-                <!-- Thursday -->
-                <div class="flex flex-col items-center gap-2">
-                  <div class="relative w-[22px] h-32">
-                    <div
-                      class="absolute inset-0 bg-[#FFE5E5] rounded-full"
-                    ></div>
-                    <div
-                      class="absolute bottom-0 w-full bg-[#FD5757] rounded-full transition-all duration-300"
-                      style="height: 95%"
-                    ></div>
-                  </div>
-                  <span class="text-xs text-[#000] mt-2">Prş</span>
-                </div>
-
-                <!-- Friday -->
-                <div class="flex flex-col items-center gap-2">
-                  <div class="relative w-[22px] h-32">
-                    <div
-                      class="absolute inset-0 bg-[#FFE5E5] rounded-full"
-                    ></div>
-                    <div
-                      class="absolute bottom-0 w-full bg-[#FD5757] rounded-full transition-all duration-300"
-                      style="height: 75%"
-                    ></div>
-                  </div>
-                  <span class="text-xs text-[#000] mt-2">Cuma</span>
-                </div>
-
-                <!-- Saturday -->
-                <div class="flex flex-col items-center gap-2">
-                  <div class="relative w-[22px] h-32">
-                    <div
-                      class="absolute inset-0 bg-[#FFE5E5] rounded-full"
-                    ></div>
-                    <div
-                      class="absolute bottom-0 w-full bg-[#FD5757] rounded-full transition-all duration-300"
-                      style="height: 35%"
-                    ></div>
-                  </div>
-                  <span class="text-xs text-[#000] mt-2">Cmt</span>
-                </div>
-
-                <!-- Sunday -->
-                <div class="flex flex-col items-center gap-2">
-                  <div class="relative w-[22px] h-32">
-                    <div
-                      class="absolute inset-0 bg-[#FFE5E5] rounded-full"
-                    ></div>
-                    <div
-                      class="absolute bottom-0 w-full bg-[#FD5757] rounded-full transition-all duration-300"
-                      style="height: 15%"
-                    ></div>
-                  </div>
-                  <span class="text-xs text-[#000] mt-2">Pzr</span>
                 </div>
               </div>
-            </div>
 
-            <!-- Stats -->
-            <div class="grid grid-cols-3 gap-4">
-              <div class="text-center border-r border-[#EEEEEE]">
-                <p class="text-[14px] text-[#2B2B2B] leading-[21px] font-[300]">
-                  Satış
-                </p>
-                <p
-                  class="font-poppins text-[28px] leading-[42px] font-[600] text-center mb-4"
+              <!-- Table Header -->
+              <div
+                class="grid grid-cols-4 gap-4 md:gap-8 px-4 py-2 text-xs font-[400] text-[12px] leading-[18px] text-[#999999]"
+              >
+                <div
+                  class="font-poppins text-[12px] font-[400] leading-[18px] tracking-[0%] text-[#1B68FC]"
                 >
-                  96
-                </p>
-              </div>
-              <div class="text-center border-r border-[#EEEEEE]">
-                <p class="text-[14px] text-[#2B2B2B] leading-[21px] font-[300]">
-                  Değişim
-                </p>
-                <p
-                  class="font-poppins text-[28px] leading-[42px] font-[600] text-center mb-4"
+                  Teyit Türü
+                </div>
+                <div
+                  class="font-poppins text-[12px] font-[400] leading-[18px] tracking-[0%] text-[#1B68FC]"
                 >
-                  22
-                </p>
-              </div>
-              <div class="text-center">
-                <p class="text-[14px] text-[#2B2B2B] leading-[21px] font-[300]">
-                  İade
-                </p>
-                <p
-                  class="font-poppins text-[28px] leading-[42px] font-[600] text-center mb-4"
+                  Kargo No
+                </div>
+                <div
+                  class="font-poppins text-[12px] font-[400] leading-[18px] tracking-[0%] text-[#1B68FC]"
                 >
-                  18
-                </p>
+                  Ürün Adı
+                </div>
+                <div
+                  class="font-poppins text-[12px] font-[400] leading-[18px] tracking-[0%] text-[#1B68FC]"
+                >
+                  Fatura
+                </div>
+              </div>
+
+              <!-- Table Rows -->
+              <div class="space-y-2 bg-[#FFFFFF] p-4">
+                <!-- Row 1 -->
+                <div
+                  class="grid grid-cols-4 gap-4 md:gap-8 items-center px-4 pt-3 pb-5 border-b border-[#EEEEEE] bg-white rounded-lg text-xs"
+                >
+                  <div>
+                    <span
+                      class="px-3 py-1 bg-[#9AFFA5] text-[#00750C] rounded-full"
+                      >Satış</span
+                    >
+                  </div>
+                  <div>YRT-6428974</div>
+                  <div class="truncate">
+                    Samsung Galaxy Buds 2 Bluetooth TWS Kulaklık
+                  </div>
+                  <div>
+                    <a
+                      href="#"
+                      class="flex items-center gap-1 text-[#5647FB] no-underline"
+                    >
+                      <span>Görüntüle</span>
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M6 12L10 8L6 4"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+
+                <!-- Row 2 -->
+                <div
+                  class="grid grid-cols-4 gap-4 md:gap-8 items-center px-4 pt-3 pb-5 bg-white rounded-lg text-xs border-b border-[#EEEEEE]"
+                >
+                  <div>
+                    <span
+                      class="px-3 py-1 bg-[#FFB9B9] text-[#D82626] rounded-full"
+                      >İade</span
+                    >
+                  </div>
+                  <div>YRT-6428974</div>
+                  <div class="truncate">
+                    Samsung Galaxy Buds 2 Bluetooth TWS Kulaklık
+                  </div>
+                  <div>
+                    <a
+                      href="#"
+                      class="flex items-center gap-1 text-[#5647FB] no-underline"
+                    >
+                      <span>Görüntüle</span>
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M6 12L10 8L6 4"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+
+                <!-- Row 3 -->
+                <div
+                  class="grid grid-cols-4 gap-4 md:gap-8 items-center px-4 pt-3 pb-5 bg-white rounded-lg text-xs border-b border-[#EEEEEE]"
+                >
+                  <div>
+                    <span
+                      class="px-3 py-1 bg-[#FFD5AD] text-[#C25D00] rounded-full"
+                      >Değişim</span
+                    >
+                  </div>
+                  <div>YRT-6428974</div>
+                  <div class="truncate">
+                    Samsung Galaxy Buds 2 Bluetooth TWS Kulaklık
+                  </div>
+                  <div>
+                    <a
+                      href="#"
+                      class="flex items-center gap-1 text-[#5647FB] no-underline"
+                    >
+                      <span>Görüntüle</span>
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M6 12L10 8L6 4"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+
+                <!-- Row 4 -->
+                <div
+                  class="grid grid-cols-4 gap-4 md:gap-8 items-center px-4 pt-3 pb-5 bg-white rounded-lg text-xs border-b border-[#EEEEEE]"
+                >
+                  <div>
+                    <span
+                      class="px-3 py-1 bg-[#FFB9B9] text-[#D82626] rounded-full"
+                      >İade</span
+                    >
+                  </div>
+                  <div>YRT-6428974</div>
+                  <div class="truncate">
+                    Samsung Galaxy Buds 2 Bluetooth TWS Kulaklık
+                  </div>
+                  <div>
+                    <a
+                      href="#"
+                      class="flex items-center gap-1 text-[#5647FB] no-underline"
+                    >
+                      <span>Görüntüle</span>
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M6 12L10 8L6 4"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+
+                <!-- Row 5 -->
+                <div
+                  class="grid grid-cols-4 gap-4 md:gap-8 items-center px-4 pt-3 pb-5 bg-white rounded-lg text-xs border-b border-[#EEEEEE]"
+                >
+                  <div>
+                    <span
+                      class="px-3 py-1 bg-[#9AFFA5] text-[#00750C] rounded-full"
+                      >Satış</span
+                    >
+                  </div>
+                  <div>YRT-6428974</div>
+                  <div class="truncate">
+                    Samsung Galaxy Buds 2 Bluetooth TWS Kulaklık
+                  </div>
+                  <div>
+                    <a
+                      href="#"
+                      class="flex items-center gap-1 text-[#5647FB] no-underline"
+                    >
+                      <span>Görüntüle</span>
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M6 12L10 8L6 4"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Tümünü Gör Link -->
+              <div class="text-center mt-4">
+                <a
+                  href="#"
+                  class="inline-block text-xs bg-[#fff]p-0.75 text-[#292929] border border-[#F2F2F2] font-poppins font-[400] leading-[18px] bg-[#fff] px-[12px] py-[8px] rounded-[12px]"
+                  >Tümünü Gör</a
+                >
               </div>
             </div>
-          </div>
-        </section>
+          </section>
+          <section class="section-weekly-overview w-[400px] mt-4">
+            <div class="max-w-md w-full p-6 rounded-[16px] bg-[#FCFCFC] h-full">
+              <!-- Header -->
+              <div class="mb-6">
+                <h2 class="font-poppins font-[500] text-[#111111] text-[16px]">
+                  Haftalık Bakış
+                </h2>
+                <p class="text-sm text-gray-500">25-31 Mart</p>
+              </div>
+
+              <!-- Chart Container -->
+              <div class="mb-4 pb-4 border-b border-[#EEEEEE]">
+                <!-- Chart Bars -->
+                <div class="flex items-end justify-between h-48 relative">
+                  <!-- Monday -->
+                  <div class="flex flex-col items-center gap-2">
+                    <div class="relative w-[22px] h-32">
+                      <div
+                        class="absolute inset-0 bg-[#FFE5E5] rounded-full"
+                      ></div>
+                      <div
+                        class="absolute bottom-0 w-full bg-[#FD5757] rounded-full transition-all duration-300"
+                        style="height: 45%"
+                      ></div>
+                    </div>
+                    <span class="text-xs text-[#000] mt-2">Pzt</span>
+                  </div>
+
+                  <!-- Tuesday -->
+                  <div class="flex flex-col items-center gap-2">
+                    <div class="relative w-[22px] h-32">
+                      <div
+                        class="absolute inset-0 bg-[#FFE5E5] rounded-full"
+                      ></div>
+                      <div
+                        class="absolute bottom-0 w-full bg-[#FD5757] rounded-full transition-all duration-300"
+                        style="height: 65%"
+                      ></div>
+                    </div>
+                    <span class="text-xs text-[#000] mt-2">Salı</span>
+                  </div>
+
+                  <!-- Wednesday -->
+                  <div class="flex flex-col items-center gap-2">
+                    <div class="relative w-[22px] h-32">
+                      <div
+                        class="absolute inset-0 bg-[#FFE5E5] rounded-full"
+                      ></div>
+                      <div
+                        class="absolute bottom-0 w-full bg-[#FD5757] rounded-full transition-all duration-300"
+                        style="height: 85%"
+                      ></div>
+                    </div>
+                    <span class="text-xs text-[#000] mt-2">Çrş</span>
+                  </div>
+
+                  <!-- Thursday -->
+                  <div class="flex flex-col items-center gap-2">
+                    <div class="relative w-[22px] h-32">
+                      <div
+                        class="absolute inset-0 bg-[#FFE5E5] rounded-full"
+                      ></div>
+                      <div
+                        class="absolute bottom-0 w-full bg-[#FD5757] rounded-full transition-all duration-300"
+                        style="height: 95%"
+                      ></div>
+                    </div>
+                    <span class="text-xs text-[#000] mt-2">Prş</span>
+                  </div>
+
+                  <!-- Friday -->
+                  <div class="flex flex-col items-center gap-2">
+                    <div class="relative w-[22px] h-32">
+                      <div
+                        class="absolute inset-0 bg-[#FFE5E5] rounded-full"
+                      ></div>
+                      <div
+                        class="absolute bottom-0 w-full bg-[#FD5757] rounded-full transition-all duration-300"
+                        style="height: 75%"
+                      ></div>
+                    </div>
+                    <span class="text-xs text-[#000] mt-2">Cuma</span>
+                  </div>
+
+                  <!-- Saturday -->
+                  <div class="flex flex-col items-center gap-2">
+                    <div class="relative w-[22px] h-32">
+                      <div
+                        class="absolute inset-0 bg-[#FFE5E5] rounded-full"
+                      ></div>
+                      <div
+                        class="absolute bottom-0 w-full bg-[#FD5757] rounded-full transition-all duration-300"
+                        style="height: 35%"
+                      ></div>
+                    </div>
+                    <span class="text-xs text-[#000] mt-2">Cmt</span>
+                  </div>
+
+                  <!-- Sunday -->
+                  <div class="flex flex-col items-center gap-2">
+                    <div class="relative w-[22px] h-32">
+                      <div
+                        class="absolute inset-0 bg-[#FFE5E5] rounded-full"
+                      ></div>
+                      <div
+                        class="absolute bottom-0 w-full bg-[#FD5757] rounded-full transition-all duration-300"
+                        style="height: 15%"
+                      ></div>
+                    </div>
+                    <span class="text-xs text-[#000] mt-2">Pzr</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Stats -->
+              <div class="grid grid-cols-3 gap-4">
+                <div class="text-center border-r border-[#EEEEEE]">
+                  <p
+                    class="text-[14px] text-[#2B2B2B] leading-[21px] font-[300]"
+                  >
+                    Satış
+                  </p>
+                  <p
+                    class="font-poppins text-[28px] leading-[42px] font-[600] text-center mb-4"
+                  >
+                    96
+                  </p>
+                </div>
+                <div class="text-center border-r border-[#EEEEEE]">
+                  <p
+                    class="text-[14px] text-[#2B2B2B] leading-[21px] font-[300]"
+                  >
+                    Değişim
+                  </p>
+                  <p
+                    class="font-poppins text-[28px] leading-[42px] font-[600] text-center mb-4"
+                  >
+                    22
+                  </p>
+                </div>
+                <div class="text-center">
+                  <p
+                    class="text-[14px] text-[#2B2B2B] leading-[21px] font-[300]"
+                  >
+                    İade
+                  </p>
+                  <p
+                    class="font-poppins text-[28px] leading-[42px] font-[600] text-center mb-4"
+                  >
+                    18
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
       </main>
     </div>
   </body>
