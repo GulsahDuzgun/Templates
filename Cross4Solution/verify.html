@@ -328,7 +328,343 @@
           </div>
         </div>
       </header>
-      <main class="p-6"></main>
+      <main class="p-6">
+        <section class="section-verify mb-4">
+          <h2 class="text-2xl my-8 font-[600] text-center mb-4">
+            İşlem Teyiti
+          </h2>
+          <div class="p-8 rounded-[16px] bg-[#FCFCFC]">
+            <div class="mx-auto bg-[#FCFCFC] max-w-2xl">
+              <form class="space-y-6">
+                <!-- Teyit Türü -->
+                <div class="space-y-2">
+                  <label
+                    class="block font-poppins text-xs leading-[18px] text-black font-medium"
+                  >
+                    Teyit türünüzü seçin
+                  </label>
+                  <div class="relative">
+                    <select
+                      name="teyitTuru"
+                      class="w-full appearance-none px-[24px] py-2 border border-gray-300 rounded-l-[8px] rounded-r-[8px] focus:ring-blue-500 focus:border-blue-500 font-poppins text-xs leading-[18px] font-normal [&>optgroup]:transform-none [&>option]:transform-none"
+                      required
+                    >
+                      <option
+                        value=""
+                        class="font-poppins text-xs leading-[18px] font-normal"
+                      >
+                        Satış
+                      </option>
+                      <option
+                        value="type1"
+                        class="font-poppins text-xs leading-[18px] font-normal"
+                      >
+                        Teyit Türü 1
+                      </option>
+                      <option
+                        value="type2"
+                        class="font-poppins text-xs leading-[18px] font-normal"
+                      >
+                        Teyit Türü 2
+                      </option>
+                    </select>
+                    <svg
+                      class="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none"
+                      width="22"
+                      height="22"
+                      viewBox="0 0 22 22"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M5.5 8.25L11 13.75L16.5 8.25"
+                        stroke="black"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
+                </div>
+
+                <!-- Kargo Takip No -->
+                <div class="space-y-2">
+                  <label
+                    class="block font-poppins text-xs leading-[18px] text-black font-medium"
+                  >
+                    Kargo Takip No
+                  </label>
+                  <div class="flex">
+                    <div class="relative w-1/3">
+                      <select
+                        name="kargoTipi"
+                        class="w-full appearance-none px-[24px] py-2 border border-gray-300 rounded-l-[8px] focus:ring-blue-500 focus:border-blue-500 font-poppins text-xs leading-[18px] font-normal [&>optgroup]:transform-none [&>option]:transform-none"
+                        required
+                      >
+                        <option
+                          value=""
+                          class="font-poppins text-xs leading-[18px] font-normal"
+                        >
+                          Yurtiçi
+                        </option>
+                        <option
+                          value="type1"
+                          class="font-poppins text-xs leading-[18px] font-normal"
+                        >
+                          Tür 1
+                        </option>
+                        <option
+                          value="type2"
+                          class="font-poppins text-xs leading-[18px] font-normal"
+                        >
+                          Tür 2
+                        </option>
+                      </select>
+                      <svg
+                        class="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none"
+                        width="22"
+                        height="22"
+                        viewBox="0 0 22 22"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M5.5 8.25L11 13.75L16.5 8.25"
+                          stroke="black"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </div>
+                    <input
+                      type="text"
+                      name="kargoTakipNo"
+                      value="6428974"
+                      class="w-2/3 px-4 py-2 border border-l-0 border-gray-300 rounded-r-[8px] focus:ring-blue-500 focus:border-blue-500 font-poppins text-xs leading-[18px] font-normal placeholder:font-poppins placeholder:text-xs placeholder:leading-[18px] placeholder:font-normal placeholder:text-[#999] placeholder:text-center"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <!-- Ürün Adı -->
+                <div class="space-y-2">
+                  <label
+                    class="block font-poppins text-xs leading-[18px] text-black font-medium"
+                  >
+                    Ürün Adı
+                  </label>
+                  <input
+                    type="text"
+                    name="urunAdi"
+                    placeholder="Ürün adını giriniz"
+                    class="w-full px-4 py-2 border border-gray-300 rounded-l-[8px] rounded-r-[8px] focus:ring-blue-500 focus:border-blue-500 font-poppins text-xs leading-[18px] font-normal placeholder:font-poppins placeholder:text-xs placeholder:leading-[18px] placeholder:font-normal placeholder:text-[#999]"
+                    required
+                  />
+                </div>
+
+                <!-- Fatura -->
+                <div class="space-y-2">
+                  <label
+                    class="block font-poppins text-xs leading-[18px] text-black font-medium"
+                  >
+                    Fatura
+                  </label>
+                  <div
+                    class="flex flex-col items-center justify-center border border-[#F2F2F2] rounded-lg p-6 bg-[#fff]"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-8 w-8 text-gray-400 mb-2"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="#111"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"
+                      />
+                    </svg>
+                    <p class="text-sm text-[#111] text-center">
+                      Belgeyi seç ve ya sürükleyip buraya bırak
+                    </p>
+                    <p class="text-xs text-[#2B2B2B] mt-1">
+                      PDF, JPEG, JPG. En fazla 8 MB
+                    </p>
+                    <button
+                      type="button"
+                      class="mt-4 px-4 py-1 border border-[#2B2B2B] rounded-[6px] text-sm text-[#2B2B2B] hover:bg-[#2B2B2B] hover:text-white transition-all duration-200"
+                    >
+                      Göz At
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="flex justify-center">
+                  <button
+                    type="submit"
+                    class="px-4 py-2 bg-[#111] text-[#fff] text-[12px] font-[400] rounded-[20px] hover:bg-gray-800 transition-colors"
+                  >
+                    Gönder
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </section>
+        <section class="section-weekly-overview mr-4">
+          <div class="max-w-md w-full p-6 rounded-[16px] bg-[#FCFCFC]">
+            <!-- Header -->
+            <div class="mb-6">
+              <h2 class="font-poppins font-[500] text-[#111111] text-[16px]">
+                Haftalık Bakış
+              </h2>
+              <p class="text-sm text-gray-500">25-31 Mart</p>
+            </div>
+
+            <!-- Chart Container -->
+            <div class="mb-4 pb-4 border-b border-[#EEEEEE]">
+              <!-- Chart Bars -->
+              <div class="flex items-end justify-between h-48 relative">
+                <!-- Monday -->
+                <div class="flex flex-col items-center gap-2">
+                  <div class="relative w-[22px] h-32">
+                    <div
+                      class="absolute inset-0 bg-[#FFE5E5] rounded-full"
+                    ></div>
+                    <div
+                      class="absolute bottom-0 w-full bg-[#FD5757] rounded-full transition-all duration-300"
+                      style="height: 45%"
+                    ></div>
+                  </div>
+                  <span class="text-xs text-[#000] mt-2">Pzt</span>
+                </div>
+
+                <!-- Tuesday -->
+                <div class="flex flex-col items-center gap-2">
+                  <div class="relative w-[22px] h-32">
+                    <div
+                      class="absolute inset-0 bg-[#FFE5E5] rounded-full"
+                    ></div>
+                    <div
+                      class="absolute bottom-0 w-full bg-[#FD5757] rounded-full transition-all duration-300"
+                      style="height: 65%"
+                    ></div>
+                  </div>
+                  <span class="text-xs text-[#000] mt-2">Salı</span>
+                </div>
+
+                <!-- Wednesday -->
+                <div class="flex flex-col items-center gap-2">
+                  <div class="relative w-[22px] h-32">
+                    <div
+                      class="absolute inset-0 bg-[#FFE5E5] rounded-full"
+                    ></div>
+                    <div
+                      class="absolute bottom-0 w-full bg-[#FD5757] rounded-full transition-all duration-300"
+                      style="height: 85%"
+                    ></div>
+                  </div>
+                  <span class="text-xs text-[#000] mt-2">Çrş</span>
+                </div>
+
+                <!-- Thursday -->
+                <div class="flex flex-col items-center gap-2">
+                  <div class="relative w-[22px] h-32">
+                    <div
+                      class="absolute inset-0 bg-[#FFE5E5] rounded-full"
+                    ></div>
+                    <div
+                      class="absolute bottom-0 w-full bg-[#FD5757] rounded-full transition-all duration-300"
+                      style="height: 95%"
+                    ></div>
+                  </div>
+                  <span class="text-xs text-[#000] mt-2">Prş</span>
+                </div>
+
+                <!-- Friday -->
+                <div class="flex flex-col items-center gap-2">
+                  <div class="relative w-[22px] h-32">
+                    <div
+                      class="absolute inset-0 bg-[#FFE5E5] rounded-full"
+                    ></div>
+                    <div
+                      class="absolute bottom-0 w-full bg-[#FD5757] rounded-full transition-all duration-300"
+                      style="height: 75%"
+                    ></div>
+                  </div>
+                  <span class="text-xs text-[#000] mt-2">Cuma</span>
+                </div>
+
+                <!-- Saturday -->
+                <div class="flex flex-col items-center gap-2">
+                  <div class="relative w-[22px] h-32">
+                    <div
+                      class="absolute inset-0 bg-[#FFE5E5] rounded-full"
+                    ></div>
+                    <div
+                      class="absolute bottom-0 w-full bg-[#FD5757] rounded-full transition-all duration-300"
+                      style="height: 35%"
+                    ></div>
+                  </div>
+                  <span class="text-xs text-[#000] mt-2">Cmt</span>
+                </div>
+
+                <!-- Sunday -->
+                <div class="flex flex-col items-center gap-2">
+                  <div class="relative w-[22px] h-32">
+                    <div
+                      class="absolute inset-0 bg-[#FFE5E5] rounded-full"
+                    ></div>
+                    <div
+                      class="absolute bottom-0 w-full bg-[#FD5757] rounded-full transition-all duration-300"
+                      style="height: 15%"
+                    ></div>
+                  </div>
+                  <span class="text-xs text-[#000] mt-2">Pzr</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Stats -->
+            <div class="grid grid-cols-3 gap-4">
+              <div class="text-center border-r border-[#EEEEEE]">
+                <p class="text-[14px] text-[#2B2B2B] leading-[21px] font-[300]">
+                  Satış
+                </p>
+                <p
+                  class="font-poppins text-[28px] leading-[42px] font-[600] text-center mb-4"
+                >
+                  96
+                </p>
+              </div>
+              <div class="text-center border-r border-[#EEEEEE]">
+                <p class="text-[14px] text-[#2B2B2B] leading-[21px] font-[300]">
+                  Değişim
+                </p>
+                <p
+                  class="font-poppins text-[28px] leading-[42px] font-[600] text-center mb-4"
+                >
+                  22
+                </p>
+              </div>
+              <div class="text-center">
+                <p class="text-[14px] text-[#2B2B2B] leading-[21px] font-[300]">
+                  İade
+                </p>
+                <p
+                  class="font-poppins text-[28px] leading-[42px] font-[600] text-center mb-4"
+                >
+                  18
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
     </div>
   </body>
 </html>
