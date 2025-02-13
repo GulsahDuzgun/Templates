@@ -329,11 +329,11 @@
         </div>
       </header>
       <main
-        class="container mx-auto p-6 grid grid-cols-8 md:grid-cols-12 gap-6"
+        class="container mx-auto p-6 grid grid-cols-8 md:grid-cols-12 gap-12 xl:gap-6"
       >
         <!-- Left Side - Product Reviews Section -->
         <section
-          class="bg-white col-span-12 md:col-span-8 rounded-2xl border-[#F2F2F2] shadow p-6 section-product-reviews"
+          class="bg-white col-span-12 xl:col-span-8 rounded-2xl border-[#F2F2F2] shadow p-6 section-product-reviews"
         >
           <!-- Header -->
           <div class="flex justify-between items-center mb-6 gap-1">
@@ -577,7 +577,7 @@
 
         <!-- Right Side - Ratings Section -->
         <section
-          class="bg-white rounded-2xl col-span-12 md:col-span-4 shadow p-4 section-last-reviews md:row-span-2 h-full"
+          class="bg-white rounded-2xl col-span-12 xl:col-span-4 shadow p-4 xl:w-auto section-last-reviews md:row-span-2 h-full w-[75%]"
         >
           <div class="flex justify-between flex-col gap-[8px] items-start mb-6">
             <h2 class="font-poppins font-[500] text-[16px] text-[#111111]">
@@ -600,9 +600,9 @@
                 class="w-[40px] h-[40px] rounded-full"
               />
               <div
-                class="flex flex-col flex-1 w-full ml-[12px] justify-between"
+                class="flex xl:flex-1 flex-col w-auto xl:w-full ml-[12px] justify-between"
               >
-                <div class="flex flex-1 w-full gap-2 align-middle">
+                <div class="flex xl:flex-1 w-auto xl:w-full gap-2 align-middle">
                   <h3
                     class="font-poppins text-[14px] font-[500] text-[#111111] mb-1"
                   >
@@ -675,9 +675,9 @@
                 class="w-[40px] h-[40px] rounded-full"
               />
               <div
-                class="flex flex-col flex-1 w-full ml-[12px] justify-between"
+                class="flex flex-col xl:flex-1 w-auto xl:w-full ml-[12px] justify-between"
               >
-                <div class="flex flex-1 w-full gap-2 align-middle">
+                <div class="flex xl:flex-1 w-auto xl:w-full gap-2 align-middle">
                   <h3
                     class="font-poppins text-[14px] font-[500] text-[#111111] mb-1"
                   >
@@ -744,12 +744,13 @@
           </div>
         </section>
 
+        <!-- Charts Container -->
         <div
-          class="flex place-items-center relative gap-4 bg-white col-span-12 xl:col-span-8 flex-col xl:flex-row"
+          class="flex place-items-center relative gap-12 xl:gap-4 bg-white col-span-12 xl:col-span-8 flex-col xl:flex-row"
         >
           <!-- Bottom Left - Monthly Stats Section -->
           <section
-            class="bg-white rounded-2xl shadow p-4 section-montly-reviews flex-1 w-[75%] xl:w-[50%]"
+            class="bg-white rounded-2xl shadow p-4 self-start section-montly-reviews flex-1 w-[75%] xl:w-[50%]"
           >
             <!-- Header -->
             <h2 class="font-poppins font-[500] text-[#111111] text-[16px] mb-6">
@@ -834,7 +835,7 @@
 
           <!-- Bottom Right - Rating Distribution Section -->
           <section
-            class="bg-white rounded-2xl shadow p-4 section-score-distribution flex-1 h-full flex w-[75%] xl:w-[50%] flex-col justify-between"
+            class="bg-white rounded-2xl shadow p-4 section-score-distribution flex-1 h-full self-start flex w-[75%] xl:w-[50%] flex-col justify-between"
           >
             <div class="flex flex-col gap-2">
               <div
@@ -1013,6 +1014,121 @@
             </div>
           </section>
         </div>
+
+        <!-- Blog Section -->
+        <section class="my-12 col-span-12">
+          <h2
+            class="font-poppins text-[#000000] text-[16px] font-semibold leading-6 tracking-[0%] mb-8"
+          >
+            BLOG
+          </h2>
+
+          <div class="grid grid-cols-1 xl:grid-cols-3 gap-6 rounded-[12px]">
+            <!-- Blog Card 1 -->
+            <article
+              class="bg-[#F9F9F9] rounded-lg overflow-hidden shadow-sm p-4"
+            >
+              <img
+                src="./assests/blog.jpg"
+                alt="Credit card payment"
+                class="w-full h-48 object-cover mb-[12px]"
+              />
+              <div class="p-4 pt-0 flex flex-col gap-[7px]">
+                <span class="text-[#FF7A1A] uppercase text-sm font-medium"
+                  >SATIŞ</span
+                >
+                <h3 class="text-[14px] font-[400] text-[#111111]">
+                  Site satışlarınızda müşteriye güven sağlamak neden önemli?
+                </h3>
+                <div class="flex items-center gap-2">
+                  <img
+                    src="path/to/author-avatar.jpg"
+                    alt=""
+                    class="w-8 h-8 rounded-full"
+                  />
+                  <div class="flex gap-[3px] flex-col">
+                    <p class="text-[12px] font-[400] text-[#111111]">
+                      Selim Yavaş
+                    </p>
+                    <p
+                      class="text-[10px] font-[400] text-[#737373] text-gray-500"
+                    >
+                      22 Nisan 2024
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </article>
+            <article
+              class="bg-[#F9F9F9] rounded-lg overflow-hidden shadow-sm p-4"
+            >
+              <img
+                src="./assests/blog.jpg"
+                alt="Credit card payment"
+                class="w-full h-48 object-cover mb-[12px]"
+              />
+              <div class="p-4 pt-0 flex flex-col gap-[7px]">
+                <span class="text-[#5350FA] uppercase text-sm font-medium"
+                  >Müşteri İLİŞKİLERİ</span
+                >
+                <h3 class="text-[14px] font-[400] text-[#111111]">
+                  Site satışlarınızda müşteriye güven sağlamak neden önemli?
+                </h3>
+                <div class="flex items-center gap-2">
+                  <img
+                    src="path/to/author-avatar.jpg"
+                    alt=""
+                    class="w-8 h-8 rounded-full"
+                  />
+                  <div class="flex gap-[3px] flex-col">
+                    <p class="text-[12px] font-[400] text-[#111111]">
+                      Selim Yavaş
+                    </p>
+                    <p
+                      class="text-[10px] font-[400] text-[#737373] text-gray-500"
+                    >
+                      22 Nisan 2024
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </article>
+            <article
+              class="bg-[#F9F9F9] rounded-lg overflow-hidden shadow-sm p-4"
+            >
+              <img
+                src="./assests/blog.jpg"
+                alt="Credit card payment"
+                class="w-full h-48 object-cover mb-[12px]"
+              />
+              <div class="p-4 pt-0 flex flex-col gap-[7px]">
+                <span class="text-[#00B046] uppercase text-sm font-medium"
+                  >Fiyatlandırma</span
+                >
+                <h3 class="text-[14px] font-[400] text-[#111111]">
+                  Site satışlarınızda müşteriye güven sağlamak neden önemli?
+                </h3>
+                <div class="flex items-center gap-2">
+                  <img
+                    src="path/to/author-avatar.jpg"
+                    alt=""
+                    class="w-8 h-8 rounded-full"
+                  />
+                  <div class="flex gap-[3px] flex-col">
+                    <p class="text-[12px] font-[400] text-[#111111]">
+                      Selim Yavaş
+                    </p>
+                    <p
+                      class="text-[10px] font-[400] text-[#737373] text-gray-500"
+                    >
+                      22 Nisan 2024
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
       </main>
     </div>
   </body>
