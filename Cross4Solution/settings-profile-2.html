@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          fontFamily: {
+            poppins: ['Poppins', 'sans-serif'],
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="min-h-screen flex font-poppins">
+    <aside
+      class="w-64 bg-white p-9 flex flex-col border-r border-[#eee] h-screen"
+    >
+      <!-- Logo/Username -->
+      <div class="mb-[64px]">
+        <h2 class="text-2xl font-semibold leading-9">eteyit</h2>
+        <div class="h-0.5 bg-blue-500 w-12 mt-1"></div>
+      </div>
+
+      <!-- Menu Items -->
+      <nav class="flex flex-col gap-8">
+        <a
+          href="#"
+          class="group flex items-center relative text-[#999] hover:text-[#111] active:text-[#111]"
+        >
+          <div
+            class="absolute right-0 top-1/2 -translate-y-1/2 h-[24px] w-[4px] bg-[#2B2B2B] rounded-l-[5px] opacity-0 group-hover:opacity-100 transition-opacity"
+          ></div>
+          <svg
+            class="w-5 h-5 mr-5 text-[#999] group-hover:text-[#111] group-active:text-[#111] transition-colors"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M4 4H10V10H4V4Z" fill="currentColor" />
+            <path d="M14 4H20V10H14V4Z" fill="currentColor" />
+            <path d="M4 14H10V20H4V14Z" fill="currentColor" />
+            <path
+              d="M14 17C14 17.7956 14.3161 18.5587 14.8787 19.1213C15.4413 19.6839 16.2044 20 17 20C17.7956 20 18.5587 19.6839 19.1213 19.1213C19.6839 18.5587 20 17.7956 20 17C20 16.2044 19.6839 15.4413 19.1213 14.8787C18.5587 14.3161 17.7956 14 17 14C16.2044 14 15.4413 14.3161 14.8787 14.8787C14.3161 15.4413 14 16.2044 14 17Z"
+              fill="currentColor"
+            />
+            <path
+              d="M4 4H10V10H4V4Z"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M14 4H20V10H14V4Z"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M4 14H10V20H4V14Z"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M14 17C14 17.7956 14.3161 18.5587 14.8787 19.1213C15.4413 19.6839 16.2044 20 17 20C17.7956 20 18.5587 19.6839 19.1213 19.1213C19.6839 18.5587 20 17.7956 20 17C20 16.2044 19.6839 15.4413 19.1213 14.8787C18.5587 14.3161 17.7956 14 17 14C16.2044 14 15.4413 14.3161 14.8787 14.8787C14.3161 15.4413 14 16.2044 14 17Z"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <span
+            class="font-poppins text-xs leading-[18px] text-[#999] group-hover:text-[#111] transition-colors"
+            >Anasayfa</span
+          >
+        </a>
+
+        <a
+          href="#"
+          class="group flex items-center relative text-[#999] hover:text-[#111] active:text-[#111]"
+        >
+          <div
+            class="absolute right-0 top-1/2 -translate-y-1/2 h-[24px] w-[4px] bg-[#2B2B2B] rounded-l-[5px] opacity-0 group-hover:opacity-100 transition-opacity"
+          ></div>
+          <svg
+            class="w-5 h-5 mr-5 text-[#999] group-hover:text-[#111] group-active:text-[#111] transition-colors"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M9 11L12 14L20 6M20 12V18C20 18.5304 19.7893 19.0391 19.4142 19.4142C19.0391 19.7893 18.5304 20 18 20H6C5.46957 20 4.96086 19.7893 4.58579 19.4142C4.21071 19.0391 4 18.5304 4 18V6C4 5.46957 4.21071 4.96086 4.58579 4.58579C4.96086 4.21071 5.46957 4 6 4H15"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+
+          <span
+            class="font-poppins text-xs leading-[18px] text-[#999] group-hover:text-[#111] transition-colors"
+            >İşlem Tayiti</span
+          >
+        </a>
+
+        <a
+          href="#"
+          class="group flex items-center relative text-[#999] hover:text-[#111] active:text-[#111]"
+        >
+          <div
+            class="absolute right-0 top-1/2 -translate-y-1/2 h-[24px] w-[4px] bg-[#2B2B2B] rounded-l-[5px] opacity-0 group-hover:opacity-100 transition-opacity"
+          ></div>
+          <svg
+            class="w-5 h-5 mr-5 text-[#999] group-hover:text-[#111] group-active:text-[#111] transition-colors"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M8 9H16M8 13H14M18 4C18.7956 4 19.5587 4.31607 20.1213 4.87868C20.6839 5.44129 21 6.20435 21 7V15C21 15.7956 20.6839 16.5587 20.1213 17.1213C19.5587 17.6839 18.7956 18 18 18H13L8 21V18H6C5.20435 18 4.44129 17.6839 3.87868 17.1213C3.31607 16.5587 3 15.7956 3 15V7C3 6.20435 3.31607 5.44129 3.87868 4.87868C4.44129 4.31607 5.20435 4 6 4H18Z"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+
+          <span
+            class="font-poppins text-xs leading-[18px] text-[#999] group-hover:text-[#111] transition-colors"
+            >Değerlendirmeler</span
+          >
+        </a>
+
+        <a
+          href="#"
+          class="group flex items-center relative text-[#111] hover:text-[#111] active:text-[#111]"
+        >
+          <div
+            class="absolute right-0 top-1/2 -translate-y-1/2 h-[24px] w-[4px] bg-[#2B2B2B] rounded-l-[5px] opacity-0 group-hover:opacity-100 transition-opacity"
+          ></div>
+          <svg
+            class="w-5 h-5 mr-5 text-[#999] group-hover:text-[#111] group-active:text-[#111] transition-colors"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 16V16.01M12 12.9998C12.4498 13.0011 12.8868 12.8508 13.2407 12.5732C13.5945 12.2956 13.8444 11.9068 13.95 11.4696C14.0557 11.0324 14.0109 10.5724 13.8229 10.1638C13.6349 9.75524 13.3147 9.42195 12.914 9.21776C12.5162 9.01397 12.0611 8.95079 11.6228 9.03848C11.1845 9.12618 10.7888 9.3596 10.5 9.70076M12 3C19.2 3 21 4.8 21 12C21 19.2 19.2 21 12 21C4.8 21 3 19.2 3 12C3 4.8 4.8 3 12 3Z"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+
+          <span
+            class="font-poppins text-xs leading-[18px] text-[#999] group-hover:text-[#111] transition-colors"
+            >İstatistikler</span
+          >
+        </a>
+
+        <a
+          href="#"
+          class="group flex items-center relative text-[#111] hover:text-[#111] active:text-[#111]"
+        >
+          <div
+            class="absolute right-0 top-1/2 -translate-y-1/2 h-[24px] w-[4px] bg-[#2B2B2B] rounded-l-[5px] opacity-0 group-hover:opacity-100 transition-opacity"
+          ></div>
+          <svg
+            class="w-5 h-5 mr-5 text-[#999] group-hover:text-[#111] group-active:text-[#111] transition-colors"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 16V16.01M12 12.9998C12.4498 13.0011 12.8868 12.8508 13.2407 12.5732C13.5945 12.2956 13.8444 11.9068 13.95 11.4696C14.0557 11.0324 14.0109 10.5724 13.8229 10.1638C13.6349 9.75524 13.3147 9.42195 12.914 9.21776C12.5162 9.01397 12.0611 8.95079 11.6228 9.03848C11.1845 9.12618 10.7888 9.3596 10.5 9.70076M12 3C19.2 3 21 4.8 21 12C21 19.2 19.2 21 12 21C4.8 21 3 19.2 3 12C3 4.8 4.8 3 12 3Z"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+
+          <span
+            class="font-poppins text-xs leading-[18px] text-[#999] group-hover:text-[#111] transition-colors"
+            >Yardım</span
+          >
+        </a>
+      </nav>
+    </aside>
+
+    <div class="flex-1 flex flex-col">
+      <header class="p-4 h-[72px] flex items-center justify-between">
+        <h1 class="text-xl font-semibold">Hoşgeldin, Eteyit</h1>
+
+        <div class="flex items-center gap-4">
+          <!-- Search Bar -->
+          <div class="relative">
+            <input type="text" placeholder="Arama yap" class="pl-11 pr-4 py-2
+            bg-white rounded-[14px] border-[1px] border-[#ECECEC] font-poppins
+            text-sm font-normal leading-[21px] placeholder:text-sm
+            placeholder:font-normal placeholder:leading-[21px]
+            placeholder:font-poppins"" />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 absolute left-[18px] top-1/2 -translate-y-1/2 text-gray-400"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              />
+            </svg>
+          </div>
+
+          <!-- Bell Icon -->
+          <button class="p-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
+              />
+            </svg>
+          </button>
+          <div class="flex gap-2">
+            <img src="./assests/logo.jpg" class="h-[36px] w-[36px] alt="Eteyit
+            Logo" />
+
+            <!-- Settings/Language Dropdown -->
+            <button class="p-0">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <main class="p-6">
+        <h1
+          class="font-poppins text-[24px] leading-[36px] font-medium text-[#111] h-[36px] lg:mb-[62px] mb-[32px] mt-[24px] text-center"
+        >
+          Ayarlar
+        </h1>
+        <div class="container-box flex-col lg:flex-row flex">
+          <div
+            class="settings-navbar bg-white pl-[6px] pr-[8px] flex flex-row lg:flex-col gap-0 lg:gap-4"
+          >
+            <!-- Breadcrumb style for mobile, normal nav for desktop -->
+            <div class="flex lg:hidden w-full py-2 justify-between mb-4">
+              <div class="flex items-center gap-2 flex-wrap">
+                <a
+                  href="#"
+                  class="font-[poppins] text-[16px] leading-[36px] font-medium text-[#667085] hover:text-[#1B68FC] active:text-[#1B68FC] transition-colors"
+                  >Hesap</a
+                >
+                <span class="text-[#667085] font-medium">/</span>
+                <a
+                  href="#"
+                  class="font-[poppins] text-[16px] leading-[36px] font-medium text-[#667085] hover:text-[#1B68FC] active:text-[#1B68FC] transition-colors"
+                  >Profil Sayfası</a
+                >
+                <span class="text-[#667085] font-medium">/</span>
+                <a
+                  href="#"
+                  class="font-[poppins] text-[16px] leading-[36px] font-medium text-[#667085] hover:text-[#1B68FC] active:text-[#1B68FC] transition-colors"
+                  >Kategoriler</a
+                >
+                <span class="text-[#667085] font-medium">/</span>
+                <a
+                  href="#"
+                  class="font-[poppins] text-[16px] leading-[36px] font-medium text-[#667085] hover:text-[#1B68FC] active:text-[#1B68FC] transition-colors"
+                  >Bildirim Ayarları</a
+                >
+              </div>
+            </div>
+
+            <!-- Desktop navigation - hide on mobile -->
+            <div class="hidden lg:flex lg:flex-col w-full gap-4">
+              <!-- Hesap -->
+              <a
+                class="relative flex items-center justify-between h-[48px] p-[8px] text-[#84888C] hover:text-[#1B68FC] group"
+                href="#"
+              >
+                <div
+                  class="absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-[32px] bg-[#1B68FC] rounded-r-[4px] opacity-0 group-hover:opacity-100"
+                ></div>
+                <div class="flex items-center gap-3">
+                  <svg
+                    width="32"
+                    height="32"
+                    viewBox="0 0 32 32"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <rect width="32" height="32" rx="8" fill="#F5F7FA" />
+                    <path
+                      d="M11.14 21.7075C11.3462 21.021 11.7683 20.4193 12.3435 19.9916C12.9187 19.564 13.6165 19.3331 14.3333 19.3333H17.6666C18.3844 19.3331 19.083 19.5645 19.6586 19.9932C20.2343 20.4218 20.6562 21.0248 20.8616 21.7125M8.5 16C8.5 16.9849 8.69399 17.9602 9.0709 18.8701C9.44781 19.7801 10.0003 20.6069 10.6967 21.3033C11.3931 21.9997 12.2199 22.5522 13.1299 22.9291C14.0398 23.306 15.0151 23.5 16 23.5C16.9849 23.5 17.9602 23.306 18.8701 22.9291C19.7801 22.5522 20.6069 21.9997 21.3033 21.3033C21.9997 20.6069 22.5522 19.7801 22.9291 18.8701C23.306 17.9602 23.5 16.9849 23.5 16C23.5 15.0151 23.306 14.0398 22.9291 13.1299C22.5522 12.2199 21.9997 11.3931 21.3033 10.6967C20.6069 10.0003 19.7801 9.44781 18.8701 9.0709C17.9602 8.69399 16.9849 8.5 16 8.5C15.0151 8.5 14.0398 8.69399 13.1299 9.0709C12.2199 9.44781 11.3931 10.0003 10.6967 10.6967C10.0003 11.3931 9.44781 12.2199 9.0709 13.1299C8.69399 14.0398 8.5 15.0151 8.5 16ZM13.5 14.3333C13.5 14.9964 13.7634 15.6323 14.2322 16.1011C14.7011 16.5699 15.337 16.8333 16 16.8333C16.663 16.8333 17.2989 16.5699 17.7678 16.1011C18.2366 15.6323 18.5 14.9964 18.5 14.3333C18.5 13.6703 18.2366 13.0344 17.7678 12.5656C17.2989 12.0967 16.663 11.8333 16 11.8333C15.337 11.8333 14.7011 12.0967 14.2322 12.5656C13.7634 13.0344 13.5 13.6703 13.5 14.3333Z"
+                      stroke="#1B68FC"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                  <span
+                    class="font-[poppins] text-[14px] leading-[21px] font-medium group-hover:text-[#111111]"
+                    >Hesap</span
+                  >
+                </div>
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 32 32"
+                  class="mr-8"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M13 22L19 16L13 10"
+                    stroke="#1B68FC"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </a>
+
+              <!-- Profil Sayfası -->
+              <a
+                class="relative flex items-center justify-between h-[48px] p-[8px] text-[#84888C] hover:text-[#1B68FC] group"
+                href="#"
+              >
+                <div
+                  class="absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-[32px] bg-[#1B68FC] rounded-r-[4px] opacity-0 group-hover:opacity-100"
+                ></div>
+                <div class="flex items-center gap-3">
+                  <svg
+                    width="32"
+                    height="32"
+                    viewBox="0 0 32 32"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <rect width="32" height="32" rx="8" fill="#F5F7FA" />
+                    <g transform="translate(6, 6)">
+                      <path
+                        d="M8.3335 13.3333H13.3335M3.3335 6.66659H5.8335M3.3335 9.99992H5.8335M3.3335 13.3333H5.8335M16.6668 4.99992V14.9999C16.6668 15.4419 16.4912 15.8659 16.1787 16.1784C15.8661 16.491 15.4422 16.6666 15.0002 16.6666H6.66683C6.2248 16.6666 5.80088 16.491 5.48832 16.1784C5.17576 15.8659 5.00016 15.4419 5.00016 14.9999V4.99992C5.00016 4.55789 5.17576 4.13397 5.48832 3.82141C5.80088 3.50885 6.2248 3.33325 6.66683 3.33325H15.0002C15.4422 3.33325 15.8661 3.50885 16.1787 3.82141C16.4912 4.13397 16.6668 4.55789 16.6668 4.99992ZM9.16683 9.16659C9.16683 9.60861 9.34242 10.0325 9.65498 10.3451C9.96755 10.6577 10.3915 10.8333 10.8335 10.8333C11.2755 10.8333 11.6994 10.6577 12.012 10.3451C12.3246 10.0325 12.5002 9.60861 12.5002 9.16659C12.5002 8.72456 12.3246 8.30063 12.012 7.98807C11.6994 7.67551 11.2755 7.49992 10.8335 7.49992C10.3915 7.49992 9.96755 7.67551 9.65498 7.98807C9.34242 8.30063 9.16683 8.72456 9.16683 9.16659Z"
+                        stroke="#1B68FC"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </g>
+                  </svg>
+                  <span
+                    class="font-[poppins] text-[14px] leading-[21px] font-medium group-hover:text-[#111111]"
+                    >Profil Sayfası</span
+                  >
+                </div>
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 32 32"
+                  class="mr-8"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M13 22L19 16L13 10"
+                    stroke="#1B68FC"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </a>
+
+              <!-- Kategori -->
+              <a
+                class="relative flex items-center justify-between h-[48px] p-[8px] text-[#84888C] hover:text-[#1B68FC] group"
+                href="#"
+              >
+                <div
+                  class="absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-[32px] bg-[#1B68FC] rounded-r-[4px] opacity-0 group-hover:opacity-100"
+                ></div>
+                <div class="flex items-center gap-3">
+                  <svg
+                    width="32"
+                    height="32"
+                    viewBox="0 0 32 32"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <rect width="32" height="32" rx="8" fill="#F5F7FA" />
+                    <g transform="translate(6, 6)">
+                      <path
+                        d="M11.6668 3.33325H16.6668V8.33325H11.6668V3.33325Z"
+                        stroke="#1B68FC"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </g>
+                    <g transform="translate(6, 6)">
+                      <path
+                        d="M3.3335 11.6666H8.3335V16.6666H3.3335V11.6666Z"
+                        stroke="#1B68FC"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </g>
+                    <g transform="translate(6, 6)">
+                      <path
+                        d="M11.6668 14.1666C11.6668 14.8296 11.9302 15.4655 12.3991 15.9344C12.8679 16.4032 13.5038 16.6666 14.1668 16.6666C14.8299 16.6666 15.4658 16.4032 15.9346 15.9344C16.4034 15.4655 16.6668 14.8296 16.6668 14.1666C16.6668 13.5035 16.4034 12.8677 15.9346 12.3988C15.4658 11.93 14.8299 11.6666 14.1668 11.6666C13.5038 11.6666 12.8679 11.93 12.3991 12.3988C11.9302 12.8677 11.6668 13.5035 11.6668 14.1666Z"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </g>
+                    <g transform="translate(6, 6)">
+                      <path
+                        d="M3.3335 5.83325C3.3335 6.16156 3.39816 6.48665 3.5238 6.78996C3.64943 7.09327 3.83358 7.36887 4.06573 7.60102C4.29788 7.83317 4.57347 8.01731 4.87679 8.14295C5.1801 8.26859 5.50519 8.33325 5.8335 8.33325C6.1618 8.33325 6.48689 8.26859 6.7902 8.14295C7.09352 8.01731 7.36912 7.83317 7.60126 7.60102C7.83341 7.36887 8.01756 7.09327 8.1432 6.78996C8.26883 6.48665 8.3335 6.16156 8.3335 5.83325C8.3335 5.50495 8.26883 5.17986 8.1432 4.87654C8.01756 4.57323 7.83341 4.29763 7.60126 4.06549C7.36912 3.83334 7.09352 3.64919 6.7902 3.52355C6.48689 3.39792 6.1618 3.33325 5.8335 3.33325C5.50519 3.33325 5.1801 3.39792 4.87679 3.52355C4.57347 3.64919 4.29788 3.83334 4.06573 4.06549C3.83358 4.29763 3.64943 4.57323 3.5238 4.87654C3.39816 5.17986 3.3335 5.50495 3.3335 5.83325Z"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </g>
+                  </svg>
+                  <span
+                    class="font-[poppins] text-[14px] leading-[21px] font-medium group-hover:text-[#111111]"
+                    >Kategoriler</span
+                  >
+                </div>
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 32 32"
+                  class="mr-8"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M13 22L19 16L13 10"
+                    stroke="#1B68FC"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </a>
+
+              <!-- Bildirim Ayarları -->
+              <a
+                class="relative flex items-center justify-between h-[48px] p-[8px] text-[#84888C] hover:text-[#1B68FC] group"
+                href="#"
+              >
+                <div
+                  class="absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-[32px] bg-[#1B68FC] rounded-r-[4px] opacity-0 group-hover:opacity-100"
+                ></div>
+                <div class="flex items-center gap-3">
+                  <svg
+                    width="32"
+                    height="32"
+                    viewBox="0 0 32 32"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <rect width="32" height="32" rx="8" fill="#F5F7FA" />
+                    <path
+                      d="M13.5 20.1667V21C13.5 21.663 13.7634 22.2989 14.2322 22.7678C14.7011 23.2366 15.337 23.5 16 23.5C16.663 23.5 17.2989 23.2366 17.7678 22.7678C18.2366 22.2989 18.5 21.663 18.5 21V20.1667M23.5 11.6058C22.9534 10.4169 22.1597 9.35808 21.1717 8.5M8.5 11.6058C9.04612 10.417 9.83929 9.35825 10.8267 8.5M14.3333 10.1667C14.3333 9.72464 14.5089 9.30072 14.8215 8.98816C15.134 8.67559 15.558 8.5 16 8.5C16.442 8.5 16.866 8.67559 17.1785 8.98816C17.4911 9.30072 17.6667 9.72464 17.6667 10.1667C18.6237 10.6192 19.4395 11.3236 20.0267 12.2044C20.6139 13.0852 20.9504 14.1092 21 15.1667V17.6667C21.0627 18.1848 21.2462 18.6809 21.5357 19.1151C21.8252 19.5493 22.2126 19.9095 22.6667 20.1667H9.33333C9.78745 19.9095 10.1748 19.5493 10.4643 19.1151C10.7538 18.6809 10.9373 18.1848 11 17.6667V15.1667C11.0496 14.1092 11.3861 13.0852 11.9733 12.2044C12.5605 11.3236 13.3763 10.6192 14.3333 10.1667Z"
+                      stroke="#1B68FC"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                  <span
+                    class="font-[poppins] text-[14px] leading-[21px] font-medium group-hover:text-[#111111]"
+                    >Bildirim Ayarları</span
+                  >
+                </div>
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 32 32"
+                  class="mr-8"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M13 22L19 16L13 10"
+                    stroke="#1B68FC"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <section
+            class="py-4 px-[24px] flex-1 bg-[#F9F9F9] rounded-[16px] section-settings-profile"
+          >
+            <!-- Settings Container -->
+            <div class="bg-[#F9F9F9]">
+              <!-- Account Settings Section -->
+              <div class="mb-8">
+                <h2
+                  class="font-[poppins] text-[16px] leading-[36px] font-medium text-[#667085] mb-6"
+                >
+                  Profil Sayfası
+                </h2>
+                <div class="settings-profile-box">
+                  <!-- Şirket Hakkında -->
+                  <div class="mb-4">
+                    <button
+                      class="w-full flex items-center justify-between p-4 bg-white rounded-[12px] border border-[#EFF3FA]"
+                    >
+                      <div class="flex items-center gap-3">
+                        <svg
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M3 21H21M9 8H10M9 12H10M9 16H10M14 8H15M14 12H15M14 16H15M5 21V5C5 4.46957 5.21071 3.96086 5.58579 3.58579C5.96086 3.21071 6.46957 3 7 3H17C17.5304 3 18.0391 3.21071 18.4142 3.58579C18.7893 3.96086 19 4.46957 19 5V21"
+                            stroke="#667085"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+
+                        <span class="text-[14px] font-[500]"
+                          >Şirket Hakkında</span
+                        >
+                      </div>
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M6 9L12 15L18 9"
+                          stroke="#667085"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </button>
+                    <div class="hidden p-4 bg-white rounded-b-[8px]">
+                      <!-- Content will go here -->
+                      <div class="flex flex-col gap-[12px]">
+                        <div
+                          class="h-[56px] bg-white border border-[#ECECEC] rounded-lg py-[8px] px-[16px]"
+                        >
+                          <label class="flex flex-col">
+                            <span
+                              class="font-[poppins] text-[12px] leading-[16px] font-normal text-[#667085] block items-center"
+                            >
+                              Şirket Adı
+                            </span>
+                            <input
+                              type="text"
+                              placeholder="Geldi Market"
+                              class="w-full font-[poppins] text-[16px] leading-[24px] font-normal text-[#344054] placeholder:font-[poppins] placeholder:text-[16px] placeholder:leading-[24px] placeholder:font-[400] placeholder:tracking-[0%] placeholder:text-[#344054]"
+                            />
+                          </label>
+                        </div>
+                        <div
+                          class="h-[56px] bg-white border border-[#ECECEC] rounded-lg py-[8px] px-[16px]"
+                        >
+                          <label class="flex flex-col">
+                            <span
+                              class="font-[poppins] text-[12px] leading-[16px] font-normal text-[#667085] block items-center"
+                            >
+                              Şirket Adres Linki
+                            </span>
+                            <input
+                              type="text"
+                              placeholder="geldimarket.com"
+                              class="w-full font-[poppins] text-[16px] leading-[24px] font-normal text-[#344054] placeholder:font-[poppins] placeholder:text-[16px] placeholder:leading-[24px] placeholder:font-[400] placeholder:tracking-[0%] placeholder:text-[#344054]"
+                            />
+                          </label>
+                        </div>
+                        <div class="flex flex-col gap-[12px] logo-box">
+                          <!-- Logo Section -->
+                          <div class="flex flex-col gap-[8px]">
+                            <span
+                              class="font-[poppins] text-[14px] leading-[24px] font-normal text-[#111111]"
+                            >
+                              Logo
+                            </span>
+
+                            <!-- Logo Upload Box -->
+                            <div class="flex flex-col gap-[16px] pt-4">
+                              <!-- Logo Preview Area -->
+                              <button
+                                class="font-[poppins] self-start px-[24px] py-[8px] text-[12px] text-white leading-[24px] font-normal bg-[#111111] rounded-[124px]"
+                              >
+                                Logo Yükle
+                              </button>
+
+                              <!-- Info Text -->
+                              <p
+                                class="font-[poppins] text-[12px] leading-[18px] font-[400] text-[#667085]"
+                              >
+                                Maksimum dosya boyutu 1 MB olan 400 piksel x 300
+                                piksel
+                                <br />
+                                JPG veya PNG önerilir. Ana sayfanın ekran
+                                görüntüsünü güncelleyin.
+                              </p>
+
+                              <!-- Buttons -->
+                              <div class="flex gap-[8px] mt-[8px]">
+                                <button
+                                  class="pt-2 pr-6 pb-2 pl-6 font-poppins font-medium text-xs leading-[18px] tracking-[0%] text-[#fff] bg-[#20B53880] rounded-[124px]"
+                                >
+                                  Kaydet
+                                </button>
+                                <button
+                                  class="pt-2 pr-6 pb-2 pl-6 font-poppins font-medium text-xs leading-[18px] tracking-[0%] text-[#fff] bg-[#DF2E2E80] rounded-[124px]"
+                                >
+                                  Temizle
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Şirket Açıklaması -->
+                  <div class="mb-4">
+                    <button
+                      class="w-full flex items-center justify-between p-4 bg-white rounded-[12px] border border-[#EFF3FA]"
+                    >
+                      <div class="flex items-center gap-3">
+                        <svg
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M9 7H15M9 11H15M9 15H13M5 5C5 4.46957 5.21071 3.96086 5.58579 3.58579C5.96086 3.21071 6.46957 3 7 3H17C17.5304 3 18.0391 3.21071 18.4142 3.58579C18.7893 3.96086 19 4.46957 19 5V19C19 19.5304 18.7893 20.0391 18.4142 20.4142C18.0391 20.7893 17.5304 21 17 21H7C6.46957 21 5.96086 20.7893 5.58579 20.4142C5.21071 20.0391 5 19.5304 5 19V5Z"
+                            stroke="#667085"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+
+                        <span class="text-[14px] font-[500]"
+                          >Şirket Açıklaması</span
+                        >
+                      </div>
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M6 9L12 15L18 9"
+                          stroke="#667085"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </button>
+                    <div
+                      class="hidden p-4 bg-white border border-t-0 border-[#EAECF0] rounded-b-[8px]"
+                    >
+                      <div class="company-description-box">
+                        <div class="flex flex-col gap-4">
+                          <!-- Description Textarea -->
+                          <div class="flex flex-col gap-4">
+                            <label
+                              for="companyDescription"
+                              class="font-poppins text-[14px] leading-[24px] font-[400] text-[#667085]"
+                            >
+                              Şirketinizi tanımlayın
+                            </label>
+                            <textarea
+                              id="companyDescription"
+                              class="w-full min-h-[120px] p-4 border border-[#DDDDDD] rounded-[12px] font-poppins text-[16px] placeholder:text-[12px] leading-[24px] text-[#344054] placeholder:text-[#84888C] resize-none focus:outline-none focus:border-[#DDDDDD]"
+                              placeholder="Müşterilerinize şirketinizi benzersiz kılan özellikleri anlatın"
+                            ></textarea>
+                            <div
+                              class="flex items-start gap-2 p-4 bg-[#ECEBFF] rounded-[12px]"
+                            >
+                              <svg
+                                width="22"
+                                height="22"
+                                viewBox="0 0 22 22"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M10.9999 1.83337C16.0627 1.83337 20.1666 5.93729 20.1666 11C20.1685 13.4067 19.2238 15.7176 17.5366 17.4338C15.8493 19.15 13.5548 20.1338 11.1484 20.1728C8.74207 20.2117 6.4169 19.3028 4.67492 17.6422C2.93294 15.9816 1.91391 13.7025 1.83784 11.297L1.83325 11L1.83692 10.7434C1.97259 5.79979 6.02242 1.83337 10.9999 1.83337ZM10.9999 10.0834H10.0833L9.976 10.0898C9.75321 10.1163 9.54787 10.2236 9.39888 10.3913C9.24989 10.5591 9.16761 10.7757 9.16761 11C9.16761 11.2244 9.24989 11.441 9.39888 11.6087C9.54787 11.7765 9.75321 11.8838 9.976 11.9103L10.0833 11.9167V14.6667L10.0897 14.774C10.1138 14.9786 10.2062 15.1691 10.3518 15.3148C10.4975 15.4605 10.6881 15.5528 10.8927 15.577L10.9999 15.5834H11.9166L12.0238 15.577C12.2284 15.5528 12.419 15.4605 12.5647 15.3148C12.7103 15.1691 12.8027 14.9786 12.8268 14.774L12.8333 14.6667L12.8268 14.5595C12.8049 14.3724 12.7259 14.1967 12.6006 14.0561C12.4753 13.9156 12.3098 13.817 12.1265 13.7739L12.0238 13.7555L11.9166 13.75V11L11.9102 10.8928C11.886 10.6882 11.7937 10.4977 11.648 10.352C11.5023 10.2063 11.3118 10.1139 11.1072 10.0898L10.9999 10.0834ZM11.0091 7.33337L10.8927 7.33979C10.6699 7.36629 10.4645 7.47358 10.3155 7.64134C10.1666 7.8091 10.0843 8.02567 10.0843 8.25004C10.0843 8.47441 10.1666 8.69098 10.3155 8.85874C10.4645 9.0265 10.6699 9.13379 10.8927 9.16029L10.9999 9.16671L11.1163 9.16029C11.3391 9.13379 11.5445 9.0265 11.6935 8.85874C11.8424 8.69098 11.9247 8.47441 11.9247 8.25004C11.9247 8.02567 11.8424 7.8091 11.6935 7.64134C11.5445 7.47358 11.3391 7.36629 11.1163 7.33979L11.0091 7.33337Z"
+                                  fill="#292929"
+                                />
+                              </svg>
+                              <p
+                                class="text-[12px] text-[#111] font-normal leading-[18px]"
+                              >
+                                Açıklama ne kadar uzun olursa, arama sonuçları o
+                                kadar iyi olur<br />
+                                <span class="font-thin">
+                                  Şirket açıklamanıza daha fazlasını eklemek,
+                                  müşterilerin Eteyit profililinizi Google
+                                  aracılığıyla bulmasını kolaylaştırır.
+                                </span>
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Kategori Ekleme -->
+                  <div class="mb-4">
+                    <button
+                      class="w-full flex items-center justify-between p-4 bg-white rounded-[12px] border border-[#EFF3FA]"
+                    >
+                      <div class="flex items-center gap-3">
+                        <div class="flex items-center gap-3">
+                          <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M14 4H20V10H14V4Z"
+                              stroke="#667085"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                            <path
+                              d="M4 14H10V20H4V14Z"
+                              stroke="#667085"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                            <path
+                              d="M14 17C14 17.7956 14.3161 18.5587 14.8787 19.1213C15.4413 19.6839 16.2044 20 17 20C17.7956 20 18.5587 19.6839 19.1213 19.1213C19.6839 18.5587 20 17.7956 20 17C20 16.2044 19.6839 15.4413 19.1213 14.8787C18.5587 14.3161 17.7956 14 17 14C16.2044 14 15.4413 14.3161 14.8787 14.8787C14.3161 15.4413 14 16.2044 14 17Z"
+                              stroke="#667085"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                            <path
+                              d="M4 7C4 7.39397 4.0776 7.78407 4.22836 8.14805C4.37913 8.51203 4.6001 8.84274 4.87868 9.12132C5.15726 9.3999 5.48797 9.62087 5.85195 9.77164C6.21593 9.9224 6.60603 10 7 10C7.39397 10 7.78407 9.9224 8.14805 9.77164C8.51203 9.62087 8.84274 9.3999 9.12132 9.12132C9.3999 8.84274 9.62087 8.51203 9.77164 8.14805C9.9224 7.78407 10 7.39397 10 7C10 6.60603 9.9224 6.21593 9.77164 5.85195C9.62087 5.48797 9.3999 5.15726 9.12132 4.87868C8.84274 4.6001 8.51203 4.37913 8.14805 4.22836C7.78407 4.0776 7.39397 4 7 4C6.60603 4 6.21593 4.0776 5.85195 4.22836C5.48797 4.37913 5.15726 4.6001 4.87868 4.87868C4.6001 5.15726 4.37913 5.48797 4.22836 5.85195C4.0776 6.21593 4 6.60603 4 7Z"
+                              stroke="#667085"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                          </svg>
+
+                          <span class="text-[14px] font-[500]"
+                            >Kategori Ekleme</span
+                          >
+                        </div>
+                      </div>
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M6 9L12 15L18 9"
+                          stroke="#667085"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </button>
+                    <div
+                      class="hidden p-4 bg-white border border-t-0 border-[#EAECF0] rounded-b-[8px]"
+                    >
+                      <!-- Content will go here -->
+                    </div>
+                  </div>
+
+                  <!-- İletişim Bilgileri -->
+                  <div class="mb-4">
+                    <button
+                      class="w-full flex items-center justify-between p-4 bg-white rounded-[12px] border border-[#EFF3FA]"
+                    >
+                      <div class="flex items-center gap-3">
+                        <svg
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M8 9H16M8 13H14M12 21L9 18H6C5.20435 18 4.44129 17.6839 3.87868 17.1213C3.31607 16.5587 3 15.7956 3 15V7C3 6.20435 3.31607 5.44129 3.87868 4.87868C4.44129 4.31607 5.20435 4 6 4H18C18.7956 4 19.5587 4.31607 20.1213 4.87868C20.6839 5.44129 21 6.20435 21 7V13M16 22L21 17M21 17V21.5M21 17H16.5"
+                            stroke="#667085"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+
+                        <span class="text-[14px] font-[500]"
+                          >İletişim Bilgileri</span
+                        >
+                      </div>
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M6 9L12 15L18 9"
+                          stroke="#667085"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </button>
+                    <div
+                      class="hidden p-4 bg-white border border-t-0 border-[#EAECF0] rounded-b-[8px]"
+                    >
+                      <!-- Content will go here -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <script>
+      document
+        .querySelectorAll('.settings-profile-box button')
+        .forEach((button) => {
+          button.addEventListener('click', () => {
+            const content = button.nextElementSibling;
+            const isOpen = !content.classList.contains('hidden');
+
+            // Close all other sections
+            document
+              .querySelectorAll('.settings-profile-box button + div')
+              .forEach((div) => {
+                div.classList.add('hidden');
+              });
+
+            // Toggle current section
+            if (!isOpen) {
+              content.classList.remove('hidden');
+            }
+
+            // Rotate only the arrow icon (last svg in button)
+            const arrow = button.querySelector('svg:last-child');
+            document
+              .querySelectorAll('.settings-profile-box button svg:last-child')
+              .forEach((svg) => {
+                svg.style.transform = 'rotate(0deg)';
+              });
+            if (!isOpen) {
+              arrow.style.transform = 'rotate(180deg)';
+            }
+          });
+        });
+    </script>
+  </body>
+</html>

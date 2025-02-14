@@ -19,100 +19,386 @@
     </script>
   </head>
   <body class="min-h-screen flex font-poppins">
-    <section class="max-w-7xl mx-auto px-4 py-12">
-      <h2
-        class="font-poppins text-[#000000] text-[16px] font-semibold leading-6 tracking-[0%] mb-8"
-      >
-        BLOG
-      </h2>
+    <section
+      class="py-4 px-[24px] flex-1 bg-[#F9F9F9] rounded-[16px] section-settings-profile"
+    >
+      <!-- Settings Container -->
+      <div class="bg-[#F9F9F9]">
+        <!-- Account Settings Section -->
+        <div class="mb-8">
+          <h2
+            class="font-[poppins] text-[16px] leading-[36px] font-medium text-[#667085] mb-6"
+          >
+            Profil Sayfası
+          </h2>
+          <div class="settings-profile-box">
+            <!-- Şirket Hakkında -->
+            <div class="mb-4">
+              <button
+                class="w-full flex items-center justify-between p-4 bg-white rounded-[12px] border border-[#EFF3FA]"
+              >
+                <div class="flex items-center gap-3">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M3 21H21M9 8H10M9 12H10M9 16H10M14 8H15M14 12H15M14 16H15M5 21V5C5 4.46957 5.21071 3.96086 5.58579 3.58579C5.96086 3.21071 6.46957 3 7 3H17C17.5304 3 18.0391 3.21071 18.4142 3.58579C18.7893 3.96086 19 4.46957 19 5V21"
+                      stroke="#667085"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 rounded-[12px]">
-        <!-- Blog Card 1 -->
-        <article class="bg-[#F9F9F9] rounded-lg overflow-hidden shadow-sm p-4">
-          <img
-            src="./assests/blog.jpg"
-            alt="Credit card payment"
-            class="w-full h-48 object-cover mb-[12px]"
-          />
-          <div class="p-4 pt-0 flex flex-col gap-[7px]">
-            <span class="text-[#FF7A1A] uppercase text-sm font-medium"
-              >SATIŞ</span
-            >
-            <h3 class="text-[14px] font-[400] text-[#111111]">
-              Site satışlarınızda müşteriye güven sağlamak neden önemli?
-            </h3>
-            <div class="flex items-center gap-2">
-              <img
-                src="path/to/author-avatar.jpg"
-                alt=""
-                class="w-8 h-8 rounded-full"
-              />
-              <div class="flex gap-[3px] flex-col">
-                <p class="text-[12px] font-[400] text-[#111111]">Selim Yavaş</p>
-                <p class="text-[10px] font-[400] text-[#737373] text-gray-500">
-                  22 Nisan 2024
-                </p>
+                  <span class="text-[14px] font-[500]">Şirket Hakkında</span>
+                </div>
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M6 9L12 15L18 9"
+                    stroke="#667085"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+              <div class="hidden p-4 bg-white rounded-b-[8px]">
+                <!-- Content will go here -->
+                <div class="flex flex-col gap-[12px]">
+                  <div
+                    class="h-[56px] bg-white border border-[#ECECEC] rounded-lg py-[8px] px-[16px]"
+                  >
+                    <label class="flex flex-col">
+                      <span
+                        class="font-[poppins] text-[12px] leading-[16px] font-normal text-[#667085] block items-center"
+                      >
+                        Şirket Adı
+                      </span>
+                      <input
+                        type="text"
+                        placeholder="Geldi Market"
+                        class="w-full font-[poppins] text-[16px] leading-[24px] font-normal text-[#344054] placeholder:font-[poppins] placeholder:text-[16px] placeholder:leading-[24px] placeholder:font-[400] placeholder:tracking-[0%] placeholder:text-[#344054]"
+                      />
+                    </label>
+                  </div>
+                  <div
+                    class="h-[56px] bg-white border border-[#ECECEC] rounded-lg py-[8px] px-[16px]"
+                  >
+                    <label class="flex flex-col">
+                      <span
+                        class="font-[poppins] text-[12px] leading-[16px] font-normal text-[#667085] block items-center"
+                      >
+                        Şirket Adres Linki
+                      </span>
+                      <input
+                        type="text"
+                        placeholder="geldimarket.com"
+                        class="w-full font-[poppins] text-[16px] leading-[24px] font-normal text-[#344054] placeholder:font-[poppins] placeholder:text-[16px] placeholder:leading-[24px] placeholder:font-[400] placeholder:tracking-[0%] placeholder:text-[#344054]"
+                      />
+                    </label>
+                  </div>
+                  <div class="flex flex-col gap-[12px] logo-box">
+                    <!-- Logo Section -->
+                    <div class="flex flex-col gap-[8px]">
+                      <span
+                        class="font-[poppins] text-[14px] leading-[24px] font-normal text-[#111111]"
+                      >
+                        Logo
+                      </span>
+
+                      <!-- Logo Upload Box -->
+                      <div class="flex flex-col gap-[16px] pt-4">
+                        <!-- Logo Preview Area -->
+                        <button
+                          class="font-[poppins] self-start px-[24px] py-[8px] text-[12px] text-white leading-[24px] font-normal bg-[#111111] rounded-[124px]"
+                        >
+                          Logo Yükle
+                        </button>
+
+                        <!-- Info Text -->
+                        <p
+                          class="font-[poppins] text-[12px] leading-[18px] font-[400] text-[#667085]"
+                        >
+                          Maksimum dosya boyutu 1 MB olan 400 piksel x 300
+                          piksel
+                          <br />
+                          JPG veya PNG önerilir. Ana sayfanın ekran görüntüsünü
+                          güncelleyin.
+                        </p>
+
+                        <!-- Buttons -->
+                        <div class="flex gap-[8px] mt-[8px]">
+                          <button
+                            class="pt-2 pr-6 pb-2 pl-6 font-poppins font-medium text-xs leading-[18px] tracking-[0%] text-[#fff] bg-[#20B53880] rounded-[124px]"
+                          >
+                            Kaydet
+                          </button>
+                          <button
+                            class="pt-2 pr-6 pb-2 pl-6 font-poppins font-medium text-xs leading-[18px] tracking-[0%] text-[#fff] bg-[#DF2E2E80] rounded-[124px]"
+                          >
+                            Temizle
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Şirket Açıklaması -->
+            <div class="mb-4">
+              <button
+                class="w-full flex items-center justify-between p-4 bg-white rounded-[12px] border border-[#EFF3FA]"
+              >
+                <div class="flex items-center gap-3">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9 7H15M9 11H15M9 15H13M5 5C5 4.46957 5.21071 3.96086 5.58579 3.58579C5.96086 3.21071 6.46957 3 7 3H17C17.5304 3 18.0391 3.21071 18.4142 3.58579C18.7893 3.96086 19 4.46957 19 5V19C19 19.5304 18.7893 20.0391 18.4142 20.4142C18.0391 20.7893 17.5304 21 17 21H7C6.46957 21 5.96086 20.7893 5.58579 20.4142C5.21071 20.0391 5 19.5304 5 19V5Z"
+                      stroke="#667085"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+
+                  <span class="text-[14px] font-[500]">Şirket Açıklaması</span>
+                </div>
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M6 9L12 15L18 9"
+                    stroke="#667085"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+              <div
+                class="hidden p-4 bg-white border border-t-0 border-[#EAECF0] rounded-b-[8px]"
+              >
+                <div class="company-description-box">
+                  <div class="flex flex-col gap-4">
+                    <!-- Description Textarea -->
+                    <div class="flex flex-col gap-4">
+                      <label
+                        for="companyDescription"
+                        class="font-poppins text-[14px] leading-[24px] font-[400] text-[#667085]"
+                      >
+                        Şirketinizi tanımlayın
+                      </label>
+                      <textarea
+                        id="companyDescription"
+                        class="w-full min-h-[120px] p-4 border border-[#DDDDDD] rounded-[12px] font-poppins text-[16px] placeholder:text-[12px] leading-[24px] text-[#344054] placeholder:text-[#84888C] resize-none focus:outline-none focus:border-[#DDDDDD]"
+                        placeholder="Müşterilerinize şirketinizi benzersiz kılan özellikleri anlatın"
+                      ></textarea>
+                      <div
+                        class="flex items-start gap-2 p-4 bg-[#ECEBFF] rounded-[12px]"
+                      >
+                        <svg
+                          width="22"
+                          height="22"
+                          viewBox="0 0 22 22"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M10.9999 1.83337C16.0627 1.83337 20.1666 5.93729 20.1666 11C20.1685 13.4067 19.2238 15.7176 17.5366 17.4338C15.8493 19.15 13.5548 20.1338 11.1484 20.1728C8.74207 20.2117 6.4169 19.3028 4.67492 17.6422C2.93294 15.9816 1.91391 13.7025 1.83784 11.297L1.83325 11L1.83692 10.7434C1.97259 5.79979 6.02242 1.83337 10.9999 1.83337ZM10.9999 10.0834H10.0833L9.976 10.0898C9.75321 10.1163 9.54787 10.2236 9.39888 10.3913C9.24989 10.5591 9.16761 10.7757 9.16761 11C9.16761 11.2244 9.24989 11.441 9.39888 11.6087C9.54787 11.7765 9.75321 11.8838 9.976 11.9103L10.0833 11.9167V14.6667L10.0897 14.774C10.1138 14.9786 10.2062 15.1691 10.3518 15.3148C10.4975 15.4605 10.6881 15.5528 10.8927 15.577L10.9999 15.5834H11.9166L12.0238 15.577C12.2284 15.5528 12.419 15.4605 12.5647 15.3148C12.7103 15.1691 12.8027 14.9786 12.8268 14.774L12.8333 14.6667L12.8268 14.5595C12.8049 14.3724 12.7259 14.1967 12.6006 14.0561C12.4753 13.9156 12.3098 13.817 12.1265 13.7739L12.0238 13.7555L11.9166 13.75V11L11.9102 10.8928C11.886 10.6882 11.7937 10.4977 11.648 10.352C11.5023 10.2063 11.3118 10.1139 11.1072 10.0898L10.9999 10.0834ZM11.0091 7.33337L10.8927 7.33979C10.6699 7.36629 10.4645 7.47358 10.3155 7.64134C10.1666 7.8091 10.0843 8.02567 10.0843 8.25004C10.0843 8.47441 10.1666 8.69098 10.3155 8.85874C10.4645 9.0265 10.6699 9.13379 10.8927 9.16029L10.9999 9.16671L11.1163 9.16029C11.3391 9.13379 11.5445 9.0265 11.6935 8.85874C11.8424 8.69098 11.9247 8.47441 11.9247 8.25004C11.9247 8.02567 11.8424 7.8091 11.6935 7.64134C11.5445 7.47358 11.3391 7.36629 11.1163 7.33979L11.0091 7.33337Z"
+                            fill="#292929"
+                          />
+                        </svg>
+                        <p
+                          class="text-[12px] text-[#111] font-normal leading-[18px]"
+                        >
+                          Açıklama ne kadar uzun olursa, arama sonuçları o kadar
+                          iyi olur<br />
+                          <span class="font-thin">
+                            Şirket açıklamanıza daha fazlasını eklemek,
+                            müşterilerin Eteyit profililinizi Google
+                            aracılığıyla bulmasını kolaylaştırır.
+                          </span>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Kategori Ekleme -->
+            <div class="mb-4">
+              <button
+                class="w-full flex items-center justify-between p-4 bg-white rounded-[12px] border border-[#EFF3FA]"
+              >
+                <div class="flex items-center gap-3">
+                  <div class="flex items-center gap-3">
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M14 4H20V10H14V4Z"
+                        stroke="#667085"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M4 14H10V20H4V14Z"
+                        stroke="#667085"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M14 17C14 17.7956 14.3161 18.5587 14.8787 19.1213C15.4413 19.6839 16.2044 20 17 20C17.7956 20 18.5587 19.6839 19.1213 19.1213C19.6839 18.5587 20 17.7956 20 17C20 16.2044 19.6839 15.4413 19.1213 14.8787C18.5587 14.3161 17.7956 14 17 14C16.2044 14 15.4413 14.3161 14.8787 14.8787C14.3161 15.4413 14 16.2044 14 17Z"
+                        stroke="#667085"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M4 7C4 7.39397 4.0776 7.78407 4.22836 8.14805C4.37913 8.51203 4.6001 8.84274 4.87868 9.12132C5.15726 9.3999 5.48797 9.62087 5.85195 9.77164C6.21593 9.9224 6.60603 10 7 10C7.39397 10 7.78407 9.9224 8.14805 9.77164C8.51203 9.62087 8.84274 9.3999 9.12132 9.12132C9.3999 8.84274 9.62087 8.51203 9.77164 8.14805C9.9224 7.78407 10 7.39397 10 7C10 6.60603 9.9224 6.21593 9.77164 5.85195C9.62087 5.48797 9.3999 5.15726 9.12132 4.87868C8.84274 4.6001 8.51203 4.37913 8.14805 4.22836C7.78407 4.0776 7.39397 4 7 4C6.60603 4 6.21593 4.0776 5.85195 4.22836C5.48797 4.37913 5.15726 4.6001 4.87868 4.87868C4.6001 5.15726 4.37913 5.48797 4.22836 5.85195C4.0776 6.21593 4 6.60603 4 7Z"
+                        stroke="#667085"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+
+                    <span class="text-[14px] font-[500]">Kategori Ekleme</span>
+                  </div>
+                </div>
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M6 9L12 15L18 9"
+                    stroke="#667085"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+              <div
+                class="hidden p-4 bg-white border border-t-0 border-[#EAECF0] rounded-b-[8px]"
+              >
+                <!-- Content will go here -->
+              </div>
+            </div>
+
+            <!-- İletişim Bilgileri -->
+            <div class="mb-4">
+              <button
+                class="w-full flex items-center justify-between p-4 bg-white rounded-[12px] border border-[#EFF3FA]"
+              >
+                <div class="flex items-center gap-3">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M8 9H16M8 13H14M12 21L9 18H6C5.20435 18 4.44129 17.6839 3.87868 17.1213C3.31607 16.5587 3 15.7956 3 15V7C3 6.20435 3.31607 5.44129 3.87868 4.87868C4.44129 4.31607 5.20435 4 6 4H18C18.7956 4 19.5587 4.31607 20.1213 4.87868C20.6839 5.44129 21 6.20435 21 7V13M16 22L21 17M21 17V21.5M21 17H16.5"
+                      stroke="#667085"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+
+                  <span class="text-[14px] font-[500]">İletişim Bilgileri</span>
+                </div>
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M6 9L12 15L18 9"
+                    stroke="#667085"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+              <div
+                class="hidden p-4 bg-white border border-t-0 border-[#EAECF0] rounded-b-[8px]"
+              >
+                <!-- Content will go here -->
               </div>
             </div>
           </div>
-        </article>
-        <article class="bg-[#F9F9F9] rounded-lg overflow-hidden shadow-sm p-4">
-          <img
-            src="./assests/blog.jpg"
-            alt="Credit card payment"
-            class="w-full h-48 object-cover mb-[12px]"
-          />
-          <div class="p-4 pt-0 flex flex-col gap-[7px]">
-            <span class="text-[#5350FA] uppercase text-sm font-medium"
-              >Müşteri İLİŞKİLERİ</span
-            >
-            <h3 class="text-[14px] font-[400] text-[#111111]">
-              Site satışlarınızda müşteriye güven sağlamak neden önemli?
-            </h3>
-            <div class="flex items-center gap-2">
-              <img
-                src="path/to/author-avatar.jpg"
-                alt=""
-                class="w-8 h-8 rounded-full"
-              />
-              <div class="flex gap-[3px] flex-col">
-                <p class="text-[12px] font-[400] text-[#111111]">Selim Yavaş</p>
-                <p class="text-[10px] font-[400] text-[#737373] text-gray-500">
-                  22 Nisan 2024
-                </p>
-              </div>
-            </div>
-          </div>
-        </article>
-        <article class="bg-[#F9F9F9] rounded-lg overflow-hidden shadow-sm p-4">
-          <img
-            src="./assests/blog.jpg"
-            alt="Credit card payment"
-            class="w-full h-48 object-cover mb-[12px]"
-          />
-          <div class="p-4 pt-0 flex flex-col gap-[7px]">
-            <span class="text-[#00B046] uppercase text-sm font-medium"
-              >Fiyatlandırma</span
-            >
-            <h3 class="text-[14px] font-[400] text-[#111111]">
-              Site satışlarınızda müşteriye güven sağlamak neden önemli?
-            </h3>
-            <div class="flex items-center gap-2">
-              <img
-                src="path/to/author-avatar.jpg"
-                alt=""
-                class="w-8 h-8 rounded-full"
-              />
-              <div class="flex gap-[3px] flex-col">
-                <p class="text-[12px] font-[400] text-[#111111]">Selim Yavaş</p>
-                <p class="text-[10px] font-[400] text-[#737373] text-gray-500">
-                  22 Nisan 2024
-                </p>
-              </div>
-            </div>
-          </div>
-        </article>
+        </div>
       </div>
     </section>
+    <script>
+      document
+        .querySelectorAll('.settings-profile-box button')
+        .forEach((button) => {
+          button.addEventListener('click', () => {
+            const content = button.nextElementSibling;
+            const isOpen = !content.classList.contains('hidden');
+
+            // Close all other sections
+            document
+              .querySelectorAll('.settings-profile-box button + div')
+              .forEach((div) => {
+                div.classList.add('hidden');
+              });
+
+            // Toggle current section
+            if (!isOpen) {
+              content.classList.remove('hidden');
+            }
+
+            // Rotate only the arrow icon (last svg in button)
+            const arrow = button.querySelector('svg:last-child');
+            document
+              .querySelectorAll('.settings-profile-box button svg:last-child')
+              .forEach((svg) => {
+                svg.style.transform = 'rotate(0deg)';
+              });
+            if (!isOpen) {
+              arrow.style.transform = 'rotate(180deg)';
+            }
+          });
+        });
+    </script>
   </body>
 </html>
