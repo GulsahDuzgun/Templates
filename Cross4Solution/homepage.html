@@ -304,6 +304,24 @@
               />
             </svg>
           </button>
+          <!-- Add toggle button for reviews -->
+          <button class="p-2 xl:hidden" id="toggleReviews">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M8 9H16M8 13H14M18 4C18.7956 4 19.5587 4.31607 20.1213 4.87868C20.6839 5.44129 21 6.20435 21 7V15C21 15.7956 20.6839 16.5587 20.1213 17.1213C19.5587 17.6839 18.7956 18 18 18H13L8 21V18H6C5.20435 18 4.44129 17.6839 3.87868 17.1213C3.31607 16.5587 3 15.7956 3 15V7C3 6.20435 3.31607 5.44129 3.87868 4.87868C4.44129 4.31607 5.20435 4 6 4H18Z"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
           <div class="flex gap-2">
             <img src="./assests/logo.jpg" class="h-[36px] w-[36px] alt="Eteyit
             Logo" />
@@ -329,7 +347,7 @@
         </div>
       </header>
       <main
-        class="container mx-auto p-6 grid grid-cols-8 md:grid-cols-12 gap-12 xl:gap-6"
+        class="container mx-auto p-6 grid grid-cols-8 xl:grid-cols-12 gap-12 xl:gap-6"
       >
         <!-- Left Side - Product Reviews Section -->
         <section
@@ -577,168 +595,212 @@
 
         <!-- Right Side - Ratings Section -->
         <section
-          class="bg-white rounded-2xl col-span-12 xl:col-span-4 shadow p-4 xl:w-auto section-last-reviews md:row-span-2 h-full w-[75%]"
+          class="section-last-reviews hidden xl:block fixed xl:relative inset-0 xl:inset-auto z-50 xl:z-auto bg-white xl:bg-transparent xl:col-span-4 xl:w-auto w-full h-full xl:h-auto"
+          id="reviewsSidebar"
         >
-          <div class="flex justify-between flex-col gap-[8px] items-start mb-6">
-            <h2 class="font-poppins font-[500] text-[16px] text-[#111111]">
-              Son Değerlendirmeler
-            </h2>
-            <span class="font-poppins text-[12px] text-[#FF2358]"
-              >5 yeni değerlendirme</span
-            >
+          <!-- Mobile header -->
+          <div
+            class="flex items-center justify-between p-4 xl:hidden border-b border-[#EEEEEE] bg-white"
+          >
+            <div class="flex flex-col gap-1">
+              <h2 class="font-poppins text-[16px] font-[500] text-[#111111]">
+                Son Değerlendirmeler
+              </h2>
+              <span class="font-poppins text-[12px] text-[#FF2358]">
+                5 yeni değerlendirme
+              </span>
+            </div>
+            <button id="closeReviews" class="p-2">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M18 6L6 18M6 6L18 18"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
           </div>
 
-          <!-- Ratings List -->
-          <div class="space-y-4">
-            <!-- Rating Item 1 -->
+          <!-- Content container -->
+          <div class="h-[calc(100%-60px)] xl:h-auto p-4">
+            <!-- Desktop title -->
             <div
-              class="flex border rounded-[12px] border-[#F2F2F2] pt-[12px] pr-[16px] pb-[12px] pl-[16px]"
+              class="hidden xl:flex justify-between flex-col gap-[8px] items-start mb-6"
             >
-              <img
-                src="./assests/Avatar.jpg"
-                alt=""
-                class="w-[40px] h-[40px] rounded-full"
-              />
-              <div
-                class="flex xl:flex-1 flex-col w-auto xl:w-full ml-[12px] justify-between"
-              >
-                <div class="flex xl:flex-1 w-auto xl:w-full gap-2 align-middle">
-                  <h3
-                    class="font-poppins text-[14px] font-[500] text-[#111111] mb-1"
-                  >
-                    Erkan Seymen
-                  </h3>
-                  <div class="flex gap-0.15">
-                    <svg
-                      class="w-4 h-4 text-[#FFCA27]"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                      />
-                    </svg>
-                    <svg
-                      class="w-4 h-4 text-[#FFCA27]"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                      />
-                    </svg>
-                    <svg
-                      class="w-4 h-4 text-[#FFCA27]"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                      />
-                    </svg>
-                    <svg
-                      class="w-4 h-4 text-[#FFCA27]"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                      />
-                    </svg>
-                    <svg
-                      class="w-4 h-4 text-[#D7DBE2]"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                      />
-                    </svg>
-                  </div>
-                  <span class="font-poppins text-[12px] ml-auto text-[#606367]"
-                    >16:45</span
-                  >
-                </div>
-                <p
-                  class="font-poppins font-[400] text-[14px] leading-[18px] tracking-[0]"
-                >
-                  Lorem ipsum dolor sit amet, consectetur
-                </p>
-              </div>
+              <h2 class="font-poppins font-[500] text-[16px] text-[#111111]">
+                Son Değerlendirmeler
+              </h2>
+              <span class="font-poppins text-[12px] text-[#FF2358]">
+                5 yeni değerlendirme
+              </span>
             </div>
-            <div
-              class="flex border rounded-[12px] border-[#F2F2F2] pt-[12px] pr-[16px] pb-[12px] pl-[16px]"
-            >
-              <img
-                src="./assests/Avatar.jpg"
-                alt=""
-                class="w-[40px] h-[40px] rounded-full"
-              />
+
+            <!-- Ratings List -->
+            <div class="space-y-4">
+              <!-- Rating Item 1 -->
               <div
-                class="flex flex-col xl:flex-1 w-auto xl:w-full ml-[12px] justify-between"
+                class="flex border rounded-[12px] border-[#F2F2F2] pt-[12px] pr-[16px] pb-[12px] pl-[16px]"
               >
-                <div class="flex xl:flex-1 w-auto xl:w-full gap-2 align-middle">
-                  <h3
-                    class="font-poppins text-[14px] font-[500] text-[#111111] mb-1"
-                  >
-                    Erkan Seymen
-                  </h3>
-                  <div class="flex gap-0.15">
-                    <svg
-                      class="w-4 h-4 text-[#FFCA27]"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                      />
-                    </svg>
-                    <svg
-                      class="w-4 h-4 text-[#FFCA27]"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                      />
-                    </svg>
-                    <svg
-                      class="w-4 h-4 text-[#FFCA27]"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                      />
-                    </svg>
-                    <svg
-                      class="w-4 h-4 text-[#FFCA27]"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                      />
-                    </svg>
-                    <svg
-                      class="w-4 h-4 text-[#D7DBE2]"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                      />
-                    </svg>
-                  </div>
-                  <span class="font-poppins text-[12px] ml-auto text-[#606367]"
-                    >16:45</span
-                  >
-                </div>
-                <p
-                  class="font-poppins font-[400] text-[14px] leading-[18px] tracking-[0]"
+                <img
+                  src="./assests/Avatar.jpg"
+                  alt=""
+                  class="w-[40px] h-[40px] rounded-full"
+                />
+                <div
+                  class="flex xl:flex-1 flex-col w-auto xl:w-full ml-[12px] justify-between"
                 >
-                  Lorem ipsum dolor sit amet, consectetur
-                </p>
+                  <div
+                    class="flex xl:flex-1 w-auto xl:w-full gap-2 align-middle"
+                  >
+                    <h3
+                      class="font-poppins text-[14px] font-[500] text-[#111111] mb-1"
+                    >
+                      Erkan Seymen
+                    </h3>
+                    <div class="flex gap-0.15">
+                      <svg
+                        class="w-4 h-4 text-[#FFCA27]"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                        />
+                      </svg>
+                      <svg
+                        class="w-4 h-4 text-[#FFCA27]"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                        />
+                      </svg>
+                      <svg
+                        class="w-4 h-4 text-[#FFCA27]"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                        />
+                      </svg>
+                      <svg
+                        class="w-4 h-4 text-[#FFCA27]"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                        />
+                      </svg>
+                      <svg
+                        class="w-4 h-4 text-[#D7DBE2]"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                        />
+                      </svg>
+                    </div>
+                    <span
+                      class="font-poppins text-[12px] ml-auto text-[#606367]"
+                      >16:45</span
+                    >
+                  </div>
+                  <p
+                    class="font-poppins font-[400] text-[14px] leading-[18px] tracking-[0]"
+                  >
+                    Lorem ipsum dolor sit amet, consectetur
+                  </p>
+                </div>
+              </div>
+              <div
+                class="flex border rounded-[12px] border-[#F2F2F2] pt-[12px] pr-[16px] pb-[12px] pl-[16px]"
+              >
+                <img
+                  src="./assests/Avatar.jpg"
+                  alt=""
+                  class="w-[40px] h-[40px] rounded-full"
+                />
+                <div
+                  class="flex flex-col xl:flex-1 w-auto xl:w-full ml-[12px] justify-between"
+                >
+                  <div
+                    class="flex xl:flex-1 w-auto xl:w-full gap-2 align-middle"
+                  >
+                    <h3
+                      class="font-poppins text-[14px] font-[500] text-[#111111] mb-1"
+                    >
+                      Erkan Seymen
+                    </h3>
+                    <div class="flex gap-0.15">
+                      <svg
+                        class="w-4 h-4 text-[#FFCA27]"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                        />
+                      </svg>
+                      <svg
+                        class="w-4 h-4 text-[#FFCA27]"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                        />
+                      </svg>
+                      <svg
+                        class="w-4 h-4 text-[#FFCA27]"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                        />
+                      </svg>
+                      <svg
+                        class="w-4 h-4 text-[#FFCA27]"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                        />
+                      </svg>
+                      <svg
+                        class="w-4 h-4 text-[#D7DBE2]"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                        />
+                      </svg>
+                    </div>
+                    <span
+                      class="font-poppins text-[12px] ml-auto text-[#606367]"
+                      >16:45</span
+                    >
+                  </div>
+                  <p
+                    class="font-poppins font-[400] text-[14px] leading-[18px] tracking-[0]"
+                  >
+                    Lorem ipsum dolor sit amet, consectetur
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -1131,5 +1193,31 @@
         </section>
       </main>
     </div>
+    <!-- Add this script before closing body tag -->
+    <script>
+      const toggleButton = document.getElementById('toggleReviews');
+      const closeButton = document.getElementById('closeReviews');
+      const sidebar = document.getElementById('reviewsSidebar');
+
+      toggleButton.addEventListener('click', () => {
+        sidebar.classList.remove('hidden');
+      });
+
+      closeButton.addEventListener('click', () => {
+        sidebar.classList.add('hidden');
+      });
+
+      // Handle responsive behavior
+      window.addEventListener('resize', () => {
+        if (window.innerWidth >= 1280) {
+          // xl breakpoint
+          sidebar.classList.remove('hidden');
+        } else {
+          if (!sidebar.classList.contains('hidden')) {
+            sidebar.classList.add('hidden');
+          }
+        }
+      });
+    </script>
   </body>
 </html>

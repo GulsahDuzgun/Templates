@@ -365,7 +365,7 @@
                   <img
                     src="./assests/Avatar.jpg"
                     alt="User avatar"
-                    class="w-[40px] h-[40px] rounded-full object-cover"
+                    class="w-[40px] h-[40px] rounded-[37px] object-cover"
                   />
 
                   <!-- Review Content -->
@@ -373,7 +373,7 @@
                     <div class="flex items-center justify-between mb-[6px]">
                       <div class="flex items-center gap-[6px]">
                         <h3
-                          class="font-poppins text-[16px] font-[500] text-[##484B51]"
+                          class="font-poppins text-[16px] font-[500] text-[#484B51]"
                         >
                           Erkan Seymen
                         </h3>
@@ -510,10 +510,10 @@
               </div>
             </div>
           </section>
-          <section class="section-review-detail w-full xl:w-[60%] p-4">
+          <section class="section-review-detail flex gap-[12px] flex-col w-full xl:w-[60%] p-4 border border-[#F2F2F2] rounded-[12px]" >
           
               <!-- Header with Rating and Date -->
-              <div class="flex items-center justify-between mb-2">
+              <div class="flex  items-center justify-between mb-2">
                 <!-- Star Rating -->
                 <div class="flex gap-[2px]">
                   <svg class="w-[16px] h-[16px] text-[#00B67A]" viewBox="0 0 16 16" fill="currentColor">
@@ -555,114 +555,58 @@
                 Excepteur sint occaecat cupidatat non proident, sunt in culpa
                 qui officia deserunt mollit anim id est laborum.
               </p>
-
-              <!-- Attachments Section -->
-              <div class="mb-6">
-                <h4 class="text-[14px] text-[#111111] mb-2">Görseller:</h4>
-                <!-- Image Grid would go here -->
+              <!-- Add this after the customer/collaboration text section -->
+              <div class="">
+                <textarea 
+                  placeholder="Cevaplayın" 
+                  class="w-full min-h-[120px] p-4 rounded-[12px] border border-[#F2F2F2] resize-none font-poppins text-[12px] font-[400] leading-[18px] placeholder:text-[#999999] focus:outline-none focus:border-[#111111] transition-colors"
+                ></textarea>
               </div>
 
-              <!-- Müşteri/Birlikte Text -->
-              <div class="flex items-center gap-2 mb-4">
-                <span class="text-[14px] text-[#666666]"
-                  >Müşteri/Birlikte nasıl yapılan bir işbirliği sunumunu</span
-                >
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 16 16"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M11.3335 4.66675L8.00016 8.00008L11.3335 11.3334M7.3335 4.66675L4.00016 8.00008L7.3335 11.3334"
-                    stroke="#666666"
-                    stroke-width="1.25"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="rotate-180"
-                  />
-                </svg>
-              </div>
-
+                  <!-- Müşteri/Birlikte Text -->
+                  <div class="flex items-center gap-2 ">
+                    <span class="font-poppins text-[12px] font-[400] leading-[18px] tracking-[0] text-[#667085]"
+                      >Müşteri/Birlikte nasıl yapılan bir işbirliği sunumunu</span
+                    >
+                    <a href="">
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5.8335 14.1667L14.1668 5.83341M14.1668 5.83341V13.3334M14.1668 5.83341H6.66683" stroke="#667085" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </a>
+                  </div>
               <!-- Cevapla Button -->
-              <button
-                class="bg-[#2B2B2B] text-white rounded-lg px-6 py-2.5 text-[14px] mb-6"
-              >
+              <button class="bg-[#2B2B2B]  rounded-[124px] px-[24px] py-[8px] text-[12px] text-[#FFFFFF]  self-start">
                 Cevapla
               </button>
 
               <!-- Action Buttons -->
-              <div
-                class="flex items-center gap-6 pt-6 border-t border-[#F2F2F2]"
-              >
-                <button
-                  class="flex items-center gap-2 text-[14px] text-[#666666]"
-                >
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <path
-                      d="M8 3V13M3 8H13"
-                      stroke="currentColor"
-                      stroke-width="1.5"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
+              <div class="flex items-center gap-6 mt-4 text-[#1B68FC] text-[12px] font-[400] ">
+                <button class="flex items-center gap-[4px] p-[8px] rounded-[8px] bg-[#F4F7FF] hover:bg-[#E4E7FF] transition-colors">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 8V12L14 14M3.0498 11.0001C3.2739 8.80013 4.30007 6.75968 5.93254 5.26803C7.56501 3.77639 9.6895 2.93795 11.9007 2.9127C14.1119 2.88744 16.255 3.67713 17.9211 5.1311C19.5872 6.58507 20.6597 8.60155 20.934 10.7958C21.2083 12.99 20.6651 15.2085 19.4082 17.0278C18.1512 18.8472 16.2684 20.1401 14.1191 20.6599C11.9697 21.1797 9.70422 20.89 7.7548 19.8461C5.80539 18.8022 4.30853 17.0772 3.5498 15.0001M3.0498 20.0001V15.0001H8.0498" stroke="#1B68FC" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>
-                  Değerlendirme Seçenekleri
+                  Değerlendirme Geçmişi
                 </button>
-                <button
-                  class="flex items-center gap-2 text-[14px] text-[#666666]"
-                >
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <path
-                      d="M2 4H3.33333H14"
-                      stroke="currentColor"
-                      stroke-width="1.5"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                    <path
-                      d="M5.33334 4V2.66667C5.33334 2.31305 5.47381 1.97391 5.72386 1.72386C5.97391 1.47381 6.31305 1.33334 6.66667 1.33334H9.33334C9.68696 1.33334 10.0261 1.47381 10.2761 1.72386C10.5262 1.97391 10.6667 2.31305 10.6667 2.66667V4M12.6667 4V13.3333C12.6667 13.687 12.5262 14.0261 12.2761 14.2761C12.0261 14.5262 11.687 14.6667 11.3333 14.6667H4.66667C4.31305 14.6667 3.97391 14.5262 3.72386 14.2761C3.47381 14.0261 3.33334 13.687 3.33334 13.3333V4H12.6667Z"
-                      stroke="currentColor"
-                      stroke-width="1.5"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
+
+                <button class="flex items-center gap-[4px] p-[8px] rounded-[8px] bg-[#F4F7FF] hover:bg-[#E4E7FF] transition-colors">
+                  <svg width="17" height="21" viewBox="0 0 17 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 19V17C1 15.9391 1.42143 14.9217 2.17157 14.1716C2.92172 13.4214 3.93913 13 5 13H8.5M14 20V20.01M14 17C14.4483 16.9986 14.8832 16.8468 15.235 16.569C15.5868 16.2911 15.8352 15.9033 15.9406 15.4675C16.0459 15.0318 16.0019 14.5733 15.8158 14.1655C15.6297 13.7576 15.3122 13.424 14.914 13.218C14.5162 13.0142 14.0611 12.951 13.6228 13.0387C13.1845 13.1264 12.7888 13.3598 12.5 13.701M3 5C3 6.06087 3.42143 7.07828 4.17157 7.82843C4.92172 8.57857 5.93913 9 7 9C8.06087 9 9.07828 8.57857 9.82843 7.82843C10.5786 7.07828 11 6.06087 11 5C11 3.93913 10.5786 2.92172 9.82843 2.17157C9.07828 1.42143 8.06087 1 7 1C5.93913 1 4.92172 1.42143 4.17157 2.17157C3.42143 2.92172 3 3.93913 3 5Z" stroke="#1B68FC" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>
-                  Sil veya Bildir
+                  Bilgi Talep Et
                 </button>
-                <button
-                  class="flex items-center gap-2 text-[14px] text-[#666666]"
-                >
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <path
-                      d="M12.6667 8.00008C12.6667 7.63203 12.9653 7.33341 13.3333 7.33341C13.7014 7.33341 14 7.63203 14 8.00008C14 11.6819 11.0152 14.6667 7.33333 14.6667C3.65145 14.6667 0.666667 11.6819 0.666667 8.00008C0.666667 4.3182 3.65145 1.33341 7.33333 1.33341C8.92885 1.33341 10.4099 1.87841 11.6183 2.82341C11.9162 3.05591 11.9701 3.48875 11.7376 3.78662C11.5051 4.08449 11.0722 4.13837 10.7744 3.90587C9.79479 3.13754 8.60677 2.66675 7.33333 2.66675C4.38781 2.66675 2 5.05456 2 8.00008C2 10.9456 4.38781 13.3334 7.33333 13.3334C10.2789 13.3334 12.6667 10.9456 12.6667 8.00008Z"
-                      fill="currentColor"
-                    />
-                    <path
-                      d="M7.33333 4.66675C7.70152 4.66675 8 4.96537 8 5.33341V8.00008C8 8.36812 7.70152 8.66675 7.33333 8.66675C6.96514 8.66675 6.66667 8.36812 6.66667 8.00008V5.33341C6.66667 4.96537 6.96514 4.66675 7.33333 4.66675Z"
-                      fill="currentColor"
-                    />
-                    <path
-                      d="M8.66667 8.66675C8.66667 9.034 8.36819 9.33341 8 9.33341C7.63181 9.33341 7.33333 9.034 7.33333 8.66675C7.33333 8.29949 7.63181 8.00008 8 8.00008C8.36819 8.00008 8.66667 8.29949 8.66667 8.66675Z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                  Bilgi Talebi İlet
-                </button>
-                <button
-                  class="flex items-center gap-2 text-[14px] text-[#666666] ml-auto"
-                >
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <path
-                      d="M13.3333 4L6 11.3333L2.66667 8"
-                      stroke="currentColor"
-                      stroke-width="1.5"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
+
+                <button class="flex items-center gap-[4px] p-[8px] rounded-[8px] bg-[#F4F7FF] hover:bg-[#E4E7FF] transition-colors">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8.7002 10.7L15.3002 7.30005M8.7002 13.3L15.3002 16.7M3 12C3 12.7956 3.31607 13.5587 3.87868 14.1213C4.44129 14.6839 5.20435 15 6 15C6.79565 15 7.55871 14.6839 8.12132 14.1213C8.68393 13.5587 9 12.7956 9 12C9 11.2044 8.68393 10.4413 8.12132 9.87868C7.55871 9.31607 6.79565 9 6 9C5.20435 9 4.44129 9.31607 3.87868 9.87868C3.31607 10.4413 3 11.2044 3 12ZM15 6C15 6.79565 15.3161 7.55871 15.8787 8.12132C16.4413 8.68393 17.2044 9 18 9C18.7956 9 19.5587 8.68393 20.1213 8.12132C20.6839 7.55871 21 6.79565 21 6C21 5.20435 20.6839 4.44129 20.1213 3.87868C19.5587 3.31607 18.7956 3 18 3C17.2044 3 16.4413 3.31607 15.8787 3.87868C15.3161 4.44129 15 5.20435 15 6ZM15 18C15 18.7956 15.3161 19.5587 15.8787 20.1213C16.4413 20.6839 17.2044 21 18 21C18.7956 21 19.5587 20.6839 20.1213 20.1213C20.6839 19.5587 21 18.7956 21 18C21 17.2044 20.6839 16.4413 20.1213 15.8787C19.5587 15.3161 18.7956 15 18 15C17.2044 15 16.4413 15.3161 15.8787 15.8787C15.3161 16.4413 15 17.2044 15 18Z" stroke="#1B68FC" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>
                   Paylaş
+                </button>
+
+                <button class="flex items-center gap-[4px] p-[8px] rounded-[8px] bg-[#F4F7FF] hover:bg-[#E4E7FF] transition-colors">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5 14.0001C5.93464 13.084 7.19124 12.5708 8.5 12.5708C9.80876 12.5708 11.0654 13.084 12 14.0001C12.9346 14.9162 14.1912 15.4294 15.5 15.4294C16.8088 15.4294 18.0654 14.9162 19 14.0001V5.00009C18.0654 5.91622 16.8088 6.42937 15.5 6.42937C14.1912 6.42937 12.9346 5.91622 12 5.00009C11.0654 4.08395 9.80876 3.5708 8.5 3.5708C7.19124 3.5708 5.93464 4.08395 5 5.00009V14.0001ZM5 14.0001V21" stroke="#1B68FC" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  Sorun Bildir
                 </button>
               </div>
             </div>
