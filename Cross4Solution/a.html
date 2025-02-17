@@ -181,666 +181,499 @@
       </div>
 
       <main class="p-6">
-        <section class="section-verify mb-4">
-          <h2 class="text-2xl mb-8 font-[600] text-center">İşlem Teyiti</h2>
-          <div class="p-8 rounded-[16px] bg-[#FCFCFC]">
-            <div class="mx-auto bg-[#FCFCFC] max-w-2xl">
-              <form class="space-y-6">
-                <!-- Teyit Türü -->
-                <div class="space-y-2">
-                  <label
-                    class="block font-poppins text-xs leading-[18px] text-black font-medium"
+        <h1
+          class="font-poppins text-[24px] leading-[36px] font-medium text-[#111] h-[36px] lg:mb-[62px] mb-8 text-center"
+        >
+          Ayarlar
+        </h1>
+        <div class="container-box flex-col lg:flex-row flex">
+          <div
+            class="settings-navbar bg-white pl-[6px] pr-[8px] flex flex-row lg:flex-col gap-0 lg:gap-4"
+          >
+            <!-- Breadcrumb style for mobile, normal nav for desktop -->
+            <div class="flex lg:hidden w-full py-2 justify-between mb-4">
+              <div class="flex items-center gap-x-2 gap-y-0 sm:gap-2 flex-wrap">
+                <a
+                  href="#"
+                  class="font-[Poppins] text-[16px] leading-[36px] font-medium text-[#667085] hover:text-[#1B68FC] active:text-[#1B68FC] transition-colors"
+                  >Hesap</a
+                >
+                <span class="text-[#667085] font-medium">/</span>
+                <a
+                  href="#"
+                  class="font-[Poppins] text-[16px] leading-[36px] font-medium text-[#667085] hover:text-[#1B68FC] active:text-[#1B68FC] transition-colors"
+                  >Profil Sayfası</a
+                >
+                <span class="text-[#667085] font-medium">/</span>
+                <a
+                  href="#"
+                  class="font-[Poppins] text-[16px] leading-[36px] font-medium text-[#667085] hover:text-[#1B68FC] active:text-[#1B68FC] transition-colors"
+                  >Kategoriler</a
+                >
+                <span class="text-[#667085] font-medium">/</span>
+                <a
+                  href="#"
+                  class="font-[Poppins] text-[16px] leading-[36px] font-medium text-[#667085] hover:text-[#1B68FC] active:text-[#1B68FC] transition-colors"
+                  >Bildirim Ayarları</a
+                >
+              </div>
+            </div>
+
+            <!-- Desktop navigation - hide on mobile -->
+            <div class="hidden lg:flex lg:flex-col w-full gap-4">
+              <!-- Hesap -->
+              <a
+                class="relative flex items-center justify-between h-[48px] p-[8px] text-[#84888C] hover:text-[#1B68FC] group"
+                href="#"
+              >
+                <div
+                  class="absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-[32px] bg-[#1B68FC] rounded-r-[4px] opacity-0 group-hover:opacity-100"
+                ></div>
+                <div class="flex items-center gap-3">
+                  <svg
+                    width="32"
+                    height="32"
+                    viewBox="0 0 32 32"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
                   >
-                    Teyit türünüzü seçin
-                  </label>
-                  <div class="relative">
-                    <select
-                      name="teyitTuru"
-                      class="w-full appearance-none px-[24px] py-2 border border-gray-300 rounded-l-[8px] rounded-r-[8px] focus:ring-blue-500 focus:border-blue-500 font-poppins text-xs leading-[18px] font-normal [&>optgroup]:transform-none [&>option]:transform-none"
-                      required
-                    >
-                      <option
-                        value=""
-                        class="font-poppins text-xs leading-[18px] font-normal"
-                      >
-                        Satış
-                      </option>
-                      <option
-                        value="type1"
-                        class="font-poppins text-xs leading-[18px] font-normal"
-                      >
-                        Teyit Türü 1
-                      </option>
-                      <option
-                        value="type2"
-                        class="font-poppins text-xs leading-[18px] font-normal"
-                      >
-                        Teyit Türü 2
-                      </option>
-                    </select>
-                    <svg
-                      class="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none"
-                      width="22"
-                      height="22"
-                      viewBox="0 0 22 22"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
+                    <rect width="32" height="32" rx="8" fill="#F5F7FA" />
+                    <path
+                      d="M11.14 21.7075C11.3462 21.021 11.7683 20.4193 12.3435 19.9916C12.9187 19.564 13.6165 19.3331 14.3333 19.3333H17.6666C18.3844 19.3331 19.083 19.5645 19.6586 19.9932C20.2343 20.4218 20.6562 21.0248 20.8616 21.7125M8.5 16C8.5 16.9849 8.69399 17.9602 9.0709 18.8701C9.44781 19.7801 10.0003 20.6069 10.6967 21.3033C11.3931 21.9997 12.2199 22.5522 13.1299 22.9291C14.0398 23.306 15.0151 23.5 16 23.5C16.9849 23.5 17.9602 23.306 18.8701 22.9291C19.7801 22.5522 20.6069 21.9997 21.3033 21.3033C21.9997 20.6069 22.5522 19.7801 22.9291 18.8701C23.306 17.9602 23.5 16.9849 23.5 16C23.5 15.0151 23.306 14.0398 22.9291 13.1299C22.5522 12.2199 21.9997 11.3931 21.3033 10.6967C20.6069 10.0003 19.7801 9.44781 18.8701 9.0709C17.9602 8.69399 16.9849 8.5 16 8.5C15.0151 8.5 14.0398 8.69399 13.1299 9.0709C12.2199 9.44781 11.3931 10.0003 10.6967 10.6967C10.0003 11.3931 9.44781 12.2199 9.0709 13.1299C8.69399 14.0398 8.5 15.0151 8.5 16ZM13.5 14.3333C13.5 14.9964 13.7634 15.6323 14.2322 16.1011C14.7011 16.5699 15.337 16.8333 16 16.8333C16.663 16.8333 17.2989 16.5699 17.7678 16.1011C18.2366 15.6323 18.5 14.9964 18.5 14.3333C18.5 13.6703 18.2366 13.0344 17.7678 12.5656C17.2989 12.0967 16.663 11.8333 16 11.8333C15.337 11.8333 14.7011 12.0967 14.2322 12.5656C13.7634 13.0344 13.5 13.6703 13.5 14.3333Z"
+                      stroke="#1B68FC"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                  <span
+                    class="font-[Poppins] text-[14px] leading-[21px] font-medium group-hover:text-[#111111]"
+                    >Hesap</span
+                  >
+                </div>
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 32 32"
+                  class="mr-8"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M13 22L19 16L13 10"
+                    stroke="#1B68FC"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </a>
+
+              <!-- Profil Sayfası -->
+              <a
+                class="relative flex items-center justify-between h-[48px] p-[8px] text-[#84888C] hover:text-[#1B68FC] group"
+                href="#"
+              >
+                <div
+                  class="absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-[32px] bg-[#1B68FC] rounded-r-[4px] opacity-0 group-hover:opacity-100"
+                ></div>
+                <div class="flex items-center gap-3">
+                  <svg
+                    width="32"
+                    height="32"
+                    viewBox="0 0 32 32"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <rect width="32" height="32" rx="8" fill="#F5F7FA" />
+                    <g transform="translate(6, 6)">
                       <path
-                        d="M5.5 8.25L11 13.75L16.5 8.25"
-                        stroke="black"
+                        d="M8.3335 13.3333H13.3335M3.3335 6.66659H5.8335M3.3335 9.99992H5.8335M3.3335 13.3333H5.8335M16.6668 4.99992V14.9999C16.6668 15.4419 16.4912 15.8659 16.1787 16.1784C15.8661 16.491 15.4422 16.6666 15.0002 16.6666H6.66683C6.2248 16.6666 5.80088 16.491 5.48832 16.1784C5.17576 15.8659 5.00016 15.4419 5.00016 14.9999V4.99992C5.00016 4.55789 5.17576 4.13397 5.48832 3.82141C5.80088 3.50885 6.2248 3.33325 6.66683 3.33325H15.0002C15.4422 3.33325 15.8661 3.50885 16.1787 3.82141C16.4912 4.13397 16.6668 4.55789 16.6668 4.99992ZM9.16683 9.16659C9.16683 9.60861 9.34242 10.0325 9.65498 10.3451C9.96755 10.6577 10.3915 10.8333 10.8335 10.8333C11.2755 10.8333 11.6994 10.6577 12.012 10.3451C12.3246 10.0325 12.5002 9.60861 12.5002 9.16659C12.5002 8.72456 12.3246 8.30063 12.012 7.98807C11.6994 7.67551 11.2755 7.49992 10.8335 7.49992C10.3915 7.49992 9.96755 7.67551 9.65498 7.98807C9.34242 8.30063 9.16683 8.72456 9.16683 9.16659Z"
+                        stroke="#1B68FC"
                         stroke-width="1.5"
                         stroke-linecap="round"
                         stroke-linejoin="round"
                       />
-                    </svg>
-                  </div>
-                </div>
-
-                <!-- Kargo Takip No -->
-                <div class="space-y-2">
-                  <label
-                    class="block font-poppins text-xs leading-[18px] text-black font-medium"
+                    </g>
+                  </svg>
+                  <span
+                    class="font-[Poppins] text-[14px] leading-[21px] font-medium group-hover:text-[#111111]"
+                    >Profil Sayfası</span
                   >
-                    Kargo Takip No
-                  </label>
-                  <div class="flex">
-                    <div class="relative w-1/3">
-                      <select
-                        name="kargoTipi"
-                        class="w-full appearance-none px-[24px] py-2 border border-gray-300 rounded-l-[8px] focus:ring-blue-500 focus:border-blue-500 font-poppins text-xs leading-[18px] font-normal [&>optgroup]:transform-none [&>option]:transform-none"
-                        required
-                      >
-                        <option
-                          value=""
-                          class="font-poppins text-xs leading-[18px] font-normal"
+                </div>
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 32 32"
+                  class="mr-8"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M13 22L19 16L13 10"
+                    stroke="#1B68FC"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </a>
+
+              <!-- Kategori -->
+              <a
+                class="relative flex items-center justify-between h-[48px] p-[8px] text-[#84888C] hover:text-[#1B68FC] group"
+                href="#"
+              >
+                <div
+                  class="absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-[32px] bg-[#1B68FC] rounded-r-[4px] opacity-0 group-hover:opacity-100"
+                ></div>
+                <div class="flex items-center gap-3">
+                  <svg
+                    width="32"
+                    height="32"
+                    viewBox="0 0 32 32"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <rect width="32" height="32" rx="8" fill="#F5F7FA" />
+                    <g transform="translate(6, 6)">
+                      <path
+                        d="M11.6668 3.33325H16.6668V8.33325H11.6668V3.33325Z"
+                        stroke="#1B68FC"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </g>
+                    <g transform="translate(6, 6)">
+                      <path
+                        d="M3.3335 11.6666H8.3335V16.6666H3.3335V11.6666Z"
+                        stroke="#1B68FC"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </g>
+                    <g transform="translate(6, 6)">
+                      <path
+                        d="M11.6668 14.1666C11.6668 14.8296 11.9302 15.4655 12.3991 15.9344C12.8679 16.4032 13.5038 16.6666 14.1668 16.6666C14.8299 16.6666 15.4658 16.4032 15.9346 15.9344C16.4034 15.4655 16.6668 14.8296 16.6668 14.1666C16.6668 13.5035 16.4034 12.8677 15.9346 12.3988C15.4658 11.93 14.8299 11.6666 14.1668 11.6666C13.5038 11.6666 12.8679 11.93 12.3991 12.3988C11.9302 12.8677 11.6668 13.5035 11.6668 14.1666Z"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </g>
+                    <g transform="translate(6, 6)">
+                      <path
+                        d="M3.3335 5.83325C3.3335 6.16156 3.39816 6.48665 3.5238 6.78996C3.64943 7.09327 3.83358 7.36887 4.06573 7.60102C4.29788 7.83317 4.57347 8.01731 4.87679 8.14295C5.1801 8.26859 5.50519 8.33325 5.8335 8.33325C6.1618 8.33325 6.48689 8.26859 6.7902 8.14295C7.09352 8.01731 7.36912 7.83317 7.60126 7.60102C7.83341 7.36887 8.01756 7.09327 8.1432 6.78996C8.26883 6.48665 8.3335 6.16156 8.3335 5.83325C8.3335 5.50495 8.26883 5.17986 8.1432 4.87654C8.01756 4.57323 7.83341 4.29763 7.60126 4.06549C7.36912 3.83334 7.09352 3.64919 6.7902 3.52355C6.48689 3.39792 6.1618 3.33325 5.8335 3.33325C5.50519 3.33325 5.1801 3.39792 4.87679 3.52355C4.57347 3.64919 4.29788 3.83334 4.06573 4.06549C3.83358 4.29763 3.64943 4.57323 3.5238 4.87654C3.39816 5.17986 3.3335 5.50495 3.3335 5.83325Z"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </g>
+                  </svg>
+                  <span
+                    class="font-[Poppins] text-[14px] leading-[21px] font-medium group-hover:text-[#111111]"
+                    >Kategoriler</span
+                  >
+                </div>
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 32 32"
+                  class="mr-8"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M13 22L19 16L13 10"
+                    stroke="#1B68FC"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </a>
+
+              <!-- Bildirim Ayarları -->
+              <a
+                class="relative flex items-center justify-between h-[48px] p-[8px] text-[#84888C] hover:text-[#1B68FC] group"
+                href="#"
+              >
+                <div
+                  class="absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-[32px] bg-[#1B68FC] rounded-r-[4px] opacity-0 group-hover:opacity-100"
+                ></div>
+                <div class="flex items-center gap-3">
+                  <svg
+                    width="32"
+                    height="32"
+                    viewBox="0 0 32 32"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <rect width="32" height="32" rx="8" fill="#F5F7FA" />
+                    <path
+                      d="M13.5 20.1667V21C13.5 21.663 13.7634 22.2989 14.2322 22.7678C14.7011 23.2366 15.337 23.5 16 23.5C16.663 23.5 17.2989 23.2366 17.7678 22.7678C18.2366 22.2989 18.5 21.663 18.5 21V20.1667M23.5 11.6058C22.9534 10.4169 22.1597 9.35808 21.1717 8.5M8.5 11.6058C9.04612 10.417 9.83929 9.35825 10.8267 8.5M14.3333 10.1667C14.3333 9.72464 14.5089 9.30072 14.8215 8.98816C15.134 8.67559 15.558 8.5 16 8.5C16.442 8.5 16.866 8.67559 17.1785 8.98816C17.4911 9.30072 17.6667 9.72464 17.6667 10.1667C18.6237 10.6192 19.4395 11.3236 20.0267 12.2044C20.6139 13.0852 20.9504 14.1092 21 15.1667V17.6667C21.0627 18.1848 21.2462 18.6809 21.5357 19.1151C21.8252 19.5493 22.2126 19.9095 22.6667 20.1667H9.33333C9.78745 19.9095 10.1748 19.5493 10.4643 19.1151C10.7538 18.6809 10.9373 18.1848 11 17.6667V15.1667C11.0496 14.1092 11.3861 13.0852 11.9733 12.2044C12.5605 11.3236 13.3763 10.6192 14.3333 10.1667Z"
+                      stroke="#1B68FC"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                  <span
+                    class="font-[Poppins] text-[14px] leading-[21px] font-medium group-hover:text-[#111111]"
+                    >Bildirim Ayarları</span
+                  >
+                </div>
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 32 32"
+                  class="mr-8"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M13 22L19 16L13 10"
+                    stroke="#1B68FC"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <section
+            class="py-4 px-[24px] flex-1 bg-[#F9F9F9] rounded-[16px] section-settings-profile"
+          >
+            <!-- Settings Container -->
+            <div class="bg-[#F9F9F9]">
+              <!-- Account Settings Section -->
+              <div class="mb-8">
+                <h2
+                  class="font-[Poppins] text-[16px] leading-[36px] font-medium text-[#667085] mb-6"
+                >
+                  Profil Sayfası
+                </h2>
+                <div class="settings-profile-box">
+                  <!-- Şirket Hakkında -->
+                  <div class="mb-4">
+                    <button
+                      class="w-full flex items-center justify-between p-4 bg-white rounded-[12px] border border-[#EFF3FA]"
+                    >
+                      <div class="flex items-center gap-3">
+                        <svg
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
                         >
-                          Yurtiçi
-                        </option>
-                        <option
-                          value="type1"
-                          class="font-poppins text-xs leading-[18px] font-normal"
+                          <path
+                            d="M3 21H21M9 8H10M9 12H10M9 16H10M14 8H15M14 12H15M14 16H15M5 21V5C5 4.46957 5.21071 3.96086 5.58579 3.58579C5.96086 3.21071 6.46957 3 7 3H17C17.5304 3 18.0391 3.21071 18.4142 3.58579C18.7893 3.96086 19 4.46957 19 5V21"
+                            stroke="#667085"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+
+                        <span class="text-[14px] font-[500]"
+                          >Şirket Hakkında</span
                         >
-                          Tür 1
-                        </option>
-                        <option
-                          value="type2"
-                          class="font-poppins text-xs leading-[18px] font-normal"
-                        >
-                          Tür 2
-                        </option>
-                      </select>
+                      </div>
                       <svg
-                        class="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none"
-                        width="22"
-                        height="22"
-                        viewBox="0 0 22 22"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          d="M5.5 8.25L11 13.75L16.5 8.25"
-                          stroke="black"
+                          d="M6 9L12 15L18 9"
+                          stroke="#667085"
                           stroke-width="1.5"
                           stroke-linecap="round"
                           stroke-linejoin="round"
                         />
                       </svg>
-                    </div>
-                    <input
-                      type="text"
-                      name="kargoTakipNo"
-                      value="6428974"
-                      class="w-2/3 px-4 py-2 border border-l-0 border-gray-300 rounded-r-[8px] focus:ring-blue-500 focus:border-blue-500 font-poppins text-xs leading-[18px] font-normal placeholder:font-poppins placeholder:text-xs placeholder:leading-[18px] placeholder:font-normal placeholder:text-[#999] placeholder:text-center"
-                      required
-                    />
-                  </div>
-                </div>
-
-                <!-- Ürün Adı -->
-                <div class="space-y-2">
-                  <label
-                    class="block font-poppins text-xs leading-[18px] text-black font-medium"
-                  >
-                    Ürün Adı
-                  </label>
-                  <input
-                    type="text"
-                    name="urunAdi"
-                    placeholder="Ürün adını giriniz"
-                    class="w-full px-4 py-2 border border-gray-300 rounded-l-[8px] rounded-r-[8px] focus:ring-blue-500 focus:border-blue-500 font-poppins text-xs leading-[18px] font-normal placeholder:font-poppins placeholder:text-xs placeholder:leading-[18px] placeholder:font-normal placeholder:text-[#999]"
-                    required
-                  />
-                </div>
-
-                <!-- Fatura -->
-                <div class="space-y-2">
-                  <label
-                    class="block font-poppins text-xs leading-[18px] text-black font-medium"
-                  >
-                    Fatura
-                  </label>
-                  <div
-                    class="flex flex-col items-center justify-center border border-[#F2F2F2] rounded-lg p-6 bg-[#fff]"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-8 w-8 text-gray-400 mb-2"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="#111"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"
-                      />
-                    </svg>
-                    <p class="text-sm text-[#111] text-center">
-                      Belgeyi seç ve ya sürükleyip buraya bırak
-                    </p>
-                    <p class="text-xs text-[#2B2B2B] mt-1">
-                      PDF, JPEG, JPG. En fazla 8 MB
-                    </p>
-                    <button
-                      type="button"
-                      class="mt-4 px-4 py-1 border border-[#2B2B2B] rounded-[6px] text-sm text-[#2B2B2B] hover:bg-[#2B2B2B] hover:text-white transition-all duration-200"
-                    >
-                      Göz At
                     </button>
+                    <div class="hidden p-4 bg-white rounded-b-[8px]">
+                      <!-- Content will go here -->
+                    </div>
                   </div>
-                </div>
 
-                <!-- Submit Button -->
-                <div class="flex justify-center">
-                  <button
-                    type="submit"
-                    class="px-4 py-2 bg-[#111] text-[#fff] text-[12px] font-[400] rounded-[20px] hover:bg-gray-800 transition-colors"
-                  >
-                    Gönder
-                  </button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </section>
-        <div class="container-box flex gap-4 flex-col xl:flex-row">
-          <section class="section-last-confirmations flex-1 mt-4">
-            <div class="p-6 rounded-[16px] bg-[#FCFCFC]">
-              <div
-                class="flex justify-between items-center mb-4 flex-wrap gap-y-3"
-              >
-                <h2 class="font-poppins text-[16px] font-[500] text-[#111111]">
-                  Son Teyitlemeler
-                </h2>
-                <div class="flex items-center gap-4 flex-wrap gap-y-1.5">
-                  <button
-                    class="flex items-center appearance-none text-[#8F949C] py-1 px-2 border border-[#D7DBE2] rounded-[8px] font-poppins text-[14px] font-[400] leading-[21px]"
-                  >
-                    Dışarı Aktar
-                    <svg
-                      class="ml-2"
-                      width="16"
-                      height="17"
-                      viewBox="0 0 16 17"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
+                  <!-- Şirket Açıklaması -->
+                  <div class="mb-4">
+                    <button
+                      class="w-full flex items-center justify-between p-4 bg-white rounded-[12px] border border-[#EFF3FA]"
                     >
-                      <path
-                        d="M9.33301 2.5V5.16667C9.33301 5.34348 9.40325 5.51305 9.52827 5.63807C9.65329 5.7631 9.82286 5.83333 9.99967 5.83333H12.6663M9.33301 2.5H4.66634C4.31272 2.5 3.97358 2.64048 3.72353 2.89052C3.47348 3.14057 3.33301 3.47971 3.33301 3.83333V13.1667C3.33301 13.5203 3.47348 13.8594 3.72353 14.1095C3.97358 14.3595 4.31272 14.5 4.66634 14.5H11.333C11.6866 14.5 12.0258 14.3595 12.2758 14.1095C12.5259 13.8594 12.6663 13.5203 12.6663 13.1667V5.83333M9.33301 2.5L12.6663 5.83333M9.99967 10.5H5.99967M5.99967 10.5L7.66634 12.1667M5.99967 10.5L7.66634 8.83333"
-                        stroke="#8F949C"
-                        stroke-width="1.25"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                  </button>
+                      <div class="flex items-center gap-3">
+                        <svg
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M9 7H15M9 11H15M9 15H13M5 5C5 4.46957 5.21071 3.96086 5.58579 3.58579C5.96086 3.21071 6.46957 3 7 3H17C17.5304 3 18.0391 3.21071 18.4142 3.58579C18.7893 3.96086 19 4.46957 19 5V19C19 19.5304 18.7893 20.0391 18.4142 20.4142C18.0391 20.7893 17.5304 21 17 21H7C6.46957 21 5.96086 20.7893 5.58579 20.4142C5.21071 20.0391 5 19.5304 5 19V5Z"
+                            stroke="#667085"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
 
-                  <div class="relative">
-                    <select
-                      class="appearance-none text-[#8F949C] py-1 pl-2 pr-6 border border-[#D7DBE2] rounded-[8px] font-normal font-poppins text-[14px] font-[400] leading-[21px]"
-                    >
-                      <option
-                        class="text-[#8F949C] py-1 border border-[#D7DBE2] rounded-[8px] font-poppins text-[14px] font-[400] leading-[21px]"
+                        <span class="text-[14px] font-[500]"
+                          >Şirket Açıklaması</span
+                        >
+                      </div>
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
                       >
-                        Onaylanan Teyitler
-                      </option>
-                    </select>
-                    <svg
-                      class="absolute right-1 top-1/2 -translate-y-1/2 pointer-events-none"
-                      width="16"
-                      height="16"
-                      viewBox="0 0 22 22"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M5.5 8.25L11 13.75L16.5 8.25"
-                        stroke="#8F949C"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                  </div>
-                  <div class="relative">
-                    <select
-                      class="appearance-none pl-4 pr-8 py-1 border text-[#8F949C] border-[#D7DBE2] rounded-[8px] font-poppins text-[14px] font-[400] leading-[21px]"
-                    >
-                      <option>Filtrele</option>
-                    </select>
-                    <svg
-                      class="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none"
-                      width="16"
-                      height="17"
-                      viewBox="0 0 16 17"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M6.00016 4.5H13.3335M8.00016 8.5H13.3335M10.0002 12.5H13.3335M3.3335 4.5V4.50667M5.3335 8.5V8.50667M7.3335 12.5V12.5067"
-                        stroke="#8F949C"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                  </div>
-                </div>
-              </div>
-
-              <div
-                class="overflow-auto scroll-smooth scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100 sm:auto"
-              >
-                <div class="min-w-[700px] w-full">
-                  <!-- Table Header -->
-                  <div
-                    class="grid grid-cols-4 gap-4 md:gap-8 px-4 py-2 text-xs font-[400] text-[12px] leading-[18px] text-[#999999]"
-                  >
+                        <path
+                          d="M6 9L12 15L18 9"
+                          stroke="#667085"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </button>
                     <div
-                      class="font-poppins text-[12px] font-[400] leading-[18px] tracking-[0%] text-[#1B68FC]"
+                      class="hidden p-4 bg-white border border-t-0 border-[#EAECF0] rounded-b-[8px]"
                     >
-                      Teyit Türü
-                    </div>
-                    <div
-                      class="font-poppins text-[12px] font-[400] leading-[18px] tracking-[0%] text-[#1B68FC]"
-                    >
-                      Kargo No
-                    </div>
-                    <div
-                      class="font-poppins text-[12px] font-[400] leading-[18px] tracking-[0%] text-[#1B68FC]"
-                    >
-                      Ürün Adı
-                    </div>
-                    <div
-                      class="font-poppins text-[12px] font-[400] leading-[18px] tracking-[0%] text-[#1B68FC]"
-                    >
-                      Fatura
+                      <!-- Content will go here -->
                     </div>
                   </div>
 
-                  <!-- Table Rows -->
-                  <div class="space-y-2 bg-[#FFFFFF] p-4">
-                    <!-- Row 1 -->
-                    <div
-                      class="grid grid-cols-4 gap-4 md:gap-8 items-center px-4 pt-3 pb-5 border-b border-[#EEEEEE] bg-white rounded-lg text-xs"
+                  <!-- Kategori Ekleme -->
+                  <div class="mb-4">
+                    <button
+                      class="w-full flex items-center justify-between p-4 bg-white rounded-[12px] border border-[#EFF3FA]"
                     >
-                      <div>
-                        <span
-                          class="px-3 py-1 bg-[#9AFFA5] text-[#00750C] rounded-full"
-                          >Satış</span
-                        >
-                      </div>
-                      <div>YRT-6428974</div>
-                      <div class="truncate">
-                        Samsung Galaxy Buds 2 Bluetooth TWS Kulaklık
-                      </div>
-                      <div>
-                        <a
-                          href="#"
-                          class="flex items-center gap-1 text-[#5647FB] no-underline"
-                        >
-                          <span>Görüntüle</span>
+                      <div class="flex items-center gap-3">
+                        <div class="flex items-center gap-3">
                           <svg
-                            width="16"
-                            height="16"
-                            viewBox="0 0 16 16"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"
                           >
                             <path
-                              d="M6 12L10 8L6 4"
-                              stroke="currentColor"
+                              d="M14 4H20V10H14V4Z"
+                              stroke="#667085"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                            <path
+                              d="M4 14H10V20H4V14Z"
+                              stroke="#667085"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                            <path
+                              d="M14 17C14 17.7956 14.3161 18.5587 14.8787 19.1213C15.4413 19.6839 16.2044 20 17 20C17.7956 20 18.5587 19.6839 19.1213 19.1213C19.6839 18.5587 20 17.7956 20 17C20 16.2044 19.6839 15.4413 19.1213 14.8787C18.5587 14.3161 17.7956 14 17 14C16.2044 14 15.4413 14.3161 14.8787 14.8787C14.3161 15.4413 14 16.2044 14 17Z"
+                              stroke="#667085"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                            <path
+                              d="M4 7C4 7.39397 4.0776 7.78407 4.22836 8.14805C4.37913 8.51203 4.6001 8.84274 4.87868 9.12132C5.15726 9.3999 5.48797 9.62087 5.85195 9.77164C6.21593 9.9224 6.60603 10 7 10C7.39397 10 7.78407 9.9224 8.14805 9.77164C8.51203 9.62087 8.84274 9.3999 9.12132 9.12132C9.3999 8.84274 9.62087 8.51203 9.77164 8.14805C9.9224 7.78407 10 7.39397 10 7C10 6.60603 9.9224 6.21593 9.77164 5.85195C9.62087 5.48797 9.3999 5.15726 9.12132 4.87868C8.84274 4.6001 8.51203 4.37913 8.14805 4.22836C7.78407 4.0776 7.39397 4 7 4C6.60603 4 6.21593 4.0776 5.85195 4.22836C5.48797 4.37913 5.15726 4.6001 4.87868 4.87868C4.6001 5.15726 4.37913 5.48797 4.22836 5.85195C4.0776 6.21593 4 6.60603 4 7Z"
+                              stroke="#667085"
                               stroke-width="1.5"
                               stroke-linecap="round"
                               stroke-linejoin="round"
                             />
                           </svg>
-                        </a>
-                      </div>
-                    </div>
 
-                    <!-- Row 2 -->
-                    <div
-                      class="grid grid-cols-4 gap-4 md:gap-8 items-center px-4 pt-3 pb-5 bg-white rounded-lg text-xs border-b border-[#EEEEEE]"
-                    >
-                      <div>
-                        <span
-                          class="px-3 py-1 bg-[#FFB9B9] text-[#D82626] rounded-full"
-                          >İade</span
-                        >
-                      </div>
-                      <div>YRT-6428974</div>
-                      <div class="truncate">
-                        Samsung Galaxy Buds 2 Bluetooth TWS Kulaklık
-                      </div>
-                      <div>
-                        <a
-                          href="#"
-                          class="flex items-center gap-1 text-[#5647FB] no-underline"
-                        >
-                          <span>Görüntüle</span>
-                          <svg
-                            width="16"
-                            height="16"
-                            viewBox="0 0 16 16"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
+                          <span class="text-[14px] font-[500]"
+                            >Kategori Ekleme</span
                           >
-                            <path
-                              d="M6 12L10 8L6 4"
-                              stroke="currentColor"
-                              stroke-width="1.5"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                          </svg>
-                        </a>
+                        </div>
                       </div>
-                    </div>
-
-                    <!-- Row 3 -->
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M6 9L12 15L18 9"
+                          stroke="#667085"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </button>
                     <div
-                      class="grid grid-cols-4 gap-4 md:gap-8 items-center px-4 pt-3 pb-5 bg-white rounded-lg text-xs border-b border-[#EEEEEE]"
+                      class="hidden p-4 bg-white border border-t-0 border-[#EAECF0] rounded-b-[8px]"
                     >
-                      <div>
-                        <span
-                          class="px-3 py-1 bg-[#FFD5AD] text-[#C25D00] rounded-full"
-                          >Değişim</span
-                        >
-                      </div>
-                      <div>YRT-6428974</div>
-                      <div class="truncate">
-                        Samsung Galaxy Buds 2 Bluetooth TWS Kulaklık
-                      </div>
-                      <div>
-                        <a
-                          href="#"
-                          class="flex items-center gap-1 text-[#5647FB] no-underline"
-                        >
-                          <span>Görüntüle</span>
-                          <svg
-                            width="16"
-                            height="16"
-                            viewBox="0 0 16 16"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M6 12L10 8L6 4"
-                              stroke="currentColor"
-                              stroke-width="1.5"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                          </svg>
-                        </a>
-                      </div>
+                      <!-- Content will go here -->
                     </div>
+                  </div>
 
-                    <!-- Row 4 -->
+                  <!-- İletişim Bilgileri -->
+                  <div class="mb-4">
+                    <button
+                      class="w-full flex items-center justify-between p-4 bg-white rounded-[12px] border border-[#EFF3FA]"
+                    >
+                      <div class="flex items-center gap-3">
+                        <svg
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M8 9H16M8 13H14M12 21L9 18H6C5.20435 18 4.44129 17.6839 3.87868 17.1213C3.31607 16.5587 3 15.7956 3 15V7C3 6.20435 3.31607 5.44129 3.87868 4.87868C4.44129 4.31607 5.20435 4 6 4H18C18.7956 4 19.5587 4.31607 20.1213 4.87868C20.6839 5.44129 21 6.20435 21 7V13M16 22L21 17M21 17V21.5M21 17H16.5"
+                            stroke="#667085"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+
+                        <span class="text-[14px] font-[500]"
+                          >İletişim Bilgileri</span
+                        >
+                      </div>
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M6 9L12 15L18 9"
+                          stroke="#667085"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </button>
                     <div
-                      class="grid grid-cols-4 gap-4 md:gap-8 items-center px-4 pt-3 pb-5 bg-white rounded-lg text-xs border-b border-[#EEEEEE]"
+                      class="hidden p-4 bg-white border border-t-0 border-[#EAECF0] rounded-b-[8px]"
                     >
-                      <div>
-                        <span
-                          class="px-3 py-1 bg-[#FFB9B9] text-[#D82626] rounded-full"
-                          >İade</span
-                        >
-                      </div>
-                      <div>YRT-6428974</div>
-                      <div class="truncate">
-                        Samsung Galaxy Buds 2 Bluetooth TWS Kulaklık
-                      </div>
-                      <div>
-                        <a
-                          href="#"
-                          class="flex items-center gap-1 text-[#5647FB] no-underline"
-                        >
-                          <span>Görüntüle</span>
-                          <svg
-                            width="16"
-                            height="16"
-                            viewBox="0 0 16 16"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M6 12L10 8L6 4"
-                              stroke="currentColor"
-                              stroke-width="1.5"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                          </svg>
-                        </a>
-                      </div>
-                    </div>
-
-                    <!-- Row 5 -->
-                    <div
-                      class="grid grid-cols-4 gap-4 md:gap-8 items-center px-4 pt-3 pb-5 bg-white rounded-lg text-xs border-b border-[#EEEEEE]"
-                    >
-                      <div>
-                        <span
-                          class="px-3 py-1 bg-[#9AFFA5] text-[#00750C] rounded-full"
-                          >Satış</span
-                        >
-                      </div>
-                      <div>YRT-6428974</div>
-                      <div class="truncate">
-                        Samsung Galaxy Buds 2 Bluetooth TWS Kulaklık
-                      </div>
-                      <div>
-                        <a
-                          href="#"
-                          class="flex items-center gap-1 text-[#5647FB] no-underline"
-                        >
-                          <span>Görüntüle</span>
-                          <svg
-                            width="16"
-                            height="16"
-                            viewBox="0 0 16 16"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M6 12L10 8L6 4"
-                              stroke="currentColor"
-                              stroke-width="1.5"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                          </svg>
-                        </a>
-                      </div>
+                      <!-- Content will go here -->
                     </div>
                   </div>
-                </div>
-              </div>
-
-              <!-- Tümünü Gör Link -->
-              <div class="text-center mt-4">
-                <a
-                  href="#"
-                  class="inline-block text-xs bg-[#fff]p-0.75 text-[#292929] border border-[#F2F2F2] font-poppins font-[400] leading-[18px] bg-[#fff] px-[12px] py-[8px] rounded-[12px]"
-                  >Tümünü Gör</a
-                >
-              </div>
-            </div>
-          </section>
-          <section class="section-weekly-overview w-full sm:w-[400px] mt-4">
-            <div class="sm:w-full p-6 rounded-[16px] bg-[#FCFCFC] h-full">
-              <!-- Header -->
-              <div class="mb-6">
-                <h2 class="font-poppins font-[500] text-[#111111] text-[16px]">
-                  Haftalık Bakış
-                </h2>
-                <p class="text-sm text-gray-500">25-31 Mart</p>
-              </div>
-
-              <!-- Chart Container -->
-              <div class="mb-4 pb-4 border-b border-[#EEEEEE]">
-                <!-- Chart Bars -->
-                <div class="flex items-end justify-between h-48 relative">
-                  <!-- Monday -->
-                  <div class="flex flex-col items-center gap-2">
-                    <div class="relative w-[22px] h-32">
-                      <div
-                        class="absolute inset-0 bg-[#FFE5E5] rounded-full"
-                      ></div>
-                      <div
-                        class="absolute bottom-0 w-full bg-[#FD5757] rounded-full transition-all duration-300"
-                        style="height: 45%"
-                      ></div>
-                    </div>
-                    <span class="text-xs text-[#000] mt-2">Pzt</span>
-                  </div>
-
-                  <!-- Tuesday -->
-                  <div class="flex flex-col items-center gap-2">
-                    <div class="relative w-[22px] h-32">
-                      <div
-                        class="absolute inset-0 bg-[#FFE5E5] rounded-full"
-                      ></div>
-                      <div
-                        class="absolute bottom-0 w-full bg-[#FD5757] rounded-full transition-all duration-300"
-                        style="height: 65%"
-                      ></div>
-                    </div>
-                    <span class="text-xs text-[#000] mt-2">Salı</span>
-                  </div>
-
-                  <!-- Wednesday -->
-                  <div class="flex flex-col items-center gap-2">
-                    <div class="relative w-[22px] h-32">
-                      <div
-                        class="absolute inset-0 bg-[#FFE5E5] rounded-full"
-                      ></div>
-                      <div
-                        class="absolute bottom-0 w-full bg-[#FD5757] rounded-full transition-all duration-300"
-                        style="height: 85%"
-                      ></div>
-                    </div>
-                    <span class="text-xs text-[#000] mt-2">Çrş</span>
-                  </div>
-
-                  <!-- Thursday -->
-                  <div class="flex flex-col items-center gap-2">
-                    <div class="relative w-[22px] h-32">
-                      <div
-                        class="absolute inset-0 bg-[#FFE5E5] rounded-full"
-                      ></div>
-                      <div
-                        class="absolute bottom-0 w-full bg-[#FD5757] rounded-full transition-all duration-300"
-                        style="height: 95%"
-                      ></div>
-                    </div>
-                    <span class="text-xs text-[#000] mt-2">Prş</span>
-                  </div>
-
-                  <!-- Friday -->
-                  <div class="flex flex-col items-center gap-2">
-                    <div class="relative w-[22px] h-32">
-                      <div
-                        class="absolute inset-0 bg-[#FFE5E5] rounded-full"
-                      ></div>
-                      <div
-                        class="absolute bottom-0 w-full bg-[#FD5757] rounded-full transition-all duration-300"
-                        style="height: 75%"
-                      ></div>
-                    </div>
-                    <span class="text-xs text-[#000] mt-2">Cuma</span>
-                  </div>
-
-                  <!-- Saturday -->
-                  <div class="flex flex-col items-center gap-2">
-                    <div class="relative w-[22px] h-32">
-                      <div
-                        class="absolute inset-0 bg-[#FFE5E5] rounded-full"
-                      ></div>
-                      <div
-                        class="absolute bottom-0 w-full bg-[#FD5757] rounded-full transition-all duration-300"
-                        style="height: 35%"
-                      ></div>
-                    </div>
-                    <span class="text-xs text-[#000] mt-2">Cmt</span>
-                  </div>
-
-                  <!-- Sunday -->
-                  <div class="flex flex-col items-center gap-2">
-                    <div class="relative w-[22px] h-32">
-                      <div
-                        class="absolute inset-0 bg-[#FFE5E5] rounded-full"
-                      ></div>
-                      <div
-                        class="absolute bottom-0 w-full bg-[#FD5757] rounded-full transition-all duration-300"
-                        style="height: 15%"
-                      ></div>
-                    </div>
-                    <span class="text-xs text-[#000] mt-2">Pzr</span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Stats -->
-              <div class="grid grid-cols-3 gap-4">
-                <div class="text-center border-r border-[#EEEEEE]">
-                  <p
-                    class="text-[14px] text-[#2B2B2B] leading-[21px] font-[300]"
-                  >
-                    Satış
-                  </p>
-                  <p
-                    class="font-poppins text-[28px] leading-[42px] font-[600] text-center mb-4"
-                  >
-                    96
-                  </p>
-                </div>
-                <div class="text-center border-r border-[#EEEEEE]">
-                  <p
-                    class="text-[14px] text-[#2B2B2B] leading-[21px] font-[300]"
-                  >
-                    Değişim
-                  </p>
-                  <p
-                    class="font-poppins text-[28px] leading-[42px] font-[600] text-center mb-4"
-                  >
-                    22
-                  </p>
-                </div>
-                <div class="text-center">
-                  <p
-                    class="text-[14px] text-[#2B2B2B] leading-[21px] font-[300]"
-                  >
-                    İade
-                  </p>
-                  <p
-                    class="font-poppins text-[28px] leading-[42px] font-[600] text-center mb-4"
-                  >
-                    18
-                  </p>
                 </div>
               </div>
             </div>
