@@ -19,9 +19,858 @@
     </script>
   </head>
   <body class="min-h-screen flex font-poppins">
+    <div class="flex-1 w-full flex flex-col xl:ml-64">
+      <header class="p-4 h-[72px] flex items-center justify-between w-full">
+        <div class="flex items-center sm:gap-4 gap-2">
+          <button class="xl:hidden" id="navToggle">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </button>
+          <h1 class="text-xl font-semibold">Hoşgeldin, Eteyit</h1>
+        </div>
+
+        <div class="flex items-center gap-4">
+          <!-- Desktop search input with its icon -->
+          <div class="relative hidden md:block">
+            <input
+              type="text"
+              placeholder="Ara"
+              class="w-[308px] pl-11 pr-4 py-2 bg-white rounded-[14px] border-[1px] border-[#ECECEC] font-poppins text-sm font-normal leading-[21px]"
+            />
+            <svg
+              class="absolute left-[18px] top-1/2 -translate-y-1/2"
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M14 14L10 10M11.3333 6.66667C11.3333 9.244 9.244 11.3333 6.66667 11.3333C4.08934 11.3333 2 9.244 2 6.66667C2 4.08934 4.08934 2 6.66667 2C9.244 2 11.3333 4.08934 11.3333 6.66667Z"
+                stroke="#999999"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+
+          <!-- Mobile search button -->
+          <button class="md:hidden" id="mobileSearchBtn">
+            <svg
+              class="w-5 h-5"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              />
+            </svg>
+          </button>
+
+          <!-- Bell icon -->
+          <button>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
+              />
+            </svg>
+          </button>
+
+          <!-- Profile image and arrow (keeping at the end) -->
+          <div class="flex gap-2">
+            <img
+              src="./assests/logo.jpg"
+              class="h-[36px] w-[36px]"
+              alt="Eteyit Logo"
+            />
+            <button class="p-0">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <!-- Search Overlay -->
+      <div
+        id="searchOverlay"
+        class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden"
+      >
+        <div class="w-full bg-white shadow-lg">
+          <div class="container mx-auto px-4 py-3">
+            <div class="relative">
+              <input
+                type="text"
+                id="searchInput"
+                placeholder="Arama yap"
+                class="w-full pl-11 pr-4 py-2 bg-white rounded-[14px] border-[1px] border-[#ECECEC] font-poppins text-sm font-normal leading-[21px] placeholder:text-sm placeholder:font-normal placeholder:leading-[21px] placeholder:font-poppins"
+              />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5 absolute left-[18px] top-1/2 -translate-y-1/2 text-gray-400"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                />
+              </svg>
+              <button
+                id="closeSearch"
+                class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <main class="p-6">
+        <section class="section-verify mb-4">
+          <h2 class="text-2xl mb-8 font-[600] text-center">İşlem Teyiti</h2>
+          <div class="p-8 rounded-[16px] bg-[#FCFCFC]">
+            <div class="mx-auto bg-[#FCFCFC] max-w-2xl">
+              <form class="space-y-6">
+                <!-- Teyit Türü -->
+                <div class="space-y-2">
+                  <label
+                    class="block font-poppins text-xs leading-[18px] text-black font-medium"
+                  >
+                    Teyit türünüzü seçin
+                  </label>
+                  <div class="relative">
+                    <select
+                      name="teyitTuru"
+                      class="w-full appearance-none px-[24px] py-2 border border-gray-300 rounded-l-[8px] rounded-r-[8px] focus:ring-blue-500 focus:border-blue-500 font-poppins text-xs leading-[18px] font-normal [&>optgroup]:transform-none [&>option]:transform-none"
+                      required
+                    >
+                      <option
+                        value=""
+                        class="font-poppins text-xs leading-[18px] font-normal"
+                      >
+                        Satış
+                      </option>
+                      <option
+                        value="type1"
+                        class="font-poppins text-xs leading-[18px] font-normal"
+                      >
+                        Teyit Türü 1
+                      </option>
+                      <option
+                        value="type2"
+                        class="font-poppins text-xs leading-[18px] font-normal"
+                      >
+                        Teyit Türü 2
+                      </option>
+                    </select>
+                    <svg
+                      class="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none"
+                      width="22"
+                      height="22"
+                      viewBox="0 0 22 22"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M5.5 8.25L11 13.75L16.5 8.25"
+                        stroke="black"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
+                </div>
+
+                <!-- Kargo Takip No -->
+                <div class="space-y-2">
+                  <label
+                    class="block font-poppins text-xs leading-[18px] text-black font-medium"
+                  >
+                    Kargo Takip No
+                  </label>
+                  <div class="flex">
+                    <div class="relative w-1/3">
+                      <select
+                        name="kargoTipi"
+                        class="w-full appearance-none px-[24px] py-2 border border-gray-300 rounded-l-[8px] focus:ring-blue-500 focus:border-blue-500 font-poppins text-xs leading-[18px] font-normal [&>optgroup]:transform-none [&>option]:transform-none"
+                        required
+                      >
+                        <option
+                          value=""
+                          class="font-poppins text-xs leading-[18px] font-normal"
+                        >
+                          Yurtiçi
+                        </option>
+                        <option
+                          value="type1"
+                          class="font-poppins text-xs leading-[18px] font-normal"
+                        >
+                          Tür 1
+                        </option>
+                        <option
+                          value="type2"
+                          class="font-poppins text-xs leading-[18px] font-normal"
+                        >
+                          Tür 2
+                        </option>
+                      </select>
+                      <svg
+                        class="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none"
+                        width="22"
+                        height="22"
+                        viewBox="0 0 22 22"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M5.5 8.25L11 13.75L16.5 8.25"
+                          stroke="black"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </div>
+                    <input
+                      type="text"
+                      name="kargoTakipNo"
+                      value="6428974"
+                      class="w-2/3 px-4 py-2 border border-l-0 border-gray-300 rounded-r-[8px] focus:ring-blue-500 focus:border-blue-500 font-poppins text-xs leading-[18px] font-normal placeholder:font-poppins placeholder:text-xs placeholder:leading-[18px] placeholder:font-normal placeholder:text-[#999] placeholder:text-center"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <!-- Ürün Adı -->
+                <div class="space-y-2">
+                  <label
+                    class="block font-poppins text-xs leading-[18px] text-black font-medium"
+                  >
+                    Ürün Adı
+                  </label>
+                  <input
+                    type="text"
+                    name="urunAdi"
+                    placeholder="Ürün adını giriniz"
+                    class="w-full px-4 py-2 border border-gray-300 rounded-l-[8px] rounded-r-[8px] focus:ring-blue-500 focus:border-blue-500 font-poppins text-xs leading-[18px] font-normal placeholder:font-poppins placeholder:text-xs placeholder:leading-[18px] placeholder:font-normal placeholder:text-[#999]"
+                    required
+                  />
+                </div>
+
+                <!-- Fatura -->
+                <div class="space-y-2">
+                  <label
+                    class="block font-poppins text-xs leading-[18px] text-black font-medium"
+                  >
+                    Fatura
+                  </label>
+                  <div
+                    class="flex flex-col items-center justify-center border border-[#F2F2F2] rounded-lg p-6 bg-[#fff]"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-8 w-8 text-gray-400 mb-2"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="#111"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"
+                      />
+                    </svg>
+                    <p class="text-sm text-[#111] text-center">
+                      Belgeyi seç ve ya sürükleyip buraya bırak
+                    </p>
+                    <p class="text-xs text-[#2B2B2B] mt-1">
+                      PDF, JPEG, JPG. En fazla 8 MB
+                    </p>
+                    <button
+                      type="button"
+                      class="mt-4 px-4 py-1 border border-[#2B2B2B] rounded-[6px] text-sm text-[#2B2B2B] hover:bg-[#2B2B2B] hover:text-white transition-all duration-200"
+                    >
+                      Göz At
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="flex justify-center">
+                  <button
+                    type="submit"
+                    class="px-4 py-2 bg-[#111] text-[#fff] text-[12px] font-[400] rounded-[20px] hover:bg-gray-800 transition-colors"
+                  >
+                    Gönder
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </section>
+        <div class="container-box flex gap-4 flex-col xl:flex-row">
+          <section class="section-last-confirmations flex-1 mt-4">
+            <div class="p-6 rounded-[16px] bg-[#FCFCFC]">
+              <div
+                class="flex justify-between items-center mb-4 flex-wrap gap-y-3"
+              >
+                <h2 class="font-poppins text-[16px] font-[500] text-[#111111]">
+                  Son Teyitlemeler
+                </h2>
+                <div class="flex items-center gap-4 flex-wrap gap-y-1.5">
+                  <button
+                    class="flex items-center appearance-none text-[#8F949C] py-1 px-2 border border-[#D7DBE2] rounded-[8px] font-poppins text-[14px] font-[400] leading-[21px]"
+                  >
+                    Dışarı Aktar
+                    <svg
+                      class="ml-2"
+                      width="16"
+                      height="17"
+                      viewBox="0 0 16 17"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9.33301 2.5V5.16667C9.33301 5.34348 9.40325 5.51305 9.52827 5.63807C9.65329 5.7631 9.82286 5.83333 9.99967 5.83333H12.6663M9.33301 2.5H4.66634C4.31272 2.5 3.97358 2.64048 3.72353 2.89052C3.47348 3.14057 3.33301 3.47971 3.33301 3.83333V13.1667C3.33301 13.5203 3.47348 13.8594 3.72353 14.1095C3.97358 14.3595 4.31272 14.5 4.66634 14.5H11.333C11.6866 14.5 12.0258 14.3595 12.2758 14.1095C12.5259 13.8594 12.6663 13.5203 12.6663 13.1667V5.83333M9.33301 2.5L12.6663 5.83333M9.99967 10.5H5.99967M5.99967 10.5L7.66634 12.1667M5.99967 10.5L7.66634 8.83333"
+                        stroke="#8F949C"
+                        stroke-width="1.25"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </button>
+
+                  <div class="relative">
+                    <select
+                      class="appearance-none text-[#8F949C] py-1 pl-2 pr-6 border border-[#D7DBE2] rounded-[8px] font-normal font-poppins text-[14px] font-[400] leading-[21px]"
+                    >
+                      <option
+                        class="text-[#8F949C] py-1 border border-[#D7DBE2] rounded-[8px] font-poppins text-[14px] font-[400] leading-[21px]"
+                      >
+                        Onaylanan Teyitler
+                      </option>
+                    </select>
+                    <svg
+                      class="absolute right-1 top-1/2 -translate-y-1/2 pointer-events-none"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 22 22"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M5.5 8.25L11 13.75L16.5 8.25"
+                        stroke="#8F949C"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
+                  <div class="relative">
+                    <select
+                      class="appearance-none pl-4 pr-8 py-1 border text-[#8F949C] border-[#D7DBE2] rounded-[8px] font-poppins text-[14px] font-[400] leading-[21px]"
+                    >
+                      <option>Filtrele</option>
+                    </select>
+                    <svg
+                      class="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none"
+                      width="16"
+                      height="17"
+                      viewBox="0 0 16 17"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M6.00016 4.5H13.3335M8.00016 8.5H13.3335M10.0002 12.5H13.3335M3.3335 4.5V4.50667M5.3335 8.5V8.50667M7.3335 12.5V12.5067"
+                        stroke="#8F949C"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="overflow-auto scroll-smooth scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100 sm:auto"
+              >
+                <div class="min-w-[700px] w-full">
+                  <!-- Table Header -->
+                  <div
+                    class="grid grid-cols-4 gap-4 md:gap-8 px-4 py-2 text-xs font-[400] text-[12px] leading-[18px] text-[#999999]"
+                  >
+                    <div
+                      class="font-poppins text-[12px] font-[400] leading-[18px] tracking-[0%] text-[#1B68FC]"
+                    >
+                      Teyit Türü
+                    </div>
+                    <div
+                      class="font-poppins text-[12px] font-[400] leading-[18px] tracking-[0%] text-[#1B68FC]"
+                    >
+                      Kargo No
+                    </div>
+                    <div
+                      class="font-poppins text-[12px] font-[400] leading-[18px] tracking-[0%] text-[#1B68FC]"
+                    >
+                      Ürün Adı
+                    </div>
+                    <div
+                      class="font-poppins text-[12px] font-[400] leading-[18px] tracking-[0%] text-[#1B68FC]"
+                    >
+                      Fatura
+                    </div>
+                  </div>
+
+                  <!-- Table Rows -->
+                  <div class="space-y-2 bg-[#FFFFFF] p-4">
+                    <!-- Row 1 -->
+                    <div
+                      class="grid grid-cols-4 gap-4 md:gap-8 items-center px-4 pt-3 pb-5 border-b border-[#EEEEEE] bg-white rounded-lg text-xs"
+                    >
+                      <div>
+                        <span
+                          class="px-3 py-1 bg-[#9AFFA5] text-[#00750C] rounded-full"
+                          >Satış</span
+                        >
+                      </div>
+                      <div>YRT-6428974</div>
+                      <div class="truncate">
+                        Samsung Galaxy Buds 2 Bluetooth TWS Kulaklık
+                      </div>
+                      <div>
+                        <a
+                          href="#"
+                          class="flex items-center gap-1 text-[#5647FB] no-underline"
+                        >
+                          <span>Görüntüle</span>
+                          <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M6 12L10 8L6 4"
+                              stroke="currentColor"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                          </svg>
+                        </a>
+                      </div>
+                    </div>
+
+                    <!-- Row 2 -->
+                    <div
+                      class="grid grid-cols-4 gap-4 md:gap-8 items-center px-4 pt-3 pb-5 bg-white rounded-lg text-xs border-b border-[#EEEEEE]"
+                    >
+                      <div>
+                        <span
+                          class="px-3 py-1 bg-[#FFB9B9] text-[#D82626] rounded-full"
+                          >İade</span
+                        >
+                      </div>
+                      <div>YRT-6428974</div>
+                      <div class="truncate">
+                        Samsung Galaxy Buds 2 Bluetooth TWS Kulaklık
+                      </div>
+                      <div>
+                        <a
+                          href="#"
+                          class="flex items-center gap-1 text-[#5647FB] no-underline"
+                        >
+                          <span>Görüntüle</span>
+                          <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M6 12L10 8L6 4"
+                              stroke="currentColor"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                          </svg>
+                        </a>
+                      </div>
+                    </div>
+
+                    <!-- Row 3 -->
+                    <div
+                      class="grid grid-cols-4 gap-4 md:gap-8 items-center px-4 pt-3 pb-5 bg-white rounded-lg text-xs border-b border-[#EEEEEE]"
+                    >
+                      <div>
+                        <span
+                          class="px-3 py-1 bg-[#FFD5AD] text-[#C25D00] rounded-full"
+                          >Değişim</span
+                        >
+                      </div>
+                      <div>YRT-6428974</div>
+                      <div class="truncate">
+                        Samsung Galaxy Buds 2 Bluetooth TWS Kulaklık
+                      </div>
+                      <div>
+                        <a
+                          href="#"
+                          class="flex items-center gap-1 text-[#5647FB] no-underline"
+                        >
+                          <span>Görüntüle</span>
+                          <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M6 12L10 8L6 4"
+                              stroke="currentColor"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                          </svg>
+                        </a>
+                      </div>
+                    </div>
+
+                    <!-- Row 4 -->
+                    <div
+                      class="grid grid-cols-4 gap-4 md:gap-8 items-center px-4 pt-3 pb-5 bg-white rounded-lg text-xs border-b border-[#EEEEEE]"
+                    >
+                      <div>
+                        <span
+                          class="px-3 py-1 bg-[#FFB9B9] text-[#D82626] rounded-full"
+                          >İade</span
+                        >
+                      </div>
+                      <div>YRT-6428974</div>
+                      <div class="truncate">
+                        Samsung Galaxy Buds 2 Bluetooth TWS Kulaklık
+                      </div>
+                      <div>
+                        <a
+                          href="#"
+                          class="flex items-center gap-1 text-[#5647FB] no-underline"
+                        >
+                          <span>Görüntüle</span>
+                          <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M6 12L10 8L6 4"
+                              stroke="currentColor"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                          </svg>
+                        </a>
+                      </div>
+                    </div>
+
+                    <!-- Row 5 -->
+                    <div
+                      class="grid grid-cols-4 gap-4 md:gap-8 items-center px-4 pt-3 pb-5 bg-white rounded-lg text-xs border-b border-[#EEEEEE]"
+                    >
+                      <div>
+                        <span
+                          class="px-3 py-1 bg-[#9AFFA5] text-[#00750C] rounded-full"
+                          >Satış</span
+                        >
+                      </div>
+                      <div>YRT-6428974</div>
+                      <div class="truncate">
+                        Samsung Galaxy Buds 2 Bluetooth TWS Kulaklık
+                      </div>
+                      <div>
+                        <a
+                          href="#"
+                          class="flex items-center gap-1 text-[#5647FB] no-underline"
+                        >
+                          <span>Görüntüle</span>
+                          <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M6 12L10 8L6 4"
+                              stroke="currentColor"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                          </svg>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Tümünü Gör Link -->
+              <div class="text-center mt-4">
+                <a
+                  href="#"
+                  class="inline-block text-xs bg-[#fff]p-0.75 text-[#292929] border border-[#F2F2F2] font-poppins font-[400] leading-[18px] bg-[#fff] px-[12px] py-[8px] rounded-[12px]"
+                  >Tümünü Gör</a
+                >
+              </div>
+            </div>
+          </section>
+          <section class="section-weekly-overview w-full sm:w-[400px] mt-4">
+            <div class="sm:w-full p-6 rounded-[16px] bg-[#FCFCFC] h-full">
+              <!-- Header -->
+              <div class="mb-6">
+                <h2 class="font-poppins font-[500] text-[#111111] text-[16px]">
+                  Haftalık Bakış
+                </h2>
+                <p class="text-sm text-gray-500">25-31 Mart</p>
+              </div>
+
+              <!-- Chart Container -->
+              <div class="mb-4 pb-4 border-b border-[#EEEEEE]">
+                <!-- Chart Bars -->
+                <div class="flex items-end justify-between h-48 relative">
+                  <!-- Monday -->
+                  <div class="flex flex-col items-center gap-2">
+                    <div class="relative w-[22px] h-32">
+                      <div
+                        class="absolute inset-0 bg-[#FFE5E5] rounded-full"
+                      ></div>
+                      <div
+                        class="absolute bottom-0 w-full bg-[#FD5757] rounded-full transition-all duration-300"
+                        style="height: 45%"
+                      ></div>
+                    </div>
+                    <span class="text-xs text-[#000] mt-2">Pzt</span>
+                  </div>
+
+                  <!-- Tuesday -->
+                  <div class="flex flex-col items-center gap-2">
+                    <div class="relative w-[22px] h-32">
+                      <div
+                        class="absolute inset-0 bg-[#FFE5E5] rounded-full"
+                      ></div>
+                      <div
+                        class="absolute bottom-0 w-full bg-[#FD5757] rounded-full transition-all duration-300"
+                        style="height: 65%"
+                      ></div>
+                    </div>
+                    <span class="text-xs text-[#000] mt-2">Salı</span>
+                  </div>
+
+                  <!-- Wednesday -->
+                  <div class="flex flex-col items-center gap-2">
+                    <div class="relative w-[22px] h-32">
+                      <div
+                        class="absolute inset-0 bg-[#FFE5E5] rounded-full"
+                      ></div>
+                      <div
+                        class="absolute bottom-0 w-full bg-[#FD5757] rounded-full transition-all duration-300"
+                        style="height: 85%"
+                      ></div>
+                    </div>
+                    <span class="text-xs text-[#000] mt-2">Çrş</span>
+                  </div>
+
+                  <!-- Thursday -->
+                  <div class="flex flex-col items-center gap-2">
+                    <div class="relative w-[22px] h-32">
+                      <div
+                        class="absolute inset-0 bg-[#FFE5E5] rounded-full"
+                      ></div>
+                      <div
+                        class="absolute bottom-0 w-full bg-[#FD5757] rounded-full transition-all duration-300"
+                        style="height: 95%"
+                      ></div>
+                    </div>
+                    <span class="text-xs text-[#000] mt-2">Prş</span>
+                  </div>
+
+                  <!-- Friday -->
+                  <div class="flex flex-col items-center gap-2">
+                    <div class="relative w-[22px] h-32">
+                      <div
+                        class="absolute inset-0 bg-[#FFE5E5] rounded-full"
+                      ></div>
+                      <div
+                        class="absolute bottom-0 w-full bg-[#FD5757] rounded-full transition-all duration-300"
+                        style="height: 75%"
+                      ></div>
+                    </div>
+                    <span class="text-xs text-[#000] mt-2">Cuma</span>
+                  </div>
+
+                  <!-- Saturday -->
+                  <div class="flex flex-col items-center gap-2">
+                    <div class="relative w-[22px] h-32">
+                      <div
+                        class="absolute inset-0 bg-[#FFE5E5] rounded-full"
+                      ></div>
+                      <div
+                        class="absolute bottom-0 w-full bg-[#FD5757] rounded-full transition-all duration-300"
+                        style="height: 35%"
+                      ></div>
+                    </div>
+                    <span class="text-xs text-[#000] mt-2">Cmt</span>
+                  </div>
+
+                  <!-- Sunday -->
+                  <div class="flex flex-col items-center gap-2">
+                    <div class="relative w-[22px] h-32">
+                      <div
+                        class="absolute inset-0 bg-[#FFE5E5] rounded-full"
+                      ></div>
+                      <div
+                        class="absolute bottom-0 w-full bg-[#FD5757] rounded-full transition-all duration-300"
+                        style="height: 15%"
+                      ></div>
+                    </div>
+                    <span class="text-xs text-[#000] mt-2">Pzr</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Stats -->
+              <div class="grid grid-cols-3 gap-4">
+                <div class="text-center border-r border-[#EEEEEE]">
+                  <p
+                    class="text-[14px] text-[#2B2B2B] leading-[21px] font-[300]"
+                  >
+                    Satış
+                  </p>
+                  <p
+                    class="font-poppins text-[28px] leading-[42px] font-[600] text-center mb-4"
+                  >
+                    96
+                  </p>
+                </div>
+                <div class="text-center border-r border-[#EEEEEE]">
+                  <p
+                    class="text-[14px] text-[#2B2B2B] leading-[21px] font-[300]"
+                  >
+                    Değişim
+                  </p>
+                  <p
+                    class="font-poppins text-[28px] leading-[42px] font-[600] text-center mb-4"
+                  >
+                    22
+                  </p>
+                </div>
+                <div class="text-center">
+                  <p
+                    class="text-[14px] text-[#2B2B2B] leading-[21px] font-[300]"
+                  >
+                    İade
+                  </p>
+                  <p
+                    class="font-poppins text-[28px] leading-[42px] font-[600] text-center mb-4"
+                  >
+                    18
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+
     <aside
-      class="w-64 bg-white p-9 flex flex-col border-r border-[#eee] h-screen"
+      class="fixed inset-y-0 left-0 w-64 bg-white p-9 flex flex-col border-r border-[#eee] transform -translate-x-full xl:translate-x-0 transition-transform duration-300 ease-in-out z-40"
+      id="sidebar"
     >
+      <!-- Close button for mobile - adjusted top spacing -->
+      <button class="absolute top-8 right-8 xl:hidden" id="closeNav">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"
+          />
+        </svg>
+      </button>
+
       <!-- Logo/Username -->
       <div class="mb-[64px]">
         <h2 class="text-2xl font-semibold leading-9">eteyit</h2>
@@ -259,736 +1108,107 @@
       </nav>
     </aside>
 
-    <div class="flex-1 flex flex-col">
-      <header class="p-4 h-[72px] flex items-center justify-between">
-        <h1 class="text-xl font-semibold">Hoşgeldin, Eteyit</h1>
-
-        <div class="flex items-center gap-4">
-          <!-- Search Bar -->
-          <div class="relative">
-            <input type="text" placeholder="Arama yap" class="pl-11 pr-4 py-2
-            bg-white rounded-[14px] border-[1px] border-[#ECECEC] font-poppins
-            text-sm font-normal leading-[21px] placeholder:text-sm
-            placeholder:font-normal placeholder:leading-[21px]
-            placeholder:font-poppins"" />
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5 absolute left-[18px] top-1/2 -translate-y-1/2 text-gray-400"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-              />
-            </svg>
-          </div>
-
-          <!-- Bell Icon -->
-          <button class="p-2">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
-              />
-            </svg>
-          </button>
-          <div class="flex gap-2">
-            <img src="./assests/logo.jpg" class="h-[36px] w-[36px] alt="Eteyit
-            Logo" />
-
-            <!-- Settings/Language Dropdown -->
-            <button class="p-0">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
-            </button>
-          </div>
-        </div>
-      </header>
-      <main class="p-6">
-        <section class="section-verify mb-4">
-          <h2 class="text-2xl my-8 font-[600] text-center mb-4">
-            İşlem Teyiti
+    <!-- Comment slider structure -->
+    <div
+      id="commentSlider"
+      class="fixed inset-y-0 right-0 w-80 bg-white shadow-lg transform translate-x-full transition-transform duration-300 ease-in-out z-50 hidden"
+    >
+      <!-- Header -->
+      <div
+        class="flex items-center justify-between p-4 border-b border-[#EEEEEE]"
+      >
+        <div class="flex flex-col gap-1">
+          <h2 class="font-poppins text-[16px] font-[500] text-[#111111]">
+            Son Değerlendirmeler
           </h2>
-          <div class="p-8 rounded-[16px] bg-[#FCFCFC]">
-            <div class="mx-auto bg-[#FCFCFC] max-w-2xl">
-              <form class="space-y-6">
-                <!-- Teyit Türü -->
-                <div class="space-y-2">
-                  <label
-                    class="block font-poppins text-xs leading-[18px] text-black font-medium"
-                  >
-                    Teyit türünüzü seçin
-                  </label>
-                  <div class="relative">
-                    <select
-                      name="teyitTuru"
-                      class="w-full appearance-none px-[24px] py-2 border border-gray-300 rounded-l-[8px] rounded-r-[8px] focus:ring-blue-500 focus:border-blue-500 font-poppins text-xs leading-[18px] font-normal [&>optgroup]:transform-none [&>option]:transform-none"
-                      required
-                    >
-                      <option
-                        value=""
-                        class="font-poppins text-xs leading-[18px] font-normal"
-                      >
-                        Satış
-                      </option>
-                      <option
-                        value="type1"
-                        class="font-poppins text-xs leading-[18px] font-normal"
-                      >
-                        Teyit Türü 1
-                      </option>
-                      <option
-                        value="type2"
-                        class="font-poppins text-xs leading-[18px] font-normal"
-                      >
-                        Teyit Türü 2
-                      </option>
-                    </select>
-                    <svg
-                      class="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none"
-                      width="22"
-                      height="22"
-                      viewBox="0 0 22 22"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M5.5 8.25L11 13.75L16.5 8.25"
-                        stroke="black"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                  </div>
-                </div>
-
-                <!-- Kargo Takip No -->
-                <div class="space-y-2">
-                  <label
-                    class="block font-poppins text-xs leading-[18px] text-black font-medium"
-                  >
-                    Kargo Takip No
-                  </label>
-                  <div class="flex">
-                    <div class="relative w-1/3">
-                      <select
-                        name="kargoTipi"
-                        class="w-full appearance-none px-[24px] py-2 border border-gray-300 rounded-l-[8px] focus:ring-blue-500 focus:border-blue-500 font-poppins text-xs leading-[18px] font-normal [&>optgroup]:transform-none [&>option]:transform-none"
-                        required
-                      >
-                        <option
-                          value=""
-                          class="font-poppins text-xs leading-[18px] font-normal"
-                        >
-                          Yurtiçi
-                        </option>
-                        <option
-                          value="type1"
-                          class="font-poppins text-xs leading-[18px] font-normal"
-                        >
-                          Tür 1
-                        </option>
-                        <option
-                          value="type2"
-                          class="font-poppins text-xs leading-[18px] font-normal"
-                        >
-                          Tür 2
-                        </option>
-                      </select>
-                      <svg
-                        class="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none"
-                        width="22"
-                        height="22"
-                        viewBox="0 0 22 22"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M5.5 8.25L11 13.75L16.5 8.25"
-                          stroke="black"
-                          stroke-width="1.5"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                      </svg>
-                    </div>
-                    <input
-                      type="text"
-                      name="kargoTakipNo"
-                      value="6428974"
-                      class="w-2/3 px-4 py-2 border border-l-0 border-gray-300 rounded-r-[8px] focus:ring-blue-500 focus:border-blue-500 font-poppins text-xs leading-[18px] font-normal placeholder:font-poppins placeholder:text-xs placeholder:leading-[18px] placeholder:font-normal placeholder:text-[#999] placeholder:text-center"
-                      required
-                    />
-                  </div>
-                </div>
-
-                <!-- Ürün Adı -->
-                <div class="space-y-2">
-                  <label
-                    class="block font-poppins text-xs leading-[18px] text-black font-medium"
-                  >
-                    Ürün Adı
-                  </label>
-                  <input
-                    type="text"
-                    name="urunAdi"
-                    placeholder="Ürün adını giriniz"
-                    class="w-full px-4 py-2 border border-gray-300 rounded-l-[8px] rounded-r-[8px] focus:ring-blue-500 focus:border-blue-500 font-poppins text-xs leading-[18px] font-normal placeholder:font-poppins placeholder:text-xs placeholder:leading-[18px] placeholder:font-normal placeholder:text-[#999]"
-                    required
-                  />
-                </div>
-
-                <!-- Fatura -->
-                <div class="space-y-2">
-                  <label
-                    class="block font-poppins text-xs leading-[18px] text-black font-medium"
-                  >
-                    Fatura
-                  </label>
-                  <div
-                    class="flex flex-col items-center justify-center border border-[#F2F2F2] rounded-lg p-6 bg-[#fff]"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-8 w-8 text-gray-400 mb-2"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="#111"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"
-                      />
-                    </svg>
-                    <p class="text-sm text-[#111] text-center">
-                      Belgeyi seç ve ya sürükleyip buraya bırak
-                    </p>
-                    <p class="text-xs text-[#2B2B2B] mt-1">
-                      PDF, JPEG, JPG. En fazla 8 MB
-                    </p>
-                    <button
-                      type="button"
-                      class="mt-4 px-4 py-1 border border-[#2B2B2B] rounded-[6px] text-sm text-[#2B2B2B] hover:bg-[#2B2B2B] hover:text-white transition-all duration-200"
-                    >
-                      Göz At
-                    </button>
-                  </div>
-                </div>
-
-                <!-- Submit Button -->
-                <div class="flex justify-center">
-                  <button
-                    type="submit"
-                    class="px-4 py-2 bg-[#111] text-[#fff] text-[12px] font-[400] rounded-[20px] hover:bg-gray-800 transition-colors"
-                  >
-                    Gönder
-                  </button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </section>
-        <div class="container-box flex gap-4 flex-col xl:flex-row">
-          <section class="section-last-confirmations flex-1 mt-4">
-            <div class="p-6 rounded-[16px] bg-[#FCFCFC]">
-              <div class="flex justify-between items-center mb-4">
-                <h2 class="font-poppins text-[16px] font-[500] text-[#111111]">
-                  Son Teyitlemeler
-                </h2>
-                <div class="flex items-center gap-4">
-                  <button
-                    class="flex items-center appearance-none text-[#8F949C] py-1 px-2 border border-[#D7DBE2] rounded-[8px] font-poppins text-[14px] font-[400] leading-[21px]"
-                  >
-                    Dışarı Aktar
-                    <svg
-                      class="ml-2"
-                      width="16"
-                      height="17"
-                      viewBox="0 0 16 17"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M9.33301 2.5V5.16667C9.33301 5.34348 9.40325 5.51305 9.52827 5.63807C9.65329 5.7631 9.82286 5.83333 9.99967 5.83333H12.6663M9.33301 2.5H4.66634C4.31272 2.5 3.97358 2.64048 3.72353 2.89052C3.47348 3.14057 3.33301 3.47971 3.33301 3.83333V13.1667C3.33301 13.5203 3.47348 13.8594 3.72353 14.1095C3.97358 14.3595 4.31272 14.5 4.66634 14.5H11.333C11.6866 14.5 12.0258 14.3595 12.2758 14.1095C12.5259 13.8594 12.6663 13.5203 12.6663 13.1667V5.83333M9.33301 2.5L12.6663 5.83333M9.99967 10.5H5.99967M5.99967 10.5L7.66634 12.1667M5.99967 10.5L7.66634 8.83333"
-                        stroke="#8F949C"
-                        stroke-width="1.25"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                  </button>
-
-                  <div class="relative">
-                    <select
-                      class="appearance-none text-[#8F949C] py-1 pl-2 pr-6 border border-[#D7DBE2] rounded-[8px] font-normal font-poppins text-[14px] font-[400] leading-[21px]"
-                    >
-                      <option
-                        class="text-[#8F949C] py-1 border border-[#D7DBE2] rounded-[8px] font-poppins text-[14px] font-[400] leading-[21px]"
-                      >
-                        Onaylanan Teyitler
-                      </option>
-                    </select>
-                    <svg
-                      class="absolute right-1 top-1/2 -translate-y-1/2 pointer-events-none"
-                      width="16"
-                      height="16"
-                      viewBox="0 0 22 22"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M5.5 8.25L11 13.75L16.5 8.25"
-                        stroke="#8F949C"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                  </div>
-                  <div class="relative">
-                    <select
-                      class="appearance-none pl-4 pr-8 py-1 border text-[#8F949C] border-[#D7DBE2] rounded-[8px] font-poppins text-[14px] font-[400] leading-[21px]"
-                    >
-                      <option>Filtrele</option>
-                    </select>
-                    <svg
-                      class="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none"
-                      width="16"
-                      height="17"
-                      viewBox="0 0 16 17"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M6.00016 4.5H13.3335M8.00016 8.5H13.3335M10.0002 12.5H13.3335M3.3335 4.5V4.50667M5.3335 8.5V8.50667M7.3335 12.5V12.5067"
-                        stroke="#8F949C"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Table Header -->
-              <div
-                class="grid grid-cols-4 gap-4 md:gap-8 px-4 py-2 text-xs font-[400] text-[12px] leading-[18px] text-[#999999]"
-              >
-                <div
-                  class="font-poppins text-[12px] font-[400] leading-[18px] tracking-[0%] text-[#1B68FC]"
-                >
-                  Teyit Türü
-                </div>
-                <div
-                  class="font-poppins text-[12px] font-[400] leading-[18px] tracking-[0%] text-[#1B68FC]"
-                >
-                  Kargo No
-                </div>
-                <div
-                  class="font-poppins text-[12px] font-[400] leading-[18px] tracking-[0%] text-[#1B68FC]"
-                >
-                  Ürün Adı
-                </div>
-                <div
-                  class="font-poppins text-[12px] font-[400] leading-[18px] tracking-[0%] text-[#1B68FC]"
-                >
-                  Fatura
-                </div>
-              </div>
-
-              <!-- Table Rows -->
-              <div class="space-y-2 bg-[#FFFFFF] p-4">
-                <!-- Row 1 -->
-                <div
-                  class="grid grid-cols-4 gap-4 md:gap-8 items-center px-4 pt-3 pb-5 border-b border-[#EEEEEE] bg-white rounded-lg text-xs"
-                >
-                  <div>
-                    <span
-                      class="px-3 py-1 bg-[#9AFFA5] text-[#00750C] rounded-full"
-                      >Satış</span
-                    >
-                  </div>
-                  <div>YRT-6428974</div>
-                  <div class="truncate">
-                    Samsung Galaxy Buds 2 Bluetooth TWS Kulaklık
-                  </div>
-                  <div>
-                    <a
-                      href="#"
-                      class="flex items-center gap-1 text-[#5647FB] no-underline"
-                    >
-                      <span>Görüntüle</span>
-                      <svg
-                        width="16"
-                        height="16"
-                        viewBox="0 0 16 16"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M6 12L10 8L6 4"
-                          stroke="currentColor"
-                          stroke-width="1.5"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                      </svg>
-                    </a>
-                  </div>
-                </div>
-
-                <!-- Row 2 -->
-                <div
-                  class="grid grid-cols-4 gap-4 md:gap-8 items-center px-4 pt-3 pb-5 bg-white rounded-lg text-xs border-b border-[#EEEEEE]"
-                >
-                  <div>
-                    <span
-                      class="px-3 py-1 bg-[#FFB9B9] text-[#D82626] rounded-full"
-                      >İade</span
-                    >
-                  </div>
-                  <div>YRT-6428974</div>
-                  <div class="truncate">
-                    Samsung Galaxy Buds 2 Bluetooth TWS Kulaklık
-                  </div>
-                  <div>
-                    <a
-                      href="#"
-                      class="flex items-center gap-1 text-[#5647FB] no-underline"
-                    >
-                      <span>Görüntüle</span>
-                      <svg
-                        width="16"
-                        height="16"
-                        viewBox="0 0 16 16"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M6 12L10 8L6 4"
-                          stroke="currentColor"
-                          stroke-width="1.5"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                      </svg>
-                    </a>
-                  </div>
-                </div>
-
-                <!-- Row 3 -->
-                <div
-                  class="grid grid-cols-4 gap-4 md:gap-8 items-center px-4 pt-3 pb-5 bg-white rounded-lg text-xs border-b border-[#EEEEEE]"
-                >
-                  <div>
-                    <span
-                      class="px-3 py-1 bg-[#FFD5AD] text-[#C25D00] rounded-full"
-                      >Değişim</span
-                    >
-                  </div>
-                  <div>YRT-6428974</div>
-                  <div class="truncate">
-                    Samsung Galaxy Buds 2 Bluetooth TWS Kulaklık
-                  </div>
-                  <div>
-                    <a
-                      href="#"
-                      class="flex items-center gap-1 text-[#5647FB] no-underline"
-                    >
-                      <span>Görüntüle</span>
-                      <svg
-                        width="16"
-                        height="16"
-                        viewBox="0 0 16 16"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M6 12L10 8L6 4"
-                          stroke="currentColor"
-                          stroke-width="1.5"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                      </svg>
-                    </a>
-                  </div>
-                </div>
-
-                <!-- Row 4 -->
-                <div
-                  class="grid grid-cols-4 gap-4 md:gap-8 items-center px-4 pt-3 pb-5 bg-white rounded-lg text-xs border-b border-[#EEEEEE]"
-                >
-                  <div>
-                    <span
-                      class="px-3 py-1 bg-[#FFB9B9] text-[#D82626] rounded-full"
-                      >İade</span
-                    >
-                  </div>
-                  <div>YRT-6428974</div>
-                  <div class="truncate">
-                    Samsung Galaxy Buds 2 Bluetooth TWS Kulaklık
-                  </div>
-                  <div>
-                    <a
-                      href="#"
-                      class="flex items-center gap-1 text-[#5647FB] no-underline"
-                    >
-                      <span>Görüntüle</span>
-                      <svg
-                        width="16"
-                        height="16"
-                        viewBox="0 0 16 16"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M6 12L10 8L6 4"
-                          stroke="currentColor"
-                          stroke-width="1.5"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                      </svg>
-                    </a>
-                  </div>
-                </div>
-
-                <!-- Row 5 -->
-                <div
-                  class="grid grid-cols-4 gap-4 md:gap-8 items-center px-4 pt-3 pb-5 bg-white rounded-lg text-xs border-b border-[#EEEEEE]"
-                >
-                  <div>
-                    <span
-                      class="px-3 py-1 bg-[#9AFFA5] text-[#00750C] rounded-full"
-                      >Satış</span
-                    >
-                  </div>
-                  <div>YRT-6428974</div>
-                  <div class="truncate">
-                    Samsung Galaxy Buds 2 Bluetooth TWS Kulaklık
-                  </div>
-                  <div>
-                    <a
-                      href="#"
-                      class="flex items-center gap-1 text-[#5647FB] no-underline"
-                    >
-                      <span>Görüntüle</span>
-                      <svg
-                        width="16"
-                        height="16"
-                        viewBox="0 0 16 16"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M6 12L10 8L6 4"
-                          stroke="currentColor"
-                          stroke-width="1.5"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                      </svg>
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Tümünü Gör Link -->
-              <div class="text-center mt-4">
-                <a
-                  href="#"
-                  class="inline-block text-xs bg-[#fff]p-0.75 text-[#292929] border border-[#F2F2F2] font-poppins font-[400] leading-[18px] bg-[#fff] px-[12px] py-[8px] rounded-[12px]"
-                  >Tümünü Gör</a
-                >
-              </div>
-            </div>
-          </section>
-          <section class="section-weekly-overview w-[400px] mt-4">
-            <div class="max-w-md w-full p-6 rounded-[16px] bg-[#FCFCFC] h-full">
-              <!-- Header -->
-              <div class="mb-6">
-                <h2 class="font-poppins font-[500] text-[#111111] text-[16px]">
-                  Haftalık Bakış
-                </h2>
-                <p class="text-sm text-gray-500">25-31 Mart</p>
-              </div>
-
-              <!-- Chart Container -->
-              <div class="mb-4 pb-4 border-b border-[#EEEEEE]">
-                <!-- Chart Bars -->
-                <div class="flex items-end justify-between h-48 relative">
-                  <!-- Monday -->
-                  <div class="flex flex-col items-center gap-2">
-                    <div class="relative w-[22px] h-32">
-                      <div
-                        class="absolute inset-0 bg-[#FFE5E5] rounded-full"
-                      ></div>
-                      <div
-                        class="absolute bottom-0 w-full bg-[#FD5757] rounded-full transition-all duration-300"
-                        style="height: 45%"
-                      ></div>
-                    </div>
-                    <span class="text-xs text-[#000] mt-2">Pzt</span>
-                  </div>
-
-                  <!-- Tuesday -->
-                  <div class="flex flex-col items-center gap-2">
-                    <div class="relative w-[22px] h-32">
-                      <div
-                        class="absolute inset-0 bg-[#FFE5E5] rounded-full"
-                      ></div>
-                      <div
-                        class="absolute bottom-0 w-full bg-[#FD5757] rounded-full transition-all duration-300"
-                        style="height: 65%"
-                      ></div>
-                    </div>
-                    <span class="text-xs text-[#000] mt-2">Salı</span>
-                  </div>
-
-                  <!-- Wednesday -->
-                  <div class="flex flex-col items-center gap-2">
-                    <div class="relative w-[22px] h-32">
-                      <div
-                        class="absolute inset-0 bg-[#FFE5E5] rounded-full"
-                      ></div>
-                      <div
-                        class="absolute bottom-0 w-full bg-[#FD5757] rounded-full transition-all duration-300"
-                        style="height: 85%"
-                      ></div>
-                    </div>
-                    <span class="text-xs text-[#000] mt-2">Çrş</span>
-                  </div>
-
-                  <!-- Thursday -->
-                  <div class="flex flex-col items-center gap-2">
-                    <div class="relative w-[22px] h-32">
-                      <div
-                        class="absolute inset-0 bg-[#FFE5E5] rounded-full"
-                      ></div>
-                      <div
-                        class="absolute bottom-0 w-full bg-[#FD5757] rounded-full transition-all duration-300"
-                        style="height: 95%"
-                      ></div>
-                    </div>
-                    <span class="text-xs text-[#000] mt-2">Prş</span>
-                  </div>
-
-                  <!-- Friday -->
-                  <div class="flex flex-col items-center gap-2">
-                    <div class="relative w-[22px] h-32">
-                      <div
-                        class="absolute inset-0 bg-[#FFE5E5] rounded-full"
-                      ></div>
-                      <div
-                        class="absolute bottom-0 w-full bg-[#FD5757] rounded-full transition-all duration-300"
-                        style="height: 75%"
-                      ></div>
-                    </div>
-                    <span class="text-xs text-[#000] mt-2">Cuma</span>
-                  </div>
-
-                  <!-- Saturday -->
-                  <div class="flex flex-col items-center gap-2">
-                    <div class="relative w-[22px] h-32">
-                      <div
-                        class="absolute inset-0 bg-[#FFE5E5] rounded-full"
-                      ></div>
-                      <div
-                        class="absolute bottom-0 w-full bg-[#FD5757] rounded-full transition-all duration-300"
-                        style="height: 35%"
-                      ></div>
-                    </div>
-                    <span class="text-xs text-[#000] mt-2">Cmt</span>
-                  </div>
-
-                  <!-- Sunday -->
-                  <div class="flex flex-col items-center gap-2">
-                    <div class="relative w-[22px] h-32">
-                      <div
-                        class="absolute inset-0 bg-[#FFE5E5] rounded-full"
-                      ></div>
-                      <div
-                        class="absolute bottom-0 w-full bg-[#FD5757] rounded-full transition-all duration-300"
-                        style="height: 15%"
-                      ></div>
-                    </div>
-                    <span class="text-xs text-[#000] mt-2">Pzr</span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Stats -->
-              <div class="grid grid-cols-3 gap-4">
-                <div class="text-center border-r border-[#EEEEEE]">
-                  <p
-                    class="text-[14px] text-[#2B2B2B] leading-[21px] font-[300]"
-                  >
-                    Satış
-                  </p>
-                  <p
-                    class="font-poppins text-[28px] leading-[42px] font-[600] text-center mb-4"
-                  >
-                    96
-                  </p>
-                </div>
-                <div class="text-center border-r border-[#EEEEEE]">
-                  <p
-                    class="text-[14px] text-[#2B2B2B] leading-[21px] font-[300]"
-                  >
-                    Değişim
-                  </p>
-                  <p
-                    class="font-poppins text-[28px] leading-[42px] font-[600] text-center mb-4"
-                  >
-                    22
-                  </p>
-                </div>
-                <div class="text-center">
-                  <p
-                    class="text-[14px] text-[#2B2B2B] leading-[21px] font-[300]"
-                  >
-                    İade
-                  </p>
-                  <p
-                    class="font-poppins text-[28px] leading-[42px] font-[600] text-center mb-4"
-                  >
-                    18
-                  </p>
-                </div>
-              </div>
-            </div>
-          </section>
+          <span class="font-poppins text-[12px] text-[#FF2358]"
+            >5 yeni değerlendirme</span
+          >
         </div>
-      </main>
+        <button id="closeCommentSlider" class="p-2">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M18 6L6 18M6 6L18 18"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Content container -->
+      <div id="sliderContent" class="h-[calc(100%-60px)] overflow-y-auto">
+        <!-- Content will be copied here -->
+      </div>
     </div>
+
+    <script>
+      const sidebar = document.getElementById('sidebar');
+      const navToggle = document.getElementById('navToggle');
+      const closeNav = document.getElementById('closeNav');
+
+      navToggle.addEventListener('click', () => {
+        sidebar.classList.remove('-translate-x-full');
+      });
+
+      closeNav.addEventListener('click', () => {
+        sidebar.classList.add('-translate-x-full');
+      });
+
+      // Search functionality
+      const searchToggle = document.getElementById('mobileSearchBtn');
+      const searchOverlay = document.getElementById('searchOverlay');
+      const closeSearch = document.getElementById('closeSearch');
+      const searchInput = document.getElementById('searchInput');
+
+      searchToggle.addEventListener('click', () => {
+        searchOverlay.classList.remove('hidden');
+        searchInput.focus();
+      });
+
+      closeSearch.addEventListener('click', () => {
+        searchOverlay.classList.add('hidden');
+      });
+
+      searchOverlay.addEventListener('click', (e) => {
+        if (e.target === searchOverlay) {
+          searchOverlay.classList.add('hidden');
+        }
+      });
+
+      // Close search on escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !searchOverlay.classList.contains('hidden')) {
+          searchOverlay.classList.add('hidden');
+        }
+      });
+
+      // New click handlers
+      document
+        .getElementById('mobileSearchBtn')
+        .addEventListener('click', () => {
+          document.getElementById('searchOverlay').classList.remove('hidden');
+          document.getElementById('searchInput').focus();
+        });
+
+      closeSearch.addEventListener('click', () => {
+        document.getElementById('searchOverlay').classList.add('hidden');
+      });
+
+      // Optional: Close on escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          document.getElementById('searchOverlay').classList.add('hidden');
+        }
+      });
+    </script>
   </body>
 </html>
