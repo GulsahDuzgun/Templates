@@ -20,7 +20,7 @@
   </head>
   <body class="min-h-screen flex font-poppins">
     <div class="flex-1 w-[100%] flex flex-col xl:ml-64">
-      <header class="p-4 h-[72px] flex items-center justify-between">
+      <header class="p-4 h-[72px] flex items-center justify-between mb-6">
         <div class="flex items-center gap-4">
           <button class="xl:hidden" id="navToggle">
             <svg
@@ -152,10 +152,12 @@
         </div>
       </div>
 
-      <main class="container mx-auto grid grid-cols-8 xl:grid-cols-12 gap-12 xl:gap-6 w-full px-4 xl:px-6">
+      <main
+        class="container mx-auto grid grid-cols-8 xl:grid-cols-12 gap-12 xl:gap-6"
+      >
         <!-- Left Side - Product Reviews Section -->
         <section
-          class="lg:w-full bg-white col-span-12 xl:col-span-8 rounded-2xl border-[#F2F2F2] shadow p-6 section-product-reviews overflow-x-auto scroll-smooth  scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100""
+          class="lg:w-full bg-white col-span-12 xl:col-span-8 rounded-2xl border-[#F2F2F2] shadow p-6 section-product-reviews overflow-hidden scroll-x-auto scroll-smooth scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100 md:ml-6 mt-4 sm:mt-0 max-w-screen md:w-auto"
         >
           <!-- Header -->
           <div class="flex justify-between items-center mb-6 gap-1">
@@ -184,7 +186,7 @@
 
           <!-- Table container with scrolling -->
           <div class="">
-            <table class="w-full min-w-[600px]">
+            <table class="w-full">
               <!-- Table Header -->
               <thead>
                 <tr class="text-left">
@@ -399,7 +401,7 @@
 
         <!-- Right Side - Ratings Section -->
         <section
-          class="section-last-reviews hidden xl:block fixed xl:relative inset-0 xl:inset-auto z-50 xl:z-auto bg-white xl:bg-transparent xl:col-span-4 xl:w-auto w-full h-full xl:h-auto p-6"
+          class="section-last-reviews hidden xl:block fixed xl:relative inset-0 xl:inset-auto z-50 xl:z-auto bg-white xl:bg-transparent xl:col-span-4 xl:w-auto w-full h-full xl:h-auto"
           id="reviewsSidebar"
         >
           <!-- Mobile header -->
@@ -612,7 +614,7 @@
 
         <!-- Charts Container -->
         <div
-          class="flex place-items-center relative gap-12 xl:gap-4 bg-white col-span-12 xl:col-span-8 flex-col xl:flex-row p-4 xl:p-6 w-full"
+          class="flex place-items-center relative gap-12 xl:gap-6 bg-white col-span-12 xl:col-span-8 flex-col xl:flex-row p-6"
         >
           <!-- Bottom Left - Monthly Stats Section -->
           <section
@@ -882,22 +884,26 @@
         </div>
 
         <!-- Blog Section -->
-        <section class="my-12 col-span-12 w-full px-4 xl:px-6">
-          <h2 class="font-poppins text-[#000000] text-[16px] font-semibold leading-6 tracking-[0%] mb-8">
+        <section
+          class="col-span-12 mt-[-24px] flex flex-col items-start justify-start w-screen md:w-auto md:max-w-full"
+        >
+          <h2
+            class="px-6 font-poppins text-[#000000] text-[16px] font-semibold leading-6 tracking-[0%] mb-8"
+          >
             BLOG
           </h2>
 
-          <div class="grid grid-cols-1 xl:grid-cols-3 gap-6 w-full">
+          <div
+            class="px-6 grid grid-cols-1 xl:grid-cols-3 xl:gap-6 gap-12 rounded-[12px]"
+          >
             <!-- Blog Card 1 -->
-            <article
-              class="bg-[#F9F9F9] w-full rounded-lg overflow-hidden shadow-sm p-4"
-            >
+            <article class="bg-[#F9F9F9] rounded-lg shadow-sm p-4 w-auto">
               <img
                 src="./assests/blog.jpg"
                 alt="Credit card payment"
                 class="w-auto h-48 object-cover mb-[12px]"
               />
-              <div class="p-4 pt-0 flex flex-col gap-[7px]">
+              <div class="p-4 pt-0 flex flex-col gap-[7px] max-w-full">
                 <span class="text-[#FF7A1A] uppercase text-sm font-medium"
                   >SATIŞ</span
                 >

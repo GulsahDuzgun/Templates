@@ -19,9 +19,448 @@
     </script>
   </head>
   <body class="min-h-screen flex font-poppins">
+    <div class="flex-1 w-[100%] flex flex-col xl:ml-64">
+      <header class="p-4 h-[72px] flex items-center justify-between">
+        <div class="flex items-center gap-4">
+          <button class="xl:hidden" id="navToggle">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </button>
+          <h1 class="text-xl font-semibold">Hoşgeldin, Eteyit</h1>
+        </div>
+
+        <div class="flex items-center gap-4">
+          <!-- Search Icon Button -->
+          <button id="searchToggle" class="p-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 text-gray-400"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="#111"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              />
+            </svg>
+          </button>
+
+          <!-- Bell Icon -->
+          <button class="p-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
+              />
+            </svg>
+          </button>
+          <div class="flex gap-2">
+            <img src="./assests/logo.jpg" class="h-[36px] w-[36px] alt="Eteyit
+            Logo" />
+
+            <!-- Settings/Language Dropdown -->
+            <button class="p-0">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <!-- Search Overlay -->
+      <div
+        id="searchOverlay"
+        class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden"
+      >
+        <div class="w-full bg-white shadow-lg">
+          <div class="container mx-auto px-4 py-3">
+            <div class="relative">
+              <input
+                type="text"
+                id="searchInput"
+                placeholder="Arama yap"
+                class="w-full pl-11 pr-4 py-2 bg-white rounded-[14px] border-[1px] border-[#ECECEC] font-poppins text-sm font-normal leading-[21px] placeholder:text-sm placeholder:font-normal placeholder:leading-[21px] placeholder:font-poppins"
+              />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5 absolute left-[18px] top-1/2 -translate-y-1/2 text-gray-400"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                />
+              </svg>
+              <button
+                id="closeSearch"
+                class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <main class="p-6">
+        <div class="flex flex-col xl:flex-row gap-8 w-full">
+          <section class="section-review w-full xl:w-[40%]">
+            <div class="bg-[#F9F9F9] rounded-[12px] p-4 h-full">
+              <!-- Search Bar -->
+              <div class="relative mb-6">
+                <input
+                  type="text"
+                  placeholder="Ara"
+                  class="w-full pl-11 pr-4 py-2 bg-white rounded-[14px] border border-[#ECECEC] font-poppins text-sm"
+                />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5 absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                  />
+                </svg>
+              </div>
+
+              <!-- Reviews List Container -->
+              <div class="space-y-4">
+                <!-- Single Review Item -->
+                <div
+                  class="flex items-start gap-3 py-4 px-3 cursor-pointer transition-colors bg-[#fff] rounded-[12px] border border-[#EFF3FA]"
+                >
+                  <!-- User Avatar -->
+                  <img
+                    src="./assests/Avatar.jpg"
+                    alt="User avatar"
+                    class="w-[40px] h-[40px] rounded-[37px] object-cover"
+                  />
+
+                  <!-- Review Content -->
+                  <div class="flex-1 min-w-0">
+                    <div class="flex items-center justify-between mb-[6px]">
+                      <div class="flex items-center gap-[6px]">
+                        <h3
+                          class="font-poppins text-[16px] font-[500] text-[#484B51]"
+                        >
+                          Erkan Seymen
+                        </h3>
+                        <!-- Star Rating -->
+                        <div class="flex gap-0.15">
+                          <svg
+                            class="w-4 h-4 text-[#FFCA27]"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                          >
+                            <path
+                              d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                            />
+                          </svg>
+                          <svg
+                            class="w-[14px] h-[14px] text-[#FFCA27]"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                          >
+                            <path
+                              d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                            />
+                          </svg>
+                          <!-- Empty Stars -->
+                          <svg
+                            class="w-[14px] h-[14px] text-[#E6E6E6]"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                          >
+                            <path
+                              d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                            />
+                          </svg>
+                          <svg
+                            class="w-[14px] h-[14px] text-[#E6E6E6]"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                          >
+                            <path
+                              d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                            />
+                          </svg>
+                          <svg
+                            class="w-[14px] h-[14px] text-[#E6E6E6]"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                          >
+                            <path
+                              d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                            />
+                          </svg>
+                        </div>
+                      </div>
+                      <span class="font-poppins text-[12px] text-[#999999]"
+                        >16:45</span
+                      >
+                    </div>
+                    <!-- Review Text -->
+                    <p
+                      class="font-poppins text-[14px] text-[#999999] line-clamp-1"
+                    >
+                      Lorem ipsum dolor sit amet, consectetur adipiscing e...
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Pagination -->
+              <div class="flex items-center justify-between mt-6">
+                <span class="font-poppins text-[14px] text-[#484B51]"
+                  >88 Değerlendirme</span
+                >
+                <div class="flex items-center gap-[8px] p-[8px]">
+                  <!-- Previous Arrow -->
+                  <button
+                    class="w-[32px] h-[32px] bg-white flex items-center justify-center rounded-lg border border-[#F2F2F2] ] hover:border-[#111] text-[#999999] hover:text-[#111]"
+                  >
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M11.3335 4.66675L8.00016 8.00008L11.3335 11.3334M7.3335 4.66675L4.00016 8.00008L7.3335 11.3334"
+                        stroke="currentColor"
+                        stroke-width="1.25"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </button>
+
+                  <!-- Page Numbers -->
+                  <button
+                    class="w-[32px] h-[32px] flex items-center justify-center rounded-lg border border-[#F2F2F2] px-[9px] py-[4px] hover:border-[#111] text-[#484B51] hover:text-[#111] bg-white"
+                  >
+                    1
+                  </button>
+                  <button
+                    class="w-[32px] h-[32px] flex items-center justify-center rounded-lg border border-[#F2F2F2] px-[9px] py-[4px] hover:border-[#111] text-[#484B51] hover:text-[#111] font-poppins text-[14px] bg-white"
+                  >
+                    2
+                  </button>
+                  <button
+                    class="w-[32px] h-[32px] flex items-center justify-center rounded-lg border border-[#F2F2F2] px-[9px] py-[4px] hover:border-[#111] text-[#484B51] hover:text-[#111] font-poppins text-[14px] bg-white"
+                  >
+                    3
+                  </button>
+
+                  <!-- Next Arrow -->
+                  <button
+                    class="w-[32px] h-[32px] flex items-center justify-center rounded-lg border border-[#F2F2F2] hover:border-[#111] text-[#484B51] hover:text-[#111] bg-white"
+                  >
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="rotate-180"
+                    >
+                      <path
+                        d="M11.3335 4.66675L8.00016 8.00008L11.3335 11.3334M7.3335 4.66675L4.00016 8.00008L7.3335 11.3334"
+                        stroke="currentColor"
+                        stroke-width="1.25"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="section-review-detail flex gap-[12px] flex-col w-full xl:w-[60%] p-4 border border-[#F2F2F2] rounded-[12px]" >
+          
+              <!-- Header with Rating and Date -->
+              <div class="flex  items-center justify-between mb-2">
+                <!-- Star Rating -->
+                <div class="flex gap-[2px]">
+                  <svg class="w-[16px] h-[16px] text-[#00B67A]" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M8 0L10.2571 4.89337L15.6085 5.52786L11.8042 9.22663L12.7023 14.5721L8 12.056L3.29772 14.5721L4.19577 9.22663L0.391548 5.52786L5.74292 4.89337L8 0Z"/>
+                  </svg>
+                  <svg class="w-[16px] h-[16px] text-[#00B67A]" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M8 0L10.2571 4.89337L15.6085 5.52786L11.8042 9.22663L12.7023 14.5721L8 12.056L3.29772 14.5721L4.19577 9.22663L0.391548 5.52786L5.74292 4.89337L8 0Z"/>
+                  </svg>
+                  <svg class="w-[16px] h-[16px] text-[#00B67A]" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M8 0L10.2571 4.89337L15.6085 5.52786L11.8042 9.22663L12.7023 14.5721L8 12.056L3.29772 14.5721L4.19577 9.22663L0.391548 5.52786L5.74292 4.89337L8 0Z"/>
+                  </svg>
+                  <svg class="w-[16px] h-[16px] text-[#00B67A]" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M8 0L10.2571 4.89337L15.6085 5.52786L11.8042 9.22663L12.7023 14.5721L8 12.056L3.29772 14.5721L4.19577 9.22663L0.391548 5.52786L5.74292 4.89337L8 0Z"/>
+                  </svg>
+                  <svg class="w-[16px] h-[16px] text-[#00B67A]" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M8 0L10.2571 4.89337L15.6085 5.52786L11.8042 9.22663L12.7023 14.5721L8 12.056L3.29772 14.5721L4.19577 9.22663L0.391548 5.52786L5.74292 4.89337L8 0Z"/>
+                  </svg>
+                </div>
+                <!-- Date -->
+                <span class="text-[12px] text-[#999999]">23 Nisan 2024 16:45</span>
+              </div>
+          
+              <!-- User Info -->
+              <div class="flex items-center gap-2">
+                <img src="./assests/Avatar.jpg" alt="Erkan Seymen" class="w-[24px] h-[24px] rounded-full object-cover"/>
+                <span class="text-[14px] text-[#111111]">Erkan Seymen</span>
+              </div>
+            
+
+              <!-- Review Text -->
+              <p class="text-[14px] leading-[20px] text-[#666666] mb-6">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+                sunt in culpa qui officia deserunt mollit anim id est laborum.
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa
+                qui officia deserunt mollit anim id est laborum.
+              </p>
+              <!-- Add this after the customer/collaboration text section -->
+              <div class="">
+                <textarea 
+                  placeholder="Cevaplayın" 
+                  class="w-full min-h-[120px] p-4 rounded-[12px] border border-[#F2F2F2] resize-none font-poppins text-[12px] font-[400] leading-[18px] placeholder:text-[#999999] focus:outline-none focus:border-[#111111] transition-colors"
+                ></textarea>
+              </div>
+
+                  <!-- Müşteri/Birlikte Text -->
+                  <div class="flex items-center gap-2 ">
+                    <span class="font-poppins text-[12px] font-[400] leading-[18px] tracking-[0] text-[#667085]"
+                      >Müşteri/Birlikte nasıl yapılan bir işbirliği sunumunu</span
+                    >
+                    <a href="">
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5.8335 14.1667L14.1668 5.83341M14.1668 5.83341V13.3334M14.1668 5.83341H6.66683" stroke="#667085" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </a>
+                  </div>
+              <!-- Cevapla Button -->
+              <button class="bg-[#2B2B2B]  rounded-[124px] px-[24px] py-[8px] text-[12px] text-[#FFFFFF]  self-start">
+                Cevapla
+              </button>
+
+              <!-- Action Buttons -->
+              <div class="flex items-center gap-6 mt-4 text-[#1B68FC] text-[12px] font-[400] ">
+                <button class="flex items-center gap-[4px] p-[8px] rounded-[8px] bg-[#F4F7FF] hover:bg-[#E4E7FF] transition-colors">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 8V12L14 14M3.0498 11.0001C3.2739 8.80013 4.30007 6.75968 5.93254 5.26803C7.56501 3.77639 9.6895 2.93795 11.9007 2.9127C14.1119 2.88744 16.255 3.67713 17.9211 5.1311C19.5872 6.58507 20.6597 8.60155 20.934 10.7958C21.2083 12.99 20.6651 15.2085 19.4082 17.0278C18.1512 18.8472 16.2684 20.1401 14.1191 20.6599C11.9697 21.1797 9.70422 20.89 7.7548 19.8461C5.80539 18.8022 4.30853 17.0772 3.5498 15.0001M3.0498 20.0001V15.0001H8.0498" stroke="#1B68FC" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  Değerlendirme Geçmişi
+                </button>
+
+                <button class="flex items-center gap-[4px] p-[8px] rounded-[8px] bg-[#F4F7FF] hover:bg-[#E4E7FF] transition-colors">
+                  <svg width="17" height="21" viewBox="0 0 17 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 19V17C1 15.9391 1.42143 14.9217 2.17157 14.1716C2.92172 13.4214 3.93913 13 5 13H8.5M14 20V20.01M14 17C14.4483 16.9986 14.8832 16.8468 15.235 16.569C15.5868 16.2911 15.8352 15.9033 15.9406 15.4675C16.0459 15.0318 16.0019 14.5733 15.8158 14.1655C15.6297 13.7576 15.3122 13.424 14.914 13.218C14.5162 13.0142 14.0611 12.951 13.6228 13.0387C13.1845 13.1264 12.7888 13.3598 12.5 13.701M3 5C3 6.06087 3.42143 7.07828 4.17157 7.82843C4.92172 8.57857 5.93913 9 7 9C8.06087 9 9.07828 8.57857 9.82843 7.82843C10.5786 7.07828 11 6.06087 11 5C11 3.93913 10.5786 2.92172 9.82843 2.17157C9.07828 1.42143 8.06087 1 7 1C5.93913 1 4.92172 1.42143 4.17157 2.17157C3.42143 2.92172 3 3.93913 3 5Z" stroke="#1B68FC" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  Bilgi Talep Et
+                </button>
+
+                <button class="flex items-center gap-[4px] p-[8px] rounded-[8px] bg-[#F4F7FF] hover:bg-[#E4E7FF] transition-colors">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8.7002 10.7L15.3002 7.30005M8.7002 13.3L15.3002 16.7M3 12C3 12.7956 3.31607 13.5587 3.87868 14.1213C4.44129 14.6839 5.20435 15 6 15C6.79565 15 7.55871 14.6839 8.12132 14.1213C8.68393 13.5587 9 12.7956 9 12C9 11.2044 8.68393 10.4413 8.12132 9.87868C7.55871 9.31607 6.79565 9 6 9C5.20435 9 4.44129 9.31607 3.87868 9.87868C3.31607 10.4413 3 11.2044 3 12ZM15 6C15 6.79565 15.3161 7.55871 15.8787 8.12132C16.4413 8.68393 17.2044 9 18 9C18.7956 9 19.5587 8.68393 20.1213 8.12132C20.6839 7.55871 21 6.79565 21 6C21 5.20435 20.6839 4.44129 20.1213 3.87868C19.5587 3.31607 18.7956 3 18 3C17.2044 3 16.4413 3.31607 15.8787 3.87868C15.3161 4.44129 15 5.20435 15 6ZM15 18C15 18.7956 15.3161 19.5587 15.8787 20.1213C16.4413 20.6839 17.2044 21 18 21C18.7956 21 19.5587 20.6839 20.1213 20.1213C20.6839 19.5587 21 18.7956 21 18C21 17.2044 20.6839 16.4413 20.1213 15.8787C19.5587 15.3161 18.7956 15 18 15C17.2044 15 16.4413 15.3161 15.8787 15.8787C15.3161 16.4413 15 17.2044 15 18Z" stroke="#1B68FC" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  Paylaş
+                </button>
+
+                <button class="flex items-center gap-[4px] p-[8px] rounded-[8px] bg-[#F4F7FF] hover:bg-[#E4E7FF] transition-colors">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5 14.0001C5.93464 13.084 7.19124 12.5708 8.5 12.5708C9.80876 12.5708 11.0654 13.084 12 14.0001C12.9346 14.9162 14.1912 15.4294 15.5 15.4294C16.8088 15.4294 18.0654 14.9162 19 14.0001V5.00009C18.0654 5.91622 16.8088 6.42937 15.5 6.42937C14.1912 6.42937 12.9346 5.91622 12 5.00009C11.0654 4.08395 9.80876 3.5708 8.5 3.5708C7.19124 3.5708 5.93464 4.08395 5 5.00009V14.0001ZM5 14.0001V21" stroke="#1B68FC" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  Sorun Bildir
+                </button>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+
     <aside
-      class="w-64 bg-white p-9 flex flex-col border-r border-[#eee] h-screen"
+      class="fixed inset-y-0 left-0 w-64 bg-white p-9 flex flex-col border-r border-[#eee] transform -translate-x-full xl:translate-x-0 transition-transform duration-300 ease-in-out z-40"
+      id="sidebar"
     >
+      <!-- Close button for mobile - adjusted top spacing -->
+      <button class="absolute top-8 right-8 xl:hidden" id="closeNav">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"
+          />
+        </svg>
+      </button>
+
       <!-- Logo/Username -->
       <div class="mb-[64px]">
         <h2 class="text-2xl font-semibold leading-9">eteyit</h2>
@@ -208,6 +647,41 @@
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
+              d="M10.325 4.317C10.751 2.561 13.249 2.561 13.675 4.317C13.7389 4.5808 13.8642 4.82578 14.0407 5.032C14.2172 5.23822 14.4399 5.39985 14.6907 5.50375C14.9414 5.60764 15.2132 5.65085 15.4838 5.62987C15.7544 5.60889 16.0162 5.5243 16.248 5.383C17.791 4.443 19.558 6.209 18.618 7.753C18.4769 7.98466 18.3924 8.24634 18.3715 8.51677C18.3506 8.78721 18.3938 9.05877 18.4975 9.30938C18.6013 9.55999 18.7627 9.78258 18.9687 9.95905C19.1747 10.1355 19.4194 10.2609 19.683 10.325C21.439 10.751 21.439 13.249 19.683 13.675C19.4192 13.7389 19.1742 13.8642 18.968 14.0407C18.7618 14.2172 18.6001 14.4399 18.4963 14.6907C18.3924 14.9414 18.3491 15.2132 18.3701 15.4838C18.3911 15.7544 18.4757 16.0162 18.617 16.248C19.557 17.791 17.791 19.558 16.247 18.618C16.0153 18.4769 15.7537 18.3924 15.4832 18.3715C15.2128 18.3506 14.9412 18.3938 14.6906 18.4975C14.44 18.6013 14.2174 18.7627 14.0409 18.9687C13.8645 19.1747 13.7391 19.4194 13.675 19.683C13.249 21.439 10.751 21.439 10.325 19.683C10.2611 19.4192 10.1358 19.1742 9.95929 18.968C9.7828 18.7618 9.56011 18.6001 9.30935 18.4963C9.05859 18.3924 8.78683 18.3491 8.51621 18.3701C8.24559 18.3911 7.98375 18.4757 7.752 18.617C6.209 19.557 4.442 17.791 5.382 16.247C5.5231 16.0153 5.60755 15.7537 5.62848 15.4832C5.64942 15.2128 5.60624 14.9412 5.50247 14.6906C5.3987 14.44 5.23726 14.2174 5.03127 14.0409C4.82529 13.8645 4.58056 13.7391 4.317 13.675C2.561 13.249 2.561 10.751 4.317 10.325C4.5808 10.2611 4.82578 10.1358 5.032 9.95929C5.23822 9.7828 5.39985 9.56011 5.50375 9.30935C5.60764 9.05859 5.65085 8.78683 5.62987 8.51621C5.60889 8.24559 5.5243 7.98375 5.383 7.752C4.443 6.209 6.209 4.442 7.753 5.382C8.753 5.99 10.049 5.452 10.325 4.317Z"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M9 12C9 12.7956 9.31607 13.5587 9.87868 14.1213C10.4413 14.6839 11.2044 15 12 15C12.7956 15 13.5587 14.6839 14.1213 14.1213C14.6839 13.5587 15 12.7956 15 12C15 11.2044 14.6839 10.4413 14.1213 9.87868C13.5587 9.31607 12.7956 9 12 9C11.2044 9 10.4413 9.31607 9.87868 9.87868C9.31607 10.4413 9 11.2044 9 12Z"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+
+          <span
+            class="font-poppins text-xs leading-[18px] text-[#999] group-hover:text-[#111] transition-colors"
+            >Ayarlar</span
+          >
+        </a>
+
+        <a
+          href="#"
+          class="group flex items-center relative text-[#111] hover:text-[#111] active:text-[#111]"
+        >
+          <div
+            class="absolute right-0 top-1/2 -translate-y-1/2 h-[24px] w-[4px] bg-[#2B2B2B] rounded-l-[5px] opacity-0 group-hover:opacity-100 transition-opacity"
+          ></div>
+          <svg
+            class="w-5 h-5 mr-5 text-[#999] group-hover:text-[#111] group-active:text-[#111] transition-colors"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
               d="M12 16V16.01M12 12.9998C12.4498 13.0011 12.8868 12.8508 13.2407 12.5732C13.5945 12.2956 13.8444 11.9068 13.95 11.4696C14.0557 11.0324 14.0109 10.5724 13.8229 10.1638C13.6349 9.75524 13.3147 9.42195 12.914 9.21776C12.5162 9.01397 12.0611 8.95079 11.6228 9.03848C11.1845 9.12618 10.7888 9.3596 10.5 9.70076M12 3C19.2 3 21 4.8 21 12C21 19.2 19.2 21 12 21C4.8 21 3 19.2 3 12C3 4.8 4.8 3 12 3Z"
               stroke="currentColor"
               stroke-width="1.5"
@@ -224,338 +698,44 @@
       </nav>
     </aside>
 
-    <div class="flex-1 flex flex-col">
-      <header class="p-4 h-[72px] flex items-center justify-between">
-        <h1 class="text-xl font-semibold">Hoşgeldin, Eteyit</h1>
-
-        <div class="flex items-center gap-4">
-          <!-- Search Bar -->
-          <div class="relative">
-            <input type="text" placeholder="Arama yap" class="pl-11 pr-4 py-2
-            bg-white rounded-[14px] border-[1px] border-[#ECECEC] font-poppins
-            text-sm font-normal leading-[21px] placeholder:text-sm
-            placeholder:font-normal placeholder:leading-[21px]
-            placeholder:font-poppins"" />
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5 absolute left-[18px] top-1/2 -translate-y-1/2 text-gray-400"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-              />
-            </svg>
-          </div>
-
-          <!-- Bell Icon -->
-          <button class="p-2">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
-              />
-            </svg>
-          </button>
-
-          <!-- Add toggle button for reviews -->
-          <button class="p-2 xl:hidden" id="toggleReviews">
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M8 9H16M8 13H14M18 4C18.7956 4 19.5587 4.31607 20.1213 4.87868C20.6839 5.44129 21 6.20435 21 7V15C21 15.7956 20.6839 16.5587 20.1213 17.1213C19.5587 17.6839 18.7956 18 18 18H13L8 21V18H6C5.20435 18 4.44129 17.6839 3.87868 17.1213C3.31607 16.5587 3 15.7956 3 15V7C3 6.20435 3.31607 5.44129 3.87868 4.87868C4.44129 4.31607 5.20435 4 6 4H18Z"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </button>
-
-          <div class="flex gap-2">
-            <img src="./assests/logo.jpg" class="h-[36px] w-[36px] alt="Eteyit
-            Logo" />
-
-            <!-- Settings/Language Dropdown -->
-            <button class="p-0">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
-            </button>
-          </div>
-        </div>
-      </header>
-      <main
-        class="container mx-auto p-6 grid grid-cols-8 md:grid-cols-12 gap-12 xl:gap-6"
-      >
-        <!-- Right Side - Ratings Section -->
-        <section
-          class="section-last-reviews hidden xl:block fixed xl:relative inset-0 xl:inset-auto z-50 xl:z-auto bg-white xl:bg-transparent xl:col-span-4 xl:w-auto w-full h-full xl:h-auto"
-          id="reviewsSidebar"
-        >
-          <!-- Mobile header -->
-          <div
-            class="flex items-center justify-between p-4 xl:hidden border-b border-[#EEEEEE] bg-white"
-          >
-            <div class="flex flex-col gap-1">
-              <h2 class="font-poppins text-[16px] font-[500] text-[#111111]">
-                Son Değerlendirmeler
-              </h2>
-              <span class="font-poppins text-[12px] text-[#FF2358]">
-                5 yeni değerlendirme
-              </span>
-            </div>
-            <button id="closeReviews" class="p-2">
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M18 6L6 18M6 6L18 18"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </button>
-          </div>
-
-          <!-- Content container -->
-          <div class="h-[calc(100%-60px)] xl:h-auto p-4">
-            <!-- Desktop title -->
-            <div
-              class="hidden xl:flex justify-between flex-col gap-[8px] items-start mb-6"
-            >
-              <h2 class="font-poppins font-[500] text-[16px] text-[#111111]">
-                Son Değerlendirmeler
-              </h2>
-              <span class="font-poppins text-[12px] text-[#FF2358]">
-                5 yeni değerlendirme
-              </span>
-            </div>
-
-            <!-- Ratings List -->
-            <div class="space-y-4">
-              <!-- Rating Item 1 -->
-              <div
-                class="flex border rounded-[12px] border-[#F2F2F2] pt-[12px] pr-[16px] pb-[12px] pl-[16px]"
-              >
-                <img
-                  src="./assests/Avatar.jpg"
-                  alt=""
-                  class="w-[40px] h-[40px] rounded-full"
-                />
-                <div
-                  class="flex xl:flex-1 flex-col w-auto xl:w-full ml-[12px] justify-between"
-                >
-                  <div
-                    class="flex xl:flex-1 w-auto xl:w-full gap-2 align-middle"
-                  >
-                    <h3
-                      class="font-poppins text-[14px] font-[500] text-[#111111] mb-1"
-                    >
-                      Erkan Seymen
-                    </h3>
-                    <div class="flex gap-0.15">
-                      <svg
-                        class="w-4 h-4 text-[#FFCA27]"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                      >
-                        <path
-                          d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                        />
-                      </svg>
-                      <svg
-                        class="w-4 h-4 text-[#FFCA27]"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                      >
-                        <path
-                          d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                        />
-                      </svg>
-                      <svg
-                        class="w-4 h-4 text-[#FFCA27]"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                      >
-                        <path
-                          d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                        />
-                      </svg>
-                      <svg
-                        class="w-4 h-4 text-[#FFCA27]"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                      >
-                        <path
-                          d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                        />
-                      </svg>
-                      <svg
-                        class="w-4 h-4 text-[#D7DBE2]"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                      >
-                        <path
-                          d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                        />
-                      </svg>
-                    </div>
-                    <span
-                      class="font-poppins text-[12px] ml-auto text-[#606367]"
-                      >16:45</span
-                    >
-                  </div>
-                  <p
-                    class="font-poppins font-[400] text-[14px] leading-[18px] tracking-[0]"
-                  >
-                    Lorem ipsum dolor sit amet, consectetur
-                  </p>
-                </div>
-              </div>
-              <div
-                class="flex border rounded-[12px] border-[#F2F2F2] pt-[12px] pr-[16px] pb-[12px] pl-[16px]"
-              >
-                <img
-                  src="./assests/Avatar.jpg"
-                  alt=""
-                  class="w-[40px] h-[40px] rounded-full"
-                />
-                <div
-                  class="flex flex-col xl:flex-1 w-auto xl:w-full ml-[12px] justify-between"
-                >
-                  <div
-                    class="flex xl:flex-1 w-auto xl:w-full gap-2 align-middle"
-                  >
-                    <h3
-                      class="font-poppins text-[14px] font-[500] text-[#111111] mb-1"
-                    >
-                      Erkan Seymen
-                    </h3>
-                    <div class="flex gap-0.15">
-                      <svg
-                        class="w-4 h-4 text-[#FFCA27]"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                      >
-                        <path
-                          d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                        />
-                      </svg>
-                      <svg
-                        class="w-4 h-4 text-[#FFCA27]"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                      >
-                        <path
-                          d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                        />
-                      </svg>
-                      <svg
-                        class="w-4 h-4 text-[#FFCA27]"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                      >
-                        <path
-                          d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                        />
-                      </svg>
-                      <svg
-                        class="w-4 h-4 text-[#FFCA27]"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                      >
-                        <path
-                          d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                        />
-                      </svg>
-                      <svg
-                        class="w-4 h-4 text-[#D7DBE2]"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                      >
-                        <path
-                          d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                        />
-                      </svg>
-                    </div>
-                    <span
-                      class="font-poppins text-[12px] ml-auto text-[#606367]"
-                      >16:45</span
-                    >
-                  </div>
-                  <p
-                    class="font-poppins font-[400] text-[14px] leading-[18px] tracking-[0]"
-                  >
-                    Lorem ipsum dolor sit amet, consectetur
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Charts Container -->
-      </main>
-    </div>
-
-    <!-- Add this script before closing body tag -->
     <script>
-      const toggleButton = document.getElementById('toggleReviews');
-      const closeButton = document.getElementById('closeReviews');
-      const sidebar = document.getElementById('reviewsSidebar');
+      const sidebar = document.getElementById('sidebar');
+      const navToggle = document.getElementById('navToggle');
+      const closeNav = document.getElementById('closeNav');
 
-      toggleButton.addEventListener('click', () => {
-        sidebar.classList.remove('hidden');
+      navToggle.addEventListener('click', () => {
+        sidebar.classList.remove('-translate-x-full');
       });
 
-      closeButton.addEventListener('click', () => {
-        sidebar.classList.add('hidden');
+      closeNav.addEventListener('click', () => {
+        sidebar.classList.add('-translate-x-full');
       });
 
-      // Handle responsive behavior
-      window.addEventListener('resize', () => {
-        if (window.innerWidth >= 1280) {
-          // xl breakpoint
-          sidebar.classList.remove('hidden');
-        } else {
-          if (!sidebar.classList.contains('hidden')) {
-            sidebar.classList.add('hidden');
-          }
+      // Search functionality
+      const searchToggle = document.getElementById('searchToggle');
+      const searchOverlay = document.getElementById('searchOverlay');
+      const closeSearch = document.getElementById('closeSearch');
+      const searchInput = document.getElementById('searchInput');
+
+      searchToggle.addEventListener('click', () => {
+        searchOverlay.classList.remove('hidden');
+        searchInput.focus();
+      });
+
+      closeSearch.addEventListener('click', () => {
+        searchOverlay.classList.add('hidden');
+      });
+
+      searchOverlay.addEventListener('click', (e) => {
+        if (e.target === searchOverlay) {
+          searchOverlay.classList.add('hidden');
+        }
+      });
+
+      // Close search on escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !searchOverlay.classList.contains('hidden')) {
+          searchOverlay.classList.add('hidden');
         }
       });
     </script>
