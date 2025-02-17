@@ -57,7 +57,13 @@
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <!-- existing search icon path -->
+              <path
+                d="M14 14L10 10M11.3333 6.66667C11.3333 9.244 9.244 11.3333 6.66667 11.3333C4.08934 11.3333 2 9.244 2 6.66667C2 4.08934 4.08934 2 6.66667 2C9.244 2 11.3333 4.08934 11.3333 6.66667Z"
+                stroke="#999999"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
             </svg>
           </div>
 
@@ -193,9 +199,9 @@
         </div>
       </div>
 
-      <main class="grid grid-cols-12 gap-6 mt-6 sm:mx-6">
+      <main class="grid grid-cols-12 gap-6 mt-6 max-w-full overflow-hidden">
         <section
-          class="lg:w-full bg-white col-span-12 xl:col-span-8 rounded-2xl border-[#F2F2F2] shadow p-6 section-product-reviews w-screen sm:w-auto box-border"
+          class="lg:w-full bg-white col-span-12 xl:col-span-8 rounded-2xl border-[#F2F2F2] shadow section-product-reviews w-screen sm:w-auto box-border m-6 p-6 sm:m-12"
         >
           <!-- Header -->
           <div class="flex justify-between items-center mb-6 gap-1">
@@ -658,7 +664,7 @@
         <!-- Left Side - Product Reviews Section -->
         <section
           class="section-last-reviews hidden xl:block fixed xl:relative inset-0 xl:inset-auto z-50 xl:z-auto bg-white xl:bg-transparent xl:col-span-4 xl:w-auto w-full h-full xl:h-auto p-6"
-          id="reviewsSidebar"
+          id="reviewsSidebar p-6 sm:p-12"
         >
           <!-- Content container -->
           <div class="h-[calc(100%-60px)] xl:h-auto p-4">
@@ -834,6 +840,395 @@
                 </div>
               </div>
             </div>
+          </div>
+        </section>
+        <!-- Charts Container -->
+        <div
+          class="flex relative gap-12 xl:gap-4 bg-blend-color col-span-12 max-w-[1800px] md:w-[100%] flex-col xl:flex-row p-6 sm:p-12 pt-0 sm:pt-0"
+        >
+          <!-- Bottom Left - Monthly Stats Section -->
+          <section
+            class="bg-white rounded-2xl shadow p-4 self-start section-montly-reviews flex-1 w-full md:w[75%] xl:w-[50%]"
+          >
+            <!-- Header -->
+            <h2 class="font-poppins font-[500] text-[#111111] text-[16px] mb-6">
+              Aylık Değerlendirmeler
+            </h2>
+
+            <!-- Chart Container -->
+            <div class="relative h-[300px]">
+              <!-- Y-axis labels -->
+              <div
+                class="absolute pb-[24px] left-0 h-full flex flex-col justify-between text-[14px] text-[#606367]"
+              >
+                <span>800</span>
+                <span>600</span>
+                <span>400</span>
+                <span>200</span>
+                <span>0</span>
+              </div>
+
+              <!-- Grid lines -->
+              <div class="ml-8 h-full flex flex-col justify-between pb-[24px]">
+                <div
+                  class="border-b border-gray-200 border-dashed w-full h-0"
+                ></div>
+                <div
+                  class="border-b border-gray-200 border-dashed w-full h-0"
+                ></div>
+                <div
+                  class="border-b border-gray-200 border-dashed w-full h-0"
+                ></div>
+                <div
+                  class="border-b border-gray-200 border-dashed w-full h-0"
+                ></div>
+                <div
+                  class="border-b border-gray-200 border-dashed w-full h-0"
+                ></div>
+              </div>
+
+              <!-- Bar Chart -->
+              <div
+                class="absolute inset-0 ml-2 sm:ml-8 flex gap-[22px] justify-between items-end"
+              >
+                <!-- Bars -->
+                <div class="flex flex-col items-center h-full justify-end">
+                  <div
+                    class="w-[26px] bg-[#A16DF7] rounded-[20px]"
+                    style="height: 40%"
+                  ></div>
+                  <span class="pt-2 text-[14px] text-[#606367]">Ocak</span>
+                </div>
+                <div class="flex flex-col items-center h-full justify-end">
+                  <div
+                    class="w-[26px] bg-[#A16DF7] rounded-[20px]"
+                    style="height: 55%"
+                  ></div>
+                  <span class="pt-2 text-[14px] text-[#606367]">Şubat</span>
+                </div>
+                <div class="flex flex-col items-center h-full justify-end">
+                  <div
+                    class="w-[26px] bg-[#A16DF7] rounded-[20px]"
+                    style="height: 75%"
+                  ></div>
+                  <span class="pt-2 text-[14px] text-[#606367]">Mart</span>
+                </div>
+                <div class="flex flex-col items-center h-full justify-end">
+                  <div
+                    class="w-[26px] bg-[#A16DF7] rounded-[20px]"
+                    style="height: 35%"
+                  ></div>
+                  <span class="pt-2 text-[14px] text-[#606367]">Nisan</span>
+                </div>
+                <div class="flex flex-col items-center h-full justify-end">
+                  <div
+                    class="w-[26px] bg-[#A16DF7] rounded-[20px]"
+                    style="height: 25%"
+                  ></div>
+                  <span class="pt-2 text-[14px] text-[#606367]">Mayıs</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Bottom Right - Rating Distribution Section -->
+          <section
+            class="bg-white rounded-2xl shadow p-4 section-score-distribution flex-1 h-full w-full self-start flex md:w[75%] xl:w-[50%] flex-col justify-between"
+          >
+            <div class="flex flex-col gap-2">
+              <div
+                class="flex flex-1 w-full justify-between items-center gap-2"
+              >
+                <h2 class="font-poppins font-[500] text-[#111111] text-[16px]">
+                  Puan Dağılımı
+                </h2>
+                <div class="relative">
+                  <select
+                    class="flex items-center border rounded-[8px] border-[#D7DBE2] text-[#8F949C] bg-transparent focus:ring-0 cursor-pointer appearance-none pl-2 pr-2 font-[14px]"
+                  >
+                    <option>Bu ay</option>
+                    <option>Son 3 ay</option>
+                    <option>Son 6 ay</option>
+                    <option>Bu yıl</option>
+                  </select>
+                  <svg
+                    class="w-4 h-4 absolute right-1 top-1/2 transform -translate-y-1/2 pointer-events-none text-[#8F949C]"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </div>
+              </div>
+
+              <div class="flex flex-col items-center mt-4">
+                <div class="flex items-center gap-1">
+                  <span class="text-2xl font-bold">4.2</span>
+                  <span class="text-gray-500 text-sm">/5</span>
+                </div>
+                <div class="flex gap-0.5">
+                  <svg
+                    class="w-8 h-8 text-[#20B538]"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                    />
+                  </svg>
+                  <svg
+                    class="w-8 h-8 text-[#20B538]"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                    />
+                  </svg>
+                  <svg
+                    class="w-8 h-8 text-[#20B538]"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                    />
+                  </svg>
+                  <svg
+                    class="w-8 h-8 text-[#20B538]"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                    />
+                  </svg>
+                  <svg
+                    class="w-8 h-8 text-gray-300"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <!-- Rating Bars -->
+            <div class="space-y-4">
+              <div class="flex items-center">
+                <span
+                  class="w-20 font-poppins font-[400] text-[12px] leading-[18px] tracking-[0]"
+                  >Mükemmel</span
+                >
+                <div class="flex-1 h-[12px] mx-4 bg-[#20B538]/10 rounded-full">
+                  <div
+                    class="h-[12px] bg-[#20B538] rounded-full"
+                    style="width: 75%"
+                  ></div>
+                </div>
+                <span
+                  class="font-poppins font-[400] text-[12px] leading-[18px] tracking-[0] text-[#020D23] w-10 text-right"
+                  >720</span
+                >
+              </div>
+              <div class="flex items-center">
+                <span
+                  class="w-20 font-poppins font-[400] text-[12px] leading-[18px] tracking-[0]"
+                  >İyi</span
+                >
+                <div class="flex-1 h-[12px] mx-4 bg-[#42D45A]/10 rounded-full">
+                  <div
+                    class="h-[12px] bg-[#42D45A] rounded-full"
+                    style="width: 65%"
+                  ></div>
+                </div>
+                <span
+                  class="font-poppins font-[400] text-[12px] leading-[18px] tracking-[0] text-[#020D23] w-10 text-right"
+                  >751</span
+                >
+              </div>
+              <div class="flex items-center">
+                <span
+                  class="w-20 font-poppins font-[400] text-[12px] leading-[18px] tracking-[0]"
+                  >Ortalama</span
+                >
+                <div class="flex-1 h-[12px] mx-4 bg-[#FFCA27]/10 rounded-full">
+                  <div
+                    class="h-[12px] bg-[#FFCA27] rounded-full"
+                    style="width: 45%"
+                  ></div>
+                </div>
+                <span
+                  class="font-poppins font-[400] text-[12px] leading-[18px] tracking-[0] text-[#020D23] w-10 text-right"
+                  >245</span
+                >
+              </div>
+              <div class="flex items-center">
+                <span
+                  class="w-20 font-poppins font-[400] text-[12px] leading-[18px] tracking-[0]"
+                  >Zayıf</span
+                >
+                <div class="flex-1 h-[12px] mx-4 bg-[#F18E1A]/10 rounded-full">
+                  <div
+                    class="h-[12px] bg-[#F18E1A] rounded-full"
+                    style="width: 25%"
+                  ></div>
+                </div>
+                <span
+                  class="font-poppins font-[400] text-[12px] leading-[18px] tracking-[0] text-[#020D23] w-10 text-right"
+                  >594</span
+                >
+              </div>
+              <div class="flex items-center">
+                <span
+                  class="w-20 font-poppins font-[400] text-[12px] leading-[18px] tracking-[0]"
+                  >Kötü</span
+                >
+                <div class="flex-1 h-[12px] mx-4 bg-[#F35858]/10 rounded-full">
+                  <div
+                    class="h-[12px] bg-[#F35858] rounded-full"
+                    style="width: 15%"
+                  ></div>
+                </div>
+                <span
+                  class="font-poppins font-[400] text-[12px] leading-[18px] tracking-[0] text-[#020D23] w-10 text-right"
+                  >171</span
+                >
+              </div>
+              <p
+                class="font-poppins font-[400] text-[12px] leading-[18px] tracking-[0] self-start align-start text-[#868A90] mt-4"
+              >
+                Toplam 2263 değerlendirme
+              </p>
+            </div>
+          </section>
+        </div>
+
+        <!-- Blog Section -->
+        <section
+          class="col-span-12 mt-[-24px] flex flex-col items-start justify-start max-w-full overflow-hidden p-6 sm:p-12"
+        >
+          <h2
+            class="px-4 sm:px-6 font-poppins text-[#000000] text-[16px] font-semibold leading-6 tracking-[0%] mb-8"
+          >
+            BLOG
+          </h2>
+
+          <div
+            class="px-4 sm:px-6 grid grid-cols-1 xl:grid-cols-3 xl:gap-6 gap-12 w-full justify-items-start"
+          >
+            <!-- Blog Card 1 -->
+            <article
+              class="bg-[#F9F9F9] rounded-lg shadow-sm p-4 xl:w-full w-fit"
+            >
+              <img
+                src="./assests/blog.jpg"
+                alt="Credit card payment"
+                class="w-[400px] xl:w-full h-48 object-cover mb-[12px]"
+              />
+              <div class="p-4 pt-0 flex flex-col gap-[7px] max-w-full">
+                <span class="text-[#FF7A1A] uppercase text-sm font-medium"
+                  >SATIŞ</span
+                >
+                <h3 class="text-[14px] font-[400] text-[#111111]">
+                  Site satışlarınızda müşteriye güven sağlamak neden önemli?
+                </h3>
+                <div class="flex items-center gap-2">
+                  <img
+                    src="path/to/author-avatar.jpg"
+                    alt=""
+                    class="w-8 h-8 rounded-full"
+                  />
+                  <div class="flex gap-[3px] flex-col">
+                    <p class="text-[12px] font-[400] text-[#111111]">
+                      Selim Yavaş
+                    </p>
+                    <p
+                      class="text-[10px] font-[400] text-[#737373] text-gray-500"
+                    >
+                      22 Nisan 2024
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </article>
+            <article
+              class="bg-[#F9F9F9] rounded-lg overflow-hidden shadow-sm p-4 xl:w-full w-fit"
+            >
+              <img
+                src="./assests/blog.jpg"
+                alt="Credit card payment"
+                class="w-[400px] xl:w-full h-48 object-cover mb-[12px]"
+              />
+              <div class="p-4 pt-0 flex flex-col gap-[7px]">
+                <span class="text-[#5350FA] uppercase text-sm font-medium"
+                  >Müşteri İLİŞKİLERİ</span
+                >
+                <h3 class="text-[14px] font-[400] text-[#111111]">
+                  Site satışlarınızda müşteriye güven sağlamak neden önemli?
+                </h3>
+                <div class="flex items-center gap-2">
+                  <img
+                    src="path/to/author-avatar.jpg"
+                    alt=""
+                    class="w-8 h-8 rounded-full"
+                  />
+                  <div class="flex gap-[3px] flex-col">
+                    <p class="text-[12px] font-[400] text-[#111111]">
+                      Selim Yavaş
+                    </p>
+                    <p
+                      class="text-[10px] font-[400] text-[#737373] text-gray-500"
+                    >
+                      22 Nisan 2024
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </article>
+            <article
+              class="bg-[#F9F9F9] rounded-lg shadow-sm p-4 xl:w-full w-fit"
+            >
+              <img
+                src="./assests/blog.jpg"
+                alt="Credit card payment"
+                class="w-[400px] xl:w-full h-48 object-cover mb-[12px]"
+              />
+              <div class="p-4 pt-0 flex flex-col gap-[7px]">
+                <span class="text-[#00B046] uppercase text-sm font-medium"
+                  >Fiyatlandırma</span
+                >
+                <h3 class="text-[14px] font-[400] text-[#111111]">
+                  Site satışlarınızda müşteriye güven sağlamak neden önemli?
+                </h3>
+                <div class="flex items-center gap-2">
+                  <img
+                    src="path/to/author-avatar.jpg"
+                    alt=""
+                    class="w-8 h-8 rounded-full"
+                  />
+                  <div class="flex gap-[3px] flex-col">
+                    <p class="text-[12px] font-[400] text-[#111111]">
+                      Selim Yavaş
+                    </p>
+                    <p
+                      class="text-[10px] font-[400] text-[#737373] text-gray-500"
+                    >
+                      22 Nisan 2024
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </article>
           </div>
         </section>
       </main>
