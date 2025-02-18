@@ -142,7 +142,7 @@
                 type="text"
                 id="searchInput"
                 placeholder="Arama yap"
-                class="w-full pl-11 pr-4 py-2 bg-white rounded-[14px] border-[1px] border-[#EFF3FA] font-poppins text-sm font-normal leading-[21px] placeholder:text-sm placeholder:font-normal placeholder:leading-[21px] placeholder:font-poppins"
+                class="w-full pl-11 pr-4 py-2 bg-white rounded-[14px] border-[1px] border-[#ECECEC] font-poppins text-sm font-normal leading-[21px] placeholder:text-sm placeholder:font-normal placeholder:leading-[21px] placeholder:font-poppins"
               />
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -584,6 +584,368 @@
       </main>
     </div>
 
+    <aside
+      class="fixed inset-y-0 left-0 w-64 bg-white p-9 flex flex-col border-r border-[#eee] transform -translate-x-full xl:translate-x-0 transition-transform duration-300 ease-in-out z-40"
+      id="sidebar"
+    >
+      <!-- Close button for mobile - adjusted top spacing -->
+      <button class="absolute top-8 right-8 xl:hidden" id="closeNav">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"
+          />
+        </svg>
+      </button>
+
+      <!-- Logo/Username -->
+      <div class="mb-[64px]">
+        <h2 class="text-2xl font-semibold leading-9">eteyit</h2>
+        <div class="h-0.5 bg-blue-500 w-12 mt-1"></div>
+      </div>
+
+      <!-- Menu Items -->
+      <nav class="flex flex-col gap-8">
+        <a
+          href="#"
+          class="group flex items-center relative text-[#999] hover:text-[#111] active:text-[#111]"
+        >
+          <div
+            class="absolute right-0 top-1/2 -translate-y-1/2 h-[24px] w-[4px] bg-[#2B2B2B] rounded-l-[5px] opacity-0 group-hover:opacity-100 transition-opacity"
+          ></div>
+          <svg
+            class="w-5 h-5 mr-5 text-[#999] group-hover:text-[#111] group-active:text-[#111] transition-colors"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M4 4H10V10H4V4Z" fill="currentColor" />
+            <path d="M14 4H20V10H14V4Z" fill="currentColor" />
+            <path d="M4 14H10V20H4V14Z" fill="currentColor" />
+            <path
+              d="M14 17C14 17.7956 14.3161 18.5587 14.8787 19.1213C15.4413 19.6839 16.2044 20 17 20C17.7956 20 18.5587 19.6839 19.1213 19.1213C19.6839 18.5587 20 17.7956 20 17C20 16.2044 19.6839 15.4413 19.1213 14.8787C18.5587 14.3161 17.7956 14 17 14C16.2044 14 15.4413 14.3161 14.8787 14.8787C14.3161 15.4413 14 16.2044 14 17Z"
+              fill="currentColor"
+            />
+            <path
+              d="M4 4H10V10H4V4Z"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M14 4H20V10H14V4Z"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M4 14H10V20H4V14Z"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M14 17C14 17.7956 14.3161 18.5587 14.8787 19.1213C15.4413 19.6839 16.2044 20 17 20C17.7956 20 18.5587 19.6839 19.1213 19.1213C19.6839 18.5587 20 17.7956 20 17C20 16.2044 19.6839 15.4413 19.1213 14.8787C18.5587 14.3161 17.7956 14 17 14C16.2044 14 15.4413 14.3161 14.8787 14.8787C14.3161 15.4413 14 16.2044 14 17Z"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <span
+            class="font-poppins text-xs leading-[18px] text-[#999] group-hover:text-[#111] transition-colors"
+            >Anasayfa</span
+          >
+        </a>
+
+        <a
+          href="#"
+          class="group flex items-center relative text-[#999] hover:text-[#111] active:text-[#111]"
+        >
+          <div
+            class="absolute right-0 top-1/2 -translate-y-1/2 h-[24px] w-[4px] bg-[#2B2B2B] rounded-l-[5px] opacity-0 group-hover:opacity-100 transition-opacity"
+          ></div>
+          <svg
+            class="w-5 h-5 mr-5 text-[#999] group-hover:text-[#111] group-active:text-[#111] transition-colors"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M9 11L12 14L20 6M20 12V18C20 18.5304 19.7893 19.0391 19.4142 19.4142C19.0391 19.7893 18.5304 20 18 20H6C5.46957 20 4.96086 19.7893 4.58579 19.4142C4.21071 19.0391 4 18.5304 4 18V6C4 5.46957 4.21071 4.96086 4.58579 4.58579C4.96086 4.21071 5.46957 4 6 4H15"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+
+          <span
+            class="font-poppins text-xs leading-[18px] text-[#999] group-hover:text-[#111] transition-colors"
+            >İşlem Tayiti</span
+          >
+        </a>
+
+        <a
+          href="#"
+          class="group flex items-center relative text-[#999] hover:text-[#111] active:text-[#111]"
+        >
+          <div
+            class="absolute right-0 top-1/2 -translate-y-1/2 h-[24px] w-[4px] bg-[#2B2B2B] rounded-l-[5px] opacity-0 group-hover:opacity-100 transition-opacity"
+          ></div>
+          <svg
+            class="w-5 h-5 mr-5 text-[#999] group-hover:text-[#111] group-active:text-[#111] transition-colors"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M8 9H16M8 13H14M18 4C18.7956 4 19.5587 4.31607 20.1213 4.87868C20.6839 5.44129 21 6.20435 21 7V15C21 15.7956 20.6839 16.5587 20.1213 17.1213C19.5587 17.6839 18.7956 18 18 18H13L8 21V18H6C5.20435 18 4.44129 17.6839 3.87868 17.1213C3.31607 16.5587 3 15.7956 3 15V7C3 6.20435 3.31607 5.44129 3.87868 4.87868C4.44129 4.31607 5.20435 4 6 4H18Z"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+
+          <span
+            class="font-poppins text-xs leading-[18px] text-[#999] group-hover:text-[#111] transition-colors"
+            >Değerlendirmeler</span
+          >
+        </a>
+
+        <a
+          href="#"
+          class="group flex items-center relative text-[#111] hover:text-[#111] active:text-[#111]"
+        >
+          <div
+            class="absolute right-0 top-1/2 -translate-y-1/2 h-[24px] w-[4px] bg-[#2B2B2B] rounded-l-[5px] opacity-0 group-hover:opacity-100 transition-opacity"
+          ></div>
+          <svg
+            class="w-5 h-5 mr-5 text-[#999] group-hover:text-[#111] group-active:text-[#111] transition-colors"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3 3V21H21M10.1602 10.6201L12.5002 13.5001M15.0879 13.3282L17.9249 8.74219M7 9C7 9.53043 7.21071 10.0391 7.58579 10.4142C7.96086 10.7893 8.46957 11 9 11C9.53043 11 10.0391 10.7893 10.4142 10.4142C10.7893 10.0391 11 9.53043 11 9C11 8.46957 10.7893 7.96086 10.4142 7.58579C10.0391 7.21071 9.53043 7 9 7C8.46957 7 7.96086 7.21071 7.58579 7.58579C7.21071 7.96086 7 8.46957 7 9ZM17 7C17 7.53043 17.2107 8.03914 17.5858 8.41421C17.9609 8.78929 18.4696 9 19 9C19.5304 9 20.0391 8.78929 20.4142 8.41421C20.7893 8.03914 21 7.53043 21 7C21 6.46957 20.7893 5.96086 20.4142 5.58579C20.0391 5.21071 19.5304 5 19 5C18.4696 5 17.9609 5.21071 17.5858 5.58579C17.2107 5.96086 17 6.46957 17 7ZM12 15C12 15.5304 12.2107 16.0391 12.5858 16.4142C12.9609 16.7893 13.4696 17 14 17C14.5304 17 15.0391 16.7893 15.4142 16.4142C15.7893 16.0391 16 15.5304 16 15C16 14.4696 15.7893 13.9609 15.4142 13.5858C15.0391 13.2107 14.5304 13 14 13C13.4696 13 12.9609 13.2107 12.5858 13.5858C12.2107 13.9609 12 14.4696 12 15Z"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+
+          <span
+            class="font-poppins text-xs leading-[18px] text-[#999] group-hover:text-[#111] transition-colors"
+            >İstatistikler</span
+          >
+        </a>
+
+        <a
+          href="#"
+          class="group flex items-center relative text-[#111] hover:text-[#111] active:text-[#111]"
+        >
+          <div
+            class="absolute right-0 top-1/2 -translate-y-1/2 h-[24px] w-[4px] bg-[#2B2B2B] rounded-l-[5px] opacity-0 group-hover:opacity-100 transition-opacity"
+          ></div>
+          <svg
+            class="w-5 h-5 mr-5 text-[#999] group-hover:text-[#111] group-active:text-[#111] transition-colors"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M9 5H7C6.46957 5 5.96086 5.21071 5.58579 5.58579C5.21071 5.96086 5 6.46957 5 7V19C5 19.5304 5.21071 20.0391 5.58579 20.4142C5.96086 20.7893 6.46957 21 7 21H17C17.5304 21 18.0391 20.7893 18.4142 20.4142C18.7893 20.0391 19 19.5304 19 19V7C19 6.46957 18.7893 5.96086 18.4142 5.58579C18.0391 5.21071 17.5304 5 17 5H15M9 5C9 4.46957 9.21071 3.96086 9.58579 3.58579C9.96086 3.21071 10.4696 3 11 3H13C13.5304 3 14.0391 3.21071 14.4142 3.58579C14.7893 3.96086 15 4.46957 15 5M9 17V12M12 17V16M15 17V14"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+
+          <span
+            class="font-poppins text-xs leading-[18px] text-[#999] group-hover:text-[#111] transition-colors"
+            >Aylık Analiz Raporları</span
+          >
+        </a>
+
+        <a
+          href="#"
+          class="group flex items-center relative text-[#111] hover:text-[#111] active:text-[#111]"
+        >
+          <div
+            class="absolute right-0 top-1/2 -translate-y-1/2 h-[24px] w-[4px] bg-[#2B2B2B] rounded-l-[5px] opacity-0 group-hover:opacity-100 transition-opacity"
+          ></div>
+          <svg
+            class="w-5 h-5 mr-5 text-[#999] group-hover:text-[#111] group-active:text-[#111] transition-colors"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M10.325 4.317C10.751 2.561 13.249 2.561 13.675 4.317C13.7389 4.5808 13.8642 4.82578 14.0407 5.032C14.2172 5.23822 14.4399 5.39985 14.6907 5.50375C14.9414 5.60764 15.2132 5.65085 15.4838 5.62987C15.7544 5.60889 16.0162 5.5243 16.248 5.383C17.791 4.443 19.558 6.209 18.618 7.753C18.4769 7.98466 18.3924 8.24634 18.3715 8.51677C18.3506 8.78721 18.3938 9.05877 18.4975 9.30938C18.6013 9.55999 18.7627 9.78258 18.9687 9.95905C19.1747 10.1355 19.4194 10.2609 19.683 10.325C21.439 10.751 21.439 13.249 19.683 13.675C19.4192 13.7389 19.1742 13.8642 18.968 14.0407C18.7618 14.2172 18.6001 14.4399 18.4963 14.6907C18.3924 14.9414 18.3491 15.2132 18.3701 15.4838C18.3911 15.7544 18.4757 16.0162 18.617 16.248C19.557 17.791 17.791 19.558 16.247 18.618C16.0153 18.4769 15.7537 18.3924 15.4832 18.3715C15.2128 18.3506 14.9412 18.3938 14.6906 18.4975C14.44 18.6013 14.2174 18.7627 14.0409 18.9687C13.8645 19.1747 13.7391 19.4194 13.675 19.683C13.249 21.439 10.751 21.439 10.325 19.683C10.2611 19.4192 10.1358 19.1742 9.95929 18.968C9.7828 18.7618 9.56011 18.6001 9.30935 18.4963C9.05859 18.3924 8.78683 18.3491 8.51621 18.3701C8.24559 18.3911 7.98375 18.4757 7.752 18.617C6.209 19.557 4.442 17.791 5.382 16.247C5.5231 16.0153 5.60755 15.7537 5.62848 15.4832C5.64942 15.2128 5.60624 14.9412 5.50247 14.6906C5.3987 14.44 5.23726 14.2174 5.03127 14.0409C4.82529 13.8645 4.58056 13.7391 4.317 13.675C2.561 13.249 2.561 10.751 4.317 10.325C4.5808 10.2611 4.82578 10.1358 5.032 9.95929C5.23822 9.7828 5.39985 9.56011 5.50375 9.30935C5.60764 9.05859 5.65085 8.78683 5.62987 8.51621C5.60889 8.24559 5.5243 7.98375 5.383 7.752C4.443 6.209 6.209 4.442 7.753 5.382C8.753 5.99 10.049 5.452 10.325 4.317Z"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M9 12C9 12.7956 9.31607 13.5587 9.87868 14.1213C10.4413 14.6839 11.2044 15 12 15C12.7956 15 13.5587 14.6839 14.1213 14.1213C14.6839 13.5587 15 12.7956 15 12C15 11.2044 14.6839 10.4413 14.1213 9.87868C13.5587 9.31607 12.7956 9 12 9C11.2044 9 10.4413 9.31607 9.87868 9.87868C9.31607 10.4413 9 11.2044 9 12Z"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+
+          <span
+            class="font-poppins text-xs leading-[18px] text-[#999] group-hover:text-[#111] transition-colors"
+            >Ayarlar</span
+          >
+        </a>
+
+        <a
+          href="#"
+          class="group flex items-center relative text-[#111] hover:text-[#111] active:text-[#111]"
+        >
+          <div
+            class="absolute right-0 top-1/2 -translate-y-1/2 h-[24px] w-[4px] bg-[#2B2B2B] rounded-l-[5px] opacity-0 group-hover:opacity-100 transition-opacity"
+          ></div>
+          <svg
+            class="w-5 h-5 mr-5 text-[#999] group-hover:text-[#111] group-active:text-[#111] transition-colors"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 16V16.01M12 12.9998C12.4498 13.0011 12.8868 12.8508 13.2407 12.5732C13.5945 12.2956 13.8444 11.9068 13.95 11.4696C14.0557 11.0324 14.0109 10.5724 13.8229 10.1638C13.6349 9.75524 13.3147 9.42195 12.914 9.21776C12.5162 9.01397 12.0611 8.95079 11.6228 9.03848C11.1845 9.12618 10.7888 9.3596 10.5 9.70076M12 3C19.2 3 21 4.8 21 12C21 19.2 19.2 21 12 21C4.8 21 3 19.2 3 12C3 4.8 4.8 3 12 3Z"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+
+          <span
+            class="font-poppins text-xs leading-[18px] text-[#999] group-hover:text-[#111] transition-colors"
+            >Yardım</span
+          >
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Comment slider structure -->
+    <div
+      id="commentSlider"
+      class="fixed inset-y-0 right-0 w-80 bg-white shadow-lg transform translate-x-full transition-transform duration-300 ease-in-out z-50 hidden"
+    >
+      <!-- Header -->
+      <div
+        class="flex items-center justify-between p-4 border-b border-[#EEEEEE]"
+      >
+        <div class="flex flex-col gap-1">
+          <h2 class="font-poppins text-[16px] font-[500] text-[#111111]">
+            Son Değerlendirmeler
+          </h2>
+          <span class="font-poppins text-[12px] text-[#FF2358]"
+            >5 yeni değerlendirme</span
+          >
+        </div>
+        <button id="closeCommentSlider" class="p-2">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M18 6L6 18M6 6L18 18"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Content container -->
+      <div id="sliderContent" class="h-[calc(100%-60px)] overflow-y-auto">
+        <!-- Content will be copied here -->
+      </div>
+    </div>
+
+    <script>
+      const sidebar = document.getElementById('sidebar');
+      const navToggle = document.getElementById('navToggle');
+      const closeNav = document.getElementById('closeNav');
+
+      navToggle.addEventListener('click', () => {
+        sidebar.classList.remove('-translate-x-full');
+      });
+
+      closeNav.addEventListener('click', () => {
+        sidebar.classList.add('-translate-x-full');
+      });
+
+      // Search functionality
+      const searchToggle = document.getElementById('mobileSearchBtn');
+      const searchOverlay = document.getElementById('searchOverlay');
+      const closeSearch = document.getElementById('closeSearch');
+      const searchInput = document.getElementById('searchInput');
+
+      searchToggle.addEventListener('click', () => {
+        searchOverlay.classList.remove('hidden');
+        searchInput.focus();
+      });
+
+      closeSearch.addEventListener('click', () => {
+        searchOverlay.classList.add('hidden');
+      });
+
+      searchOverlay.addEventListener('click', (e) => {
+        if (e.target === searchOverlay) {
+          searchOverlay.classList.add('hidden');
+        }
+      });
+
+      // Close search on escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !searchOverlay.classList.contains('hidden')) {
+          searchOverlay.classList.add('hidden');
+        }
+      });
+
+      // New click handlers
+      document
+        .getElementById('mobileSearchBtn')
+        .addEventListener('click', () => {
+          document.getElementById('searchOverlay').classList.remove('hidden');
+          document.getElementById('searchInput').focus();
+        });
+
+      closeSearch.addEventListener('click', () => {
+        document.getElementById('searchOverlay').classList.add('hidden');
+      });
+
+      // Optional: Close on escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          document.getElementById('searchOverlay').classList.add('hidden');
+        }
+      });
+    </script>
     <script>
       document
         .querySelectorAll('.settings-profile-box button')
