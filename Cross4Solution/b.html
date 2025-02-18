@@ -27,633 +27,234 @@
       href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@500&display=swap"
       rel="stylesheet"
     />
+    <!-- Add Prata font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Prata&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body class="min-h-screen flex font-poppins">
     <div class="flex-1 w-full flex flex-col xl:ml-64">
       <main class="p-6">
-        <!-- Pricing Table -->
-        <div class="w-full mx-auto my-8">
-          <!-- Header with Aylık/Yıllık toggle -->
-          <div
-            class="flex justify-center items-center gap-4 mb-8 bg-[#F9F9F9] w-fit mx-auto rounded-full p-1"
+        <!-- Payment Information Form -->
+
+        <div class="bg-[#F8F8F8] rounded-[16px] py-8 px-12 mb-6">
+          <h2
+            class="font-['Prata'] text-[16px] leading-[21.68px] text-[#111] font-normal mb-4"
           >
-            <button
-              class="text-[12px] font-normal text-[#000] px-4 py-2 rounded-[20px]"
-            >
-              Aylık
-            </button>
-            <button
-              class="text-[12px] font-medium text-[#000] bg-white px-4 py-2 rounded-[20px]"
-            >
-              Yıllık
-              <span
-                class="text-[12px] bg-[#F7F8FA] font-medium p-[2px] text-[#EA3434] ml-1 rounded-[10px]"
-                >%15 tasarruf edin!</span
+            Ödeme Bilgileri
+          </h2>
+          <form>
+            <div class="space-y-4">
+              <!-- Card Number Input -->
+              <div
+                class="w-full px-4 py-2 flex gap-4 items-center justify-between rounded-[6px] bg-[#fff]"
               >
-            </button>
-          </div>
-
-          <!-- Pricing Grid -->
-          <div class="hidden lg:block overflow-x-auto">
-            <table
-              class="rounded-[12px] w-full table-fixed overflow-hidden min-w-[800px]"
-            >
-              <!-- Feature Column -->
-              <thead>
-                <tr class="grid grid-cols-4">
-                  <th
-                    class="bg-[#F7F8FA] border-b border-[#F2F2F2] border-r p-6 min-w-[200px]"
-                  >
-                    <h3
-                      class="text-[14px] font-medium text-left text-[#000000] mb-1"
-                    >
-                      Planları karşılaştır
-                    </h3>
-                    <p class="text-[12px] font-normal text-[#525252]">
-                      Planları inceleyin ve ihtiyaçlarınıza en uygun planı
-                      seçin.
-                    </p>
-                  </th>
-                  <th
-                    class="p-6 border-b border-[#F2F2F2] border-r min-w-[200px]"
-                  >
-                    <div class="flex flex-col gap-auto justify-between h-full">
-                      <div class="flex flex-col">
-                        <h3
-                          class="text-[14px] font-normal text-left text-[#000]"
-                        >
-                          Temel
-                        </h3>
-                        <p
-                          class="font-be-vietnam text-[40px] leading-[58.44px] font-medium text-[#111111]"
-                        >
-                          ₺0<span
-                            class="font-poppins text-[10px] leading-[15px] font-semibold"
-                            >/ <span class="text-[#BABABA]">ay</span></span
-                          >
-                        </p>
-                      </div>
-                      <button
-                        class="w-full h-[34px] py-2 px-4 rounded-[6px] border border-[#292929] text-[12px] font-normal text-[#000] hover:bg-[#292929] hover:text-white transition-all duration-300"
-                      >
-                        Güncel Plan
-                      </button>
-                    </div>
-                  </th>
-                  <th
-                    class="p-6 border-b border-[#F2F2F2] border-r min-w-[200px]"
-                  >
-                    <div class="flex flex-col gap-auto justify-between h-full">
-                      <div class="flex flex-col">
-                        <h3
-                          class="text-[14px] font-normal text-left text-[#000]"
-                        >
-                          Büyüme
-                        </h3>
-                        <p
-                          class="font-be-vietnam text-[40px] leading-[58.44px] font-medium text-[#111111]"
-                        >
-                          ₺1234<span
-                            class="font-poppins text-[10px] leading-[15px] font-semibold"
-                            >/ <span class="text-[#BABABA]">ay</span></span
-                          >
-                        </p>
-                      </div>
-                      <button
-                        class="w-full h-[34px] py-2 px-4 rounded-[6px] border border-[#292929] text-[12px] font-normal text-[#000] hover:bg-[#292929] hover:text-white transition-all duration-300"
-                      >
-                        Deneme Sürecini Başlat
-                      </button>
-                    </div>
-                  </th>
-                  <th class="p-6 border-b border-[#F2F2F2] min-w-[200px]">
-                    <div class="flex flex-col gap-auto justify-between h-full">
-                      <div class="flex flex-col">
-                        <div
-                          class="flex justify-between items-center mb-2 relative"
-                        >
-                          <h3
-                            class="text-[14px] font-normal text-left text-[#000]"
-                          >
-                            Premium
-                          </h3>
-                          <span
-                            class="bg-[#E9ECFB] text-[#6954FE] text-[12px] font-medium p-1 rounded-[10px] absolute top-0 right-0"
-                          >
-                            En Popüler
-                          </span>
-                        </div>
-                        <p
-                          class="font-be-vietnam text-[40px] leading-[58.44px] font-medium text-[#111111]"
-                        >
-                          ₺9876<span
-                            class="font-poppins text-[10px] leading-[15px] font-semibold"
-                            >/ <span class="text-[#BABABA]">ay</span></span
-                          >
-                        </p>
-                      </div>
-                      <button
-                        class="w-full h-[34px] py-2 px-4 rounded-[6px] bg-[#000] text-[12px] font-normal text-white hover:bg-white hover:text-[#000] hover:border hover:border-[#292929] transition-all duration-300"
-                      >
-                        Deneme Sürecini Başlat
-                      </button>
-                    </div>
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <!-- Eteyit İşletme Paneli Row -->
-                <tr class="grid grid-cols-4">
-                  <td
-                    class="bg-[#F7F8FA] p-6 border-b border-[#F2F2F2] border-r"
-                  >
-                    <p class="text-[14px] font-normal text-[#000000]">
-                      Eteyit İşletme Paneli
-                    </p>
-                  </td>
-                  <td
-                    class="p-6 border-b border-[#F2F2F2] border-r text-center"
-                  >
-                    <svg
-                      class="mx-auto"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"
-                        fill="#00BB4B"
-                      />
-                    </svg>
-                  </td>
-                  <td
-                    class="p-6 border-b border-[#F2F2F2] border-r text-center"
-                  >
-                    <svg
-                      class="mx-auto"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"
-                        fill="#00BB4B"
-                      />
-                    </svg>
-                  </td>
-                  <td class="p-6 border-b border-[#F2F2F2] text-center">
-                    <svg
-                      class="mx-auto"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"
-                        fill="#00BB4B"
-                      />
-                    </svg>
-                  </td>
-                </tr>
-
-                <!-- Oturum Sayısı Row -->
-                <tr class="grid grid-cols-4">
-                  <td
-                    class="bg-[#F7F8FA] p-6 border-b border-[#F2F2F2] border-r"
-                  >
-                    <p class="text-[14px] font-normal text-[#000000]">
-                      Oturum Sayısı
-                    </p>
-                  </td>
-                  <td
-                    class="p-6 border-b border-[#F2F2F2] border-r text-center"
-                  >
-                    <span class="text-[14px] font-normal">1</span>
-                  </td>
-                  <td
-                    class="p-6 border-b border-[#F2F2F2] border-r text-center"
-                  >
-                    <span class="text-[14px] font-normal">3</span>
-                  </td>
-                  <td class="p-6 border-b border-[#F2F2F2] text-center">
-                    <span class="text-[14px] font-normal">Sınırsız</span>
-                  </td>
-                </tr>
-
-                <!-- Şirket Onay Rozeti Row -->
-                <tr class="grid grid-cols-4">
-                  <td
-                    class="bg-[#F7F8FA] p-6 border-b border-[#F2F2F2] border-r"
-                  >
-                    <p class="text-[14px] font-normal text-[#000000]">
-                      Şirket Onay Rozeti
-                    </p>
-                  </td>
-                  <td
-                    class="p-6 border-b border-[#F2F2F2] border-r text-center"
-                  >
-                    <svg
-                      class="mx-auto"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"
-                        fill="#00BB4B"
-                      />
-                    </svg>
-                  </td>
-                  <td
-                    class="p-6 border-b border-[#F2F2F2] border-r text-center"
-                  >
-                    <svg
-                      class="mx-auto"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"
-                        fill="#00BB4B"
-                      />
-                    </svg>
-                  </td>
-                  <td class="p-6 border-b border-[#F2F2F2] text-center">
-                    <svg
-                      class="mx-auto"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"
-                        fill="#00BB4B"
-                      />
-                    </svg>
-                  </td>
-                </tr>
-
-                <!-- Müşterilerinize Davet Hakkı Row -->
-                <tr class="grid grid-cols-4">
-                  <td
-                    class="bg-[#F7F8FA] p-6 border-b border-[#F2F2F2] border-r"
-                  >
-                    <p class="text-[14px] font-normal text-[#000000]">
-                      Müşterilerinize Davet Hakkı
-                    </p>
-                  </td>
-                  <td
-                    class="p-6 border-b border-[#F2F2F2] border-r text-center"
-                  >
-                    <span class="text-[14px] font-normal">50</span>
-                  </td>
-                  <td
-                    class="p-6 border-b border-[#F2F2F2] border-r text-center"
-                  >
-                    <span class="text-[14px] font-normal">100</span>
-                  </td>
-                  <td class="p-6 border-b border-[#F2F2F2] text-center">
-                    <span class="text-[14px] font-normal">Sınırsız</span>
-                  </td>
-                </tr>
-
-                <!-- Aylık Analiz Raporu Row -->
-                <tr class="grid grid-cols-4">
-                  <td
-                    class="bg-[#F7F8FA] p-6 border-b border-[#F2F2F2] border-r"
-                  >
-                    <p class="text-[14px] font-normal text-[#000000]">
-                      Aylık Analiz Raporu
-                    </p>
-                  </td>
-                  <td
-                    class="p-6 border-b border-[#F2F2F2] border-r text-center"
-                  >
-                    <svg
-                      class="mx-auto"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"
-                        fill="#F54545"
-                      />
-                    </svg>
-                  </td>
-                  <td
-                    class="p-6 border-b border-r border-[#F2F2F2] text-center"
-                  >
-                    <svg
-                      class="mx-auto"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"
-                        fill="#00BB4B"
-                      />
-                    </svg>
-                  </td>
-                  <td class="p-6 border-b border-[#F2F2F2] text-center">
-                    <svg
-                      class="mx-auto"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"
-                        fill="#00BB4B"
-                      />
-                    </svg>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <!-- Mobile View -->
-          <div class="lg:hidden my-6 space-y-6">
-            <!-- Temel Plan -->
-            <div class="border border-[#F2F2F2] rounded-[12px] p-6">
-              <div class="flex justify-between items-center mb-4">
-                <h3 class="text-[14px] font-normal text-[#000]">Temel</h3>
-                <p
-                  class="font-be-vietnam text-[32px] leading-[46px] font-medium text-[#111111]"
+                <label
+                  class="block font-poppins text-[12px] leading-[18px] font-medium text-[#888888]"
                 >
-                  ₺0<span
-                    class="font-poppins text-[10px] leading-[15px] font-semibold"
-                    >/ <span class="text-[#BABABA]">ay</span></span
-                  >
-                </p>
+                  Kart Numarası
+                </label>
+                <div class="relative flex-1">
+                  <input
+                    type="text"
+                    class="w-full bg-[#fff] font-poppins text-[14px] leading-[21px] font-medium text-[#111] placeholder:font-poppins placeholder:text-[14px] placeholder:text-[#111] placeholder:leading-[21px] placeholder:font-medium focus:outline-none"
+                    placeholder="**** **** **** ****"
+                  />
+                </div>
               </div>
-              <button
-                class="w-full h-[34px] py-2 px-4 rounded-[6px] border border-[#292929] text-[12px] font-normal text-[#000] mb-6 hover:bg-[#292929] hover:text-white transition-all duration-300"
-              >
-                Güncel Plan
-              </button>
 
-              <!-- Features List -->
-              <div class="space-y-6">
-                <div class="flex justify-between items-center">
-                  <span class="text-[14px] font-normal text-[#000000]"
-                    >Eteyit İşletme Paneli</span
+              <!-- Expiration Date and CVV -->
+              <div class="grid sm:grid-cols-4 grid-cols-1 gap-4">
+                <div
+                  class="w-full flex flex-col px-4 py-2 rounded-[6px] bg-[#fff]"
+                >
+                  <label
+                    class="block font-poppins text-[12px] leading-[18px] font-medium text-[#888888]"
                   >
-                  <svg
-                    class="w-6 h-6"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"
-                      fill="#00BB4B"
-                    />
-                  </svg>
+                    Kart Sahibi
+                  </label>
+                  <input
+                    type="text"
+                    class="w-full bg-[#fff] font-poppins text-[14px] leading-[21px] font-medium text-[#111] placeholder:font-poppins placeholder:text-[14px] placeholder:text-[#111] placeholder:leading-[21px] placeholder:font-medium focus:outline-none"
+                    placeholder="Ersin Sağlam"
+                  />
                 </div>
-                <div class="flex justify-between items-center">
-                  <span class="text-[14px] font-normal text-[#000000]"
-                    >Oturum Sayısı</span
+                <div
+                  class="w-full flex flex-col px-4 py-2 rounded-[6px] bg-[#fff]"
+                >
+                  <label
+                    class="block font-poppins text-[12px] leading-[18px] font-medium text-[#888888]"
                   >
-                  <span class="text-[14px] font-normal">1</span>
+                    Ay
+                  </label>
+                  <input
+                    type="text"
+                    class="w-full bg-[#fff] font-poppins text-[14px] leading-[21px] font-medium text-[#111] placeholder:font-poppins placeholder:text-[14px] placeholder:text-[#111] placeholder:leading-[21px] placeholder:font-medium focus:outline-none"
+                    placeholder="00"
+                  />
                 </div>
-                <div class="flex justify-between items-center">
-                  <span class="text-[14px] font-normal text-[#000000]"
-                    >Şirket Onay Rozeti</span
+                <div
+                  class="w-full flex flex-col px-4 py-2 rounded-[6px] bg-[#fff]"
+                >
+                  <label
+                    class="block font-poppins text-[12px] leading-[18px] font-medium text-[#888888]"
                   >
-                  <svg
-                    class="w-6 h-6"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"
-                      fill="#00BB4B"
-                    />
-                  </svg>
+                    Yıl
+                  </label>
+                  <input
+                    type="text"
+                    class="w-full bg-[#fff] font-poppins text-[14px] leading-[21px] font-medium text-[#111] placeholder:font-poppins placeholder:text-[14px] placeholder:text-[#111] placeholder:leading-[21px] placeholder:font-medium focus:outline-none"
+                    placeholder="00"
+                  />
                 </div>
-                <div class="flex justify-between items-center">
-                  <span class="text-[14px] font-normal text-[#000000]"
-                    >Müşterilerinize Davet Hakkı</span
+                <div
+                  class="w-full flex flex-col px-4 py-2 rounded-[6px] bg-[#fff]"
+                >
+                  <label
+                    class="block font-poppins text-[12px] leading-[18px] font-medium text-[#888888]"
                   >
-                  <span class="text-[14px] font-normal">50</span>
-                </div>
-                <div class="flex justify-between items-center">
-                  <span class="text-[14px] font-normal text-[#000000]"
-                    >Aylık Analiz Raporu</span
-                  >
-                  <svg
-                    class="w-6 h-6"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"
-                      fill="#F54545"
-                    />
-                  </svg>
+                    CVC
+                  </label>
+                  <input
+                    type="text"
+                    class="w-full bg-[#fff] font-poppins text-[14px] leading-[21px] font-medium text-[#111] placeholder:font-poppins placeholder:text-[14px] placeholder:text-[#111] placeholder:leading-[21px] placeholder:font-medium focus:outline-none"
+                    placeholder="000"
+                  />
                 </div>
               </div>
             </div>
+          </form>
+          <div class="mt-4 flex items-center gap-2">
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 18 18"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9 1.5C13.1423 1.5 16.5 4.85775 16.5 9C16.5016 10.9691 15.7287 12.8598 14.3482 14.264C12.9677 15.6681 11.0904 16.473 9.12152 16.5049C7.15267 16.5369 5.25025 15.7932 3.825 14.4345C2.39974 13.0758 1.56599 11.2111 1.50375 9.243L1.5 9L1.503 8.79C1.614 4.74525 4.9275 1.5 9 1.5ZM9 8.25H8.25L8.16225 8.25525C7.97996 8.27693 7.81196 8.36472 7.69006 8.50197C7.56816 8.63923 7.50084 8.81643 7.50084 9C7.50084 9.18357 7.56816 9.36077 7.69006 9.49803C7.81196 9.63528 7.97996 9.72307 8.16225 9.74475L8.25 9.75V12L8.25525 12.0878C8.27499 12.2552 8.35056 12.411 8.46976 12.5302C8.58896 12.6494 8.74484 12.725 8.91225 12.7448L9 12.75H9.75L9.83775 12.7448C10.0052 12.725 10.161 12.6494 10.2802 12.5302C10.3994 12.411 10.475 12.2552 10.4948 12.0878L10.5 12L10.4948 11.9123C10.4768 11.7592 10.4122 11.6155 10.3097 11.5005C10.2072 11.3855 10.0717 11.3048 9.92175 11.2695L9.83775 11.2545L9.75 11.25V9L9.74475 8.91225C9.72501 8.74484 9.64944 8.58896 9.53024 8.46976C9.41104 8.35056 9.25516 8.27499 9.08775 8.25525L9 8.25ZM9.0075 6L8.91225 6.00525C8.72996 6.02693 8.56196 6.11472 8.44006 6.25197C8.31816 6.38923 8.25084 6.56643 8.25084 6.75C8.25084 6.93357 8.31816 7.11077 8.44006 7.24803C8.56196 7.38528 8.72996 7.47307 8.91225 7.49475L9 7.5L9.09525 7.49475C9.27754 7.47307 9.44554 7.38528 9.56744 7.24803C9.68934 7.11077 9.75666 6.93357 9.75666 6.75C9.75666 6.56643 9.68934 6.38923 9.56744 6.25197C9.44554 6.11472 9.27754 6.02693 9.09525 6.00525L9.0075 6Z"
+                fill="#999999"
+              />
+            </svg>
 
-            <!-- Büyüme Plan -->
-            <div class="border border-[#F2F2F2] rounded-[12px] p-6">
-              <div class="flex justify-between items-center mb-4">
-                <h3 class="text-[14px] font-normal text-[#000]">Büyüme</h3>
-                <p
-                  class="font-be-vietnam text-[32px] leading-[46px] font-medium text-[#111111]"
-                >
-                  ₺1234<span
-                    class="font-poppins text-[10px] leading-[15px] font-semibold"
-                    >/ <span class="text-[#BABABA]">ay</span></span
-                  >
-                </p>
-              </div>
-              <button
-                class="w-full h-[34px] py-2 px-4 rounded-[6px] border border-[#292929] text-[12px] font-normal text-[#000] mb-6 hover:bg-[#292929] hover:text-white transition-all duration-300"
-              >
-                Deneme Sürecini Başlat
-              </button>
-
-              <!-- Features List -->
-              <div class="space-y-6">
-                <div class="flex justify-between items-center">
-                  <span class="text-[14px] font-normal text-[#000000]"
-                    >Eteyit İşletme Paneli</span
-                  >
-                  <svg
-                    class="w-6 h-6"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"
-                      fill="#00BB4B"
-                    />
-                  </svg>
-                </div>
-                <div class="flex justify-between items-center">
-                  <span class="text-[14px] font-normal text-[#000000]"
-                    >Oturum Sayısı</span
-                  >
-                  <span class="text-[14px] font-normal">3</span>
-                </div>
-                <div class="flex justify-between items-center">
-                  <span class="text-[14px] font-normal text-[#000000]"
-                    >Şirket Onay Rozeti</span
-                  >
-                  <svg
-                    class="w-6 h-6"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"
-                      fill="#00BB4B"
-                    />
-                  </svg>
-                </div>
-                <div class="flex justify-between items-center">
-                  <span class="text-[14px] font-normal text-[#000000]"
-                    >Müşterilerinize Davet Hakkı</span
-                  >
-                  <span class="text-[14px] font-normal">100</span>
-                </div>
-                <div class="flex justify-between items-center">
-                  <span class="text-[14px] font-normal text-[#000000]"
-                    >Aylık Analiz Raporu</span
-                  >
-                  <svg
-                    class="w-6 h-6"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"
-                      fill="#F54545"
-                    />
-                  </svg>
-                </div>
-              </div>
-            </div>
-
-            <!-- Premium Plan -->
-            <div class="border border-[#F2F2F2] rounded-[12px] p-6">
-              <div class="flex justify-between items-center mb-4">
-                <div class="flex items-center gap-2">
-                  <h3 class="text-[14px] font-normal text-[#000]">Premium</h3>
-                  <span
-                    class="bg-[#E9ECFB] text-[#6954FE] text-[12px] font-medium p-1 rounded-[10px]"
-                  >
-                    En Popüler
-                  </span>
-                </div>
-                <p
-                  class="font-be-vietnam text-[32px] leading-[46px] font-medium text-[#111111]"
-                >
-                  ₺9876<span
-                    class="font-poppins text-[10px] leading-[15px] font-semibold"
-                    >/ <span class="text-[#BABABA]">ay</span></span
-                  >
-                </p>
-              </div>
-              <button
-                class="w-full h-[34px] py-2 px-4 rounded-[6px] bg-[#000] text-[12px] font-normal text-white mb-6 hover:bg-white hover:text-[#000] hover:border hover:border-[#292929] transition-all duration-300"
-              >
-                Deneme Sürecini Başlat
-              </button>
-
-              <!-- Features List -->
-              <div class="space-y-6">
-                <div class="flex justify-between items-center">
-                  <span class="text-[14px] font-normal text-[#000000]"
-                    >Eteyit İşletme Paneli</span
-                  >
-                  <svg
-                    class="w-6 h-6"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"
-                      fill="#00BB4B"
-                    />
-                  </svg>
-                </div>
-                <div class="flex justify-between items-center">
-                  <span class="text-[14px] font-normal text-[#000000]"
-                    >Oturum Sayısı</span
-                  >
-                  <span class="text-[14px] font-normal">Sınırsız</span>
-                </div>
-                <div class="flex justify-between items-center">
-                  <span class="text-[14px] font-normal text-[#000000]"
-                    >Şirket Onay Rozeti</span
-                  >
-                  <svg
-                    class="w-6 h-6"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"
-                      fill="#00BB4B"
-                    />
-                  </svg>
-                </div>
-                <div class="flex justify-between items-center">
-                  <span class="text-[14px] font-normal text-[#000000]"
-                    >Müşterilerinize Davet Hakkı</span
-                  >
-                  <span class="text-[14px] font-normal">Sınırsız</span>
-                </div>
-                <div class="flex justify-between items-center">
-                  <span class="text-[14px] font-normal text-[#000000]"
-                    >Aylık Analiz Raporu</span
-                  >
-                  <svg
-                    class="w-6 h-6"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"
-                      fill="#F54545"
-                    />
-                  </svg>
-                </div>
-              </div>
-            </div>
+            <h3
+              class="font-poppins text-[12px] leading-[18px] font-normal text-[#888888]"
+            >
+              Güvenlik amacıyla, kimliğinizi ve ödeme bilgilerinizi doğrulamak
+              için geçici bir ödeme alacağız.
+            </h3>
           </div>
+        </div>
+
+        <!-- Address Form -->
+        <div class="bg-[#F8F8F8] rounded-[16px] py-8 px-12">
+          <h2
+            class="font-['Prata'] text-[16px] leading-[21.68px] text-[#111] font-normal mb-4"
+          >
+            Fatura Adresi
+          </h2>
+          <form>
+            <div class="space-y-4">
+              <!-- Name Input -->
+              <div
+                class="w-full flex gap-4 items-center px-4 py-2 rounded-[6px] bg-[#fff]"
+              >
+                <label
+                  class="block font-poppins text-[12px] leading-[18px] font-medium text-[#888888]"
+                >
+                  Ad
+                </label>
+                <input
+                  type="text"
+                  class="w-full bg-[#fff] font-poppins text-[14px] leading-[21px] font-medium text-[#111] placeholder:font-poppins placeholder:text-[14px] placeholder:text-[#111] placeholder:leading-[21px] placeholder:font-medium focus:outline-none"
+                  placeholder="Ersin"
+                />
+              </div>
+
+              <!-- Surname Input -->
+              <div
+                class="w-full gap-4 items-center px-4 py-2 rounded-[6px] bg-[#fff]"
+              >
+                <label
+                  class="block font-poppins text-[12px] leading-[18px] font-medium text-[#888888]"
+                >
+                  Soyad
+                </label>
+                <input
+                  type="text"
+                  class="w-full bg-[#fff] font-poppins text-[14px] leading-[21px] font-medium text-[#111] placeholder:font-poppins placeholder:text-[14px] placeholder:text-[#111] placeholder:leading-[21px] placeholder:font-medium focus:outline-none"
+                  placeholder="Soğlam"
+                />
+              </div>
+
+              <div class="flex sm:flex-row flex-col w-full gap-4">
+                <!-- Country Selection -->
+                <div class="w-full px-4 py-2 rounded-[6px] bg-[#fff]">
+                  <label
+                    class="block font-poppins text-[12px] leading-[18px] font-medium text-[#888888]"
+                  >
+                    Ülke
+                  </label>
+                  <select
+                    class="w-full bg-[#fff] font-poppins text-[14px] leading-[21px] font-medium text-[#111] focus:outline-none"
+                  >
+                    <option>Türkiye</option>
+                  </select>
+                </div>
+
+                <!-- City Selection -->
+                <div class="w-full px-4 py-2 rounded-[6px] bg-[#fff]">
+                  <label
+                    class="block font-poppins text-[12px] leading-[18px] font-medium text-[#888888]"
+                  >
+                    Şehir
+                  </label>
+                  <select
+                    class="w-full bg-[#fff] font-poppins text-[14px] leading-[21px] font-medium text-[#111] focus:outline-none"
+                  >
+                    <option>İstanbul</option>
+                  </select>
+                </div>
+
+                <!-- Postal Code -->
+                <div class="w-full px-4 py-2 rounded-[6px] bg-[#fff]">
+                  <label
+                    class="block font-poppins text-[12px] leading-[18px] font-medium text-[#888888]"
+                  >
+                    Posta Kodu
+                  </label>
+                  <input
+                    type="text"
+                    class="w-full bg-[#fff] font-poppins text-[14px] leading-[21px] font-medium text-[#111] placeholder:font-poppins placeholder:text-[14px] placeholder:text-[#111] placeholder:leading-[21px] placeholder:font-medium focus:outline-none"
+                    placeholder="34000"
+                  />
+                </div>
+              </div>
+              <!-- Address -->
+              <div
+                class="w-full flex gap-4 items-center px-4 py-2 rounded-[6px] bg-[#fff]"
+              >
+                <label
+                  class="block font-poppins text-[12px] leading-[18px] font-medium text-[#888888] whitespace-nowrap"
+                >
+                  Açık Adres
+                </label>
+                <textarea
+                  class="w-full h-[42px] bg-[#fff] font-poppins text-[14px] leading-[21px] font-medium text-[#111] placeholder:font-poppins placeholder:text-[14px] placeholder:text-[#111] placeholder:leading-[21px] placeholder:font-medium focus:outline-none resize-none py-[10px]"
+                  placeholder="Adresiniz..."
+                ></textarea>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="mt-6 flex justify-end">
+          <button class="px-9 py-3 bg-[#111] text-white rounded-[8px]">
+            İlerle
+          </button>
         </div>
       </main>
     </div>
