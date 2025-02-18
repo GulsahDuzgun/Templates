@@ -1,0 +1,1453 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          fontFamily: {
+            poppins: ['Poppins', 'sans-serif'],
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="min-h-screen flex font-poppins">
+    <div class="flex-1 w-full flex flex-col xl:ml-64">
+      <header class="p-4 h-[72px] flex items-center justify-between w-full">
+        <div class="flex items-center sm:gap-4 gap-2">
+          <button class="xl:hidden" id="navToggle">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </button>
+          <h1 class="text-xl font-semibold">Hoşgeldin, Eteyit</h1>
+        </div>
+
+        <div class="flex items-center gap-4">
+          <!-- Desktop search input with its icon -->
+          <div class="relative hidden md:block">
+            <input
+              type="text"
+              placeholder="Ara"
+              class="w-[308px] pl-11 pr-4 py-2 bg-white rounded-[14px] border-[1px] border-[#ECECEC] font-poppins text-sm font-normal leading-[21px]"
+            />
+            <svg
+              class="absolute left-[18px] top-1/2 -translate-y-1/2"
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M14 14L10 10M11.3333 6.66667C11.3333 9.244 9.244 11.3333 6.66667 11.3333C4.08934 11.3333 2 9.244 2 6.66667C2 4.08934 4.08934 2 6.66667 2C9.244 2 11.3333 4.08934 11.3333 6.66667Z"
+                stroke="#999999"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+
+          <!-- Mobile search button -->
+          <button class="md:hidden" id="mobileSearchBtn">
+            <svg
+              class="w-5 h-5"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              />
+            </svg>
+          </button>
+
+          <!-- Bell icon -->
+          <button>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
+              />
+            </svg>
+          </button>
+
+          <!-- Profile image and arrow (keeping at the end) -->
+          <div class="flex gap-2">
+            <img
+              src="./assests/logo.jpg"
+              class="h-[36px] w-[36px]"
+              alt="Eteyit Logo"
+            />
+            <button class="p-0">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <!-- Search Overlay -->
+      <div
+        id="searchOverlay"
+        class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden"
+      >
+        <div class="w-full bg-white shadow-lg">
+          <div class="container mx-auto px-4 py-3">
+            <div class="relative">
+              <input
+                type="text"
+                id="searchInput"
+                placeholder="Arama yap"
+                class="w-full pl-11 pr-4 py-2 bg-white rounded-[14px] border-[1px] border-[#ECECEC] font-poppins text-sm font-normal leading-[21px] placeholder:text-sm placeholder:font-normal placeholder:leading-[21px] placeholder:font-poppins"
+              />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5 absolute left-[18px] top-1/2 -translate-y-1/2 text-gray-400"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                />
+              </svg>
+              <button
+                id="closeSearch"
+                class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <main class="p-6">
+        <div class="max-w-[1600px] mx-auto">
+          <h1
+            class="font-poppins text-[24px] leading-[36px] font-medium text-[#111] lg:mb-[62px] mb-[32px] text-center"
+          >
+            14 Gün Boyunca Tüm Özellikleri Ücretsiz Dene
+          </h1>
+          <div class="container-box flex-col lg:flex-row flex">
+            <p
+              class="mx-auto text-center font-thin font-poppins text-[14px] leading-[21px] text-[#7B7B7B]"
+            >
+              Eteyit'in özel olarak tasarlanmış işletme paneli ile
+              <span class="font-medium text-[#020D23]"
+                >müşteri incelemelerinizi</span
+              >
+              analiz edin.
+              <span class="font-medium text-[#020D23]">Şeffaf raporlar</span>
+              ile işinizi daha etkili bir şekilde yönetin! Hemen şimdi başlayın
+              ve 14 günlük ücretsiz deneme süreci ile Eteyit'in tüm
+              özelliklerini keşfedin. İşinizi geliştirmek için güçlü araçlara
+              sahip olun.
+            </p>
+          </div>
+
+          <!-- Pricing Table -->
+          <div class="w-full mx-auto my-8">
+            <!-- Header with Aylık/Yıllık toggle -->
+            <div
+              class="flex justify-center items-center gap-4 mb-8 bg-[#F9F9F9] w-fit mx-auto rounded-full p-1"
+            >
+              <button
+                class="text-[12px] font-normal text-[#000] px-4 py-2 rounded-[20px]"
+              >
+                Aylık
+              </button>
+              <button
+                class="text-[12px] font-medium text-[#000] bg-white px-4 py-2 rounded-[20px]"
+              >
+                Yıllık
+                <span
+                  class="text-[12px] bg-[#F7F8FA] font-medium p-[2px] text-[#EA3434] ml-1 rounded-[10px]"
+                  >%15 tasarruf edin!</span
+                >
+              </button>
+            </div>
+
+            <!-- Pricing Grid -->
+            <div class="hidden lg:block overflow-x-auto">
+              <table
+                class="rounded-[12px] w-full table-fixed overflow-hidden min-w-[800px]"
+              >
+                <!-- Feature Column -->
+                <thead>
+                  <tr class="grid grid-cols-4">
+                    <th
+                      class="bg-[#F7F8FA] border-b border-[#F2F2F2] border-r p-6 min-w-[200px]"
+                    >
+                      <h3
+                        class="text-[14px] font-medium text-left text-[#000000] mb-1"
+                      >
+                        Planları karşılaştır
+                      </h3>
+                      <p class="text-[12px] font-normal text-[#525252]">
+                        Planları inceleyin ve ihtiyaçlarınıza en uygun planı
+                        seçin.
+                      </p>
+                    </th>
+                    <th
+                      class="p-6 border-b border-[#F2F2F2] border-r min-w-[200px]"
+                    >
+                      <div
+                        class="flex flex-col gap-auto justify-between h-full"
+                      >
+                        <div class="flex flex-col">
+                          <h3
+                            class="text-[14px] font-normal text-left text-[#000]"
+                          >
+                            Temel
+                          </h3>
+                          <p
+                            class="font-be-vietnam text-[40px] leading-[58.44px] font-medium text-[#111111]"
+                          >
+                            ₺0<span
+                              class="font-poppins text-[10px] leading-[15px] font-semibold"
+                              >/ <span class="text-[#BABABA]">ay</span></span
+                            >
+                          </p>
+                        </div>
+                        <button
+                          class="w-full h-[34px] py-2 px-4 rounded-[6px] border border-[#292929] text-[12px] font-normal text-[#000] hover:bg-[#292929] hover:text-white transition-all duration-300"
+                        >
+                          Güncel Plan
+                        </button>
+                      </div>
+                    </th>
+                    <th
+                      class="p-6 border-b border-[#F2F2F2] border-r min-w-[200px]"
+                    >
+                      <div
+                        class="flex flex-col gap-auto justify-between h-full"
+                      >
+                        <div class="flex flex-col">
+                          <h3
+                            class="text-[14px] font-normal text-left text-[#000]"
+                          >
+                            Büyüme
+                          </h3>
+                          <p
+                            class="font-be-vietnam text-[40px] leading-[58.44px] font-medium text-[#111111]"
+                          >
+                            ₺1234<span
+                              class="font-poppins text-[10px] leading-[15px] font-semibold"
+                              >/ <span class="text-[#BABABA]">ay</span></span
+                            >
+                          </p>
+                        </div>
+                        <button
+                          class="w-full h-[34px] py-2 px-4 rounded-[6px] border border-[#292929] text-[12px] font-normal text-[#000] hover:bg-[#292929] hover:text-white transition-all duration-300"
+                        >
+                          Deneme Sürecini Başlat
+                        </button>
+                      </div>
+                    </th>
+                    <th class="p-6 border-b border-[#F2F2F2] min-w-[200px]">
+                      <div
+                        class="flex flex-col gap-auto justify-between h-full"
+                      >
+                        <div class="flex flex-col">
+                          <div
+                            class="flex justify-between items-center mb-2 relative"
+                          >
+                            <h3
+                              class="text-[14px] font-normal text-left text-[#000]"
+                            >
+                              Premium
+                            </h3>
+                            <span
+                              class="bg-[#E9ECFB] text-[#6954FE] text-[12px] font-medium p-1 rounded-[10px] absolute top-0 right-0"
+                            >
+                              En Popüler
+                            </span>
+                          </div>
+                          <p
+                            class="font-be-vietnam text-[40px] leading-[58.44px] font-medium text-[#111111]"
+                          >
+                            ₺9876<span
+                              class="font-poppins text-[10px] leading-[15px] font-semibold"
+                              >/ <span class="text-[#BABABA]">ay</span></span
+                            >
+                          </p>
+                        </div>
+                        <button
+                          class="w-full h-[34px] py-2 px-4 rounded-[6px] bg-[#000] text-[12px] font-normal text-white hover:bg-white hover:text-[#000] hover:border hover:border-[#292929] transition-all duration-300"
+                        >
+                          Deneme Sürecini Başlat
+                        </button>
+                      </div>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Eteyit İşletme Paneli Row -->
+                  <tr class="grid grid-cols-4">
+                    <td
+                      class="bg-[#F7F8FA] p-6 border-b border-[#F2F2F2] border-r"
+                    >
+                      <p class="text-[14px] font-normal text-[#000000]">
+                        Eteyit İşletme Paneli
+                      </p>
+                    </td>
+                    <td
+                      class="p-6 border-b border-[#F2F2F2] border-r text-center"
+                    >
+                      <svg
+                        class="mx-auto"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"
+                          fill="#00BB4B"
+                        />
+                      </svg>
+                    </td>
+                    <td
+                      class="p-6 border-b border-[#F2F2F2] border-r text-center"
+                    >
+                      <svg
+                        class="mx-auto"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"
+                          fill="#00BB4B"
+                        />
+                      </svg>
+                    </td>
+                    <td class="p-6 border-b border-[#F2F2F2] text-center">
+                      <svg
+                        class="mx-auto"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"
+                          fill="#00BB4B"
+                        />
+                      </svg>
+                    </td>
+                  </tr>
+
+                  <!-- Oturum Sayısı Row -->
+                  <tr class="grid grid-cols-4">
+                    <td
+                      class="bg-[#F7F8FA] p-6 border-b border-[#F2F2F2] border-r"
+                    >
+                      <p class="text-[14px] font-normal text-[#000000]">
+                        Oturum Sayısı
+                      </p>
+                    </td>
+                    <td
+                      class="p-6 border-b border-[#F2F2F2] border-r text-center"
+                    >
+                      <span class="text-[14px] font-normal">1</span>
+                    </td>
+                    <td
+                      class="p-6 border-b border-[#F2F2F2] border-r text-center"
+                    >
+                      <span class="text-[14px] font-normal">3</span>
+                    </td>
+                    <td class="p-6 border-b border-[#F2F2F2] text-center">
+                      <span class="text-[14px] font-normal">Sınırsız</span>
+                    </td>
+                  </tr>
+
+                  <!-- Şirket Onay Rozeti Row -->
+                  <tr class="grid grid-cols-4">
+                    <td
+                      class="bg-[#F7F8FA] p-6 border-b border-[#F2F2F2] border-r"
+                    >
+                      <p class="text-[14px] font-normal text-[#000000]">
+                        Şirket Onay Rozeti
+                      </p>
+                    </td>
+                    <td
+                      class="p-6 border-b border-[#F2F2F2] border-r text-center"
+                    >
+                      <svg
+                        class="mx-auto"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"
+                          fill="#00BB4B"
+                        />
+                      </svg>
+                    </td>
+                    <td
+                      class="p-6 border-b border-[#F2F2F2] border-r text-center"
+                    >
+                      <svg
+                        class="mx-auto"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"
+                          fill="#00BB4B"
+                        />
+                      </svg>
+                    </td>
+                    <td class="p-6 border-b border-[#F2F2F2] text-center">
+                      <svg
+                        class="mx-auto"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"
+                          fill="#00BB4B"
+                        />
+                      </svg>
+                    </td>
+                  </tr>
+
+                  <!-- Müşterilerinize Davet Hakkı Row -->
+                  <tr class="grid grid-cols-4">
+                    <td
+                      class="bg-[#F7F8FA] p-6 border-b border-[#F2F2F2] border-r"
+                    >
+                      <p class="text-[14px] font-normal text-[#000000]">
+                        Müşterilerinize Davet Hakkı
+                      </p>
+                    </td>
+                    <td
+                      class="p-6 border-b border-[#F2F2F2] border-r text-center"
+                    >
+                      <span class="text-[14px] font-normal">50</span>
+                    </td>
+                    <td
+                      class="p-6 border-b border-[#F2F2F2] border-r text-center"
+                    >
+                      <span class="text-[14px] font-normal">100</span>
+                    </td>
+                    <td class="p-6 border-b border-[#F2F2F2] text-center">
+                      <span class="text-[14px] font-normal">Sınırsız</span>
+                    </td>
+                  </tr>
+
+                  <!-- Aylık Analiz Raporu Row -->
+                  <tr class="grid grid-cols-4">
+                    <td
+                      class="bg-[#F7F8FA] p-6 border-b border-[#F2F2F2] border-r"
+                    >
+                      <p class="text-[14px] font-normal text-[#000000]">
+                        Aylık Analiz Raporu
+                      </p>
+                    </td>
+                    <td
+                      class="p-6 border-b border-[#F2F2F2] border-r text-center"
+                    >
+                      <svg
+                        class="mx-auto"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"
+                          fill="#F54545"
+                        />
+                      </svg>
+                    </td>
+                    <td
+                      class="p-6 border-b border-r border-[#F2F2F2] text-center"
+                    >
+                      <svg
+                        class="mx-auto"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"
+                          fill="#00BB4B"
+                        />
+                      </svg>
+                    </td>
+                    <td class="p-6 border-b border-[#F2F2F2] text-center">
+                      <svg
+                        class="mx-auto"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"
+                          fill="#00BB4B"
+                        />
+                      </svg>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Mobile View -->
+            <div class="lg:hidden my-6 space-y-6">
+              <!-- Temel Plan -->
+              <div class="border border-[#F2F2F2] rounded-[12px] p-6">
+                <div class="flex justify-between items-center mb-4">
+                  <h3 class="text-[14px] font-normal text-[#000]">Temel</h3>
+                  <p
+                    class="font-be-vietnam text-[32px] leading-[46px] font-medium text-[#111111]"
+                  >
+                    ₺0<span
+                      class="font-poppins text-[10px] leading-[15px] font-semibold"
+                      >/ <span class="text-[#BABABA]">ay</span></span
+                    >
+                  </p>
+                </div>
+                <button
+                  class="w-full h-[34px] py-2 px-4 rounded-[6px] border border-[#292929] text-[12px] font-normal text-[#000] mb-6 hover:bg-[#292929] hover:text-white transition-all duration-300"
+                >
+                  Güncel Plan
+                </button>
+
+                <!-- Features List -->
+                <div class="space-y-6">
+                  <div class="flex justify-between items-center">
+                    <span class="text-[14px] font-normal text-[#000000]"
+                      >Eteyit İşletme Paneli</span
+                    >
+                    <svg
+                      class="w-6 h-6"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"
+                        fill="#00BB4B"
+                      />
+                    </svg>
+                  </div>
+                  <div class="flex justify-between items-center">
+                    <span class="text-[14px] font-normal text-[#000000]"
+                      >Oturum Sayısı</span
+                    >
+                    <span class="text-[14px] font-normal">1</span>
+                  </div>
+                  <div class="flex justify-between items-center">
+                    <span class="text-[14px] font-normal text-[#000000]"
+                      >Şirket Onay Rozeti</span
+                    >
+                    <svg
+                      class="w-6 h-6"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"
+                        fill="#00BB4B"
+                      />
+                    </svg>
+                  </div>
+                  <div class="flex justify-between items-center">
+                    <span class="text-[14px] font-normal text-[#000000]"
+                      >Müşterilerinize Davet Hakkı</span
+                    >
+                    <span class="text-[14px] font-normal">50</span>
+                  </div>
+                  <div class="flex justify-between items-center">
+                    <span class="text-[14px] font-normal text-[#000000]"
+                      >Aylık Analiz Raporu</span
+                    >
+                    <svg
+                      class="w-6 h-6"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"
+                        fill="#F54545"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Büyüme Plan -->
+              <div class="border border-[#F2F2F2] rounded-[12px] p-6">
+                <div class="flex justify-between items-center mb-4">
+                  <h3 class="text-[14px] font-normal text-[#000]">Büyüme</h3>
+                  <p
+                    class="font-be-vietnam text-[32px] leading-[46px] font-medium text-[#111111]"
+                  >
+                    ₺1234<span
+                      class="font-poppins text-[10px] leading-[15px] font-semibold"
+                      >/ <span class="text-[#BABABA]">ay</span></span
+                    >
+                  </p>
+                </div>
+                <button
+                  class="w-full h-[34px] py-2 px-4 rounded-[6px] border border-[#292929] text-[12px] font-normal text-[#000] mb-6 hover:bg-[#292929] hover:text-white transition-all duration-300"
+                >
+                  Deneme Sürecini Başlat
+                </button>
+
+                <!-- Features List -->
+                <div class="space-y-6">
+                  <div class="flex justify-between items-center">
+                    <span class="text-[14px] font-normal text-[#000000]"
+                      >Eteyit İşletme Paneli</span
+                    >
+                    <svg
+                      class="w-6 h-6"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"
+                        fill="#00BB4B"
+                      />
+                    </svg>
+                  </div>
+                  <div class="flex justify-between items-center">
+                    <span class="text-[14px] font-normal text-[#000000]"
+                      >Oturum Sayısı</span
+                    >
+                    <span class="text-[14px] font-normal">3</span>
+                  </div>
+                  <div class="flex justify-between items-center">
+                    <span class="text-[14px] font-normal text-[#000000]"
+                      >Şirket Onay Rozeti</span
+                    >
+                    <svg
+                      class="w-6 h-6"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"
+                        fill="#00BB4B"
+                      />
+                    </svg>
+                  </div>
+                  <div class="flex justify-between items-center">
+                    <span class="text-[14px] font-normal text-[#000000]"
+                      >Müşterilerinize Davet Hakkı</span
+                    >
+                    <span class="text-[14px] font-normal">100</span>
+                  </div>
+                  <div class="flex justify-between items-center">
+                    <span class="text-[14px] font-normal text-[#000000]"
+                      >Aylık Analiz Raporu</span
+                    >
+                    <svg
+                      class="w-6 h-6"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"
+                        fill="#F54545"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Premium Plan -->
+              <div class="border border-[#F2F2F2] rounded-[12px] p-6">
+                <div class="flex justify-between items-center mb-4">
+                  <div class="flex items-center gap-2 sm:flex-row flex-col">
+                    <h3 class="text-[14px] font-normal text-[#000]">Premium</h3>
+                    <span
+                      class="bg-[#E9ECFB] text-[#6954FE] text-[12px] font-medium p-1 rounded-[10px]"
+                    >
+                      En Popüler
+                    </span>
+                  </div>
+                  <p
+                    class="font-be-vietnam text-[32px] leading-[46px] font-medium text-[#111111]"
+                  >
+                    ₺9876<span
+                      class="font-poppins text-[10px] leading-[15px] font-semibold"
+                      >/ <span class="text-[#BABABA]">ay</span></span
+                    >
+                  </p>
+                </div>
+                <button
+                  class="w-full h-[34px] py-2 px-4 rounded-[6px] bg-[#000] text-[12px] font-normal text-white mb-6 hover:bg-white hover:text-[#000] hover:border hover:border-[#292929] transition-all duration-300"
+                >
+                  Deneme Sürecini Başlat
+                </button>
+
+                <!-- Features List -->
+                <div class="space-y-6">
+                  <div class="flex justify-between items-center">
+                    <span class="text-[14px] font-normal text-[#000000]"
+                      >Eteyit İşletme Paneli</span
+                    >
+                    <svg
+                      class="w-6 h-6"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"
+                        fill="#00BB4B"
+                      />
+                    </svg>
+                  </div>
+                  <div class="flex justify-between items-center">
+                    <span class="text-[14px] font-normal text-[#000000]"
+                      >Oturum Sayısı</span
+                    >
+                    <span class="text-[14px] font-normal">Sınırsız</span>
+                  </div>
+                  <div class="flex justify-between items-center">
+                    <span class="text-[14px] font-normal text-[#000000]"
+                      >Şirket Onay Rozeti</span
+                    >
+                    <svg
+                      class="w-6 h-6"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"
+                        fill="#00BB4B"
+                      />
+                    </svg>
+                  </div>
+                  <div class="flex justify-between items-center">
+                    <span class="text-[14px] font-normal text-[#000000]"
+                      >Müşterilerinize Davet Hakkı</span
+                    >
+                    <span class="text-[14px] font-normal">Sınırsız</span>
+                  </div>
+                  <div class="flex justify-between items-center">
+                    <span class="text-[14px] font-normal text-[#000000]"
+                      >Aylık Analiz Raporu</span
+                    >
+                    <svg
+                      class="w-6 h-6"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"
+                        fill="#F54545"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Partner section -->
+          <div class="mx-auto my-[100px]">
+            <p
+              class="text-[14px] text-[#020D23] leading-[21px] tracking-[0%] font-medium text-center mb-8"
+            >
+              Bizi Tercih Eden Tedarikçilerimiz
+            </p>
+
+            <!-- Partner logos grid -->
+            <div
+              class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-4 sm:gap-x-6 gap-y-8 sm:gap-y-4 items-center justify-items-center"
+            >
+              <img
+                src="assests/pamukkale.png"
+                alt="Pamukkale"
+                class="h-[76px] w-auto max-w-[100px]"
+              />
+              <img
+                src="assests/watsons.png"
+                alt="Watsons"
+                class="h-[76px] w-auto max-w-[100px]"
+              />
+              <img
+                src="assests/mediaMark.png"
+                alt="Media Markt"
+                class="h-[76px] w-auto max-w-[100px]"
+              />
+              <img
+                src="assests/trendyol.png"
+                alt="Trendyol"
+                class="h-[76px] w-auto max-w-[100px]"
+              />
+              <img
+                src="assests/carrefour.png"
+                alt="Carrefour"
+                class="h-[76px] w-auto max-w-[100px]"
+              />
+              <img
+                src="assests/lc-waikiki.png"
+                alt="LC Waikiki"
+                class="h-[76px] w-auto max-w-[100px]"
+              />
+            </div>
+          </div>
+
+          <div class="mx-auto my-12">
+            <h2 class="text-[#020D23] text-[16px] font-[600] mb-4">
+              Sık Sorulan Sorular
+            </h2>
+
+            <!-- Questions -->
+            <div>
+              <!-- Question 1 -->
+              <div class="border-b border-[#EEEEEE]">
+                <div
+                  class="flex pt-4 pb-2 justify-between items-center cursor-pointer gap-4 relative"
+                >
+                  <p
+                    class="font-normal text-[14px] leading-[21px] text-[#020D23] flex-1"
+                  >
+                    Etaylı nasıl çalışır?
+                  </p>
+
+                  <svg
+                    class="absolute right-0 top-1/2 -translate-y-1/2"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9 6L15 12L9 18"
+                      stroke="#212225"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </div>
+                <div class="p-4 hidden">
+                  <!-- Answer content will go here -->
+                  <p class="text-[14px] leading-[21px] text-[#4F5662]">
+                    Answer content goes here...
+                  </p>
+                </div>
+              </div>
+
+              <!-- Question 2 -->
+              <div class="border-b border-[#EEEEEE]">
+                <div
+                  class="flex pt-4 pb-2 justify-between items-center cursor-pointer relative"
+                >
+                  <p
+                    class="font-normal text-[14px] leading-[21px] text-[#020D23]"
+                  >
+                    Paketleri satın aldığımda markamı bir değişim veriyor
+                    musunuz? Satın almadan sonra nasıl olur?
+                  </p>
+                  <svg
+                    class="absolute right-0 top-1/2 -translate-y-1/2"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9 6L15 12L9 18"
+                      stroke="#212225"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </div>
+                <div class="p-4 hidden">
+                  <p class="text-[14px] leading-[21px] text-[#4F5662]">
+                    Answer content goes here...
+                  </p>
+                </div>
+              </div>
+
+              <!-- Question 3 -->
+              <div class="border-b border-[#EEEEEE]">
+                <div
+                  class="flex pt-4 pb-2 justify-between items-center cursor-pointer relative"
+                >
+                  <p
+                    class="font-normal text-[14px] leading-[21px] text-[#020D23]"
+                  >
+                    Etayl'e kaydolduğumda ödeme yapmak zorunda mıyım?
+                  </p>
+                  <svg
+                    class="absolute right-0 top-1/2 -translate-y-1/2"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9 6L15 12L9 18"
+                      stroke="#212225"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </div>
+                <div class="p-4 hidden">
+                  <p class="text-[14px] leading-[21px] text-[#4F5662]">
+                    Answer content goes here...
+                  </p>
+                </div>
+              </div>
+
+              <!-- Question 4 -->
+              <div class="border-b border-[#EEEEEE]">
+                <div
+                  class="flex pt-4 pb-2 justify-between items-center cursor-pointer relative"
+                >
+                  <p
+                    class="font-normal text-[14px] leading-[21px] text-[#020D23]"
+                  >
+                    Yardıma ihtiyacım var, ne yapmalıyım?
+                  </p>
+                  <svg
+                    class="absolute right-0 top-1/2 -translate-y-1/2"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9 6L15 12L9 18"
+                      stroke="#212225"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </div>
+                <div class="p-4 hidden">
+                  <p class="text-[14px] leading-[21px] text-[#4F5662]">
+                    Answer content goes here...
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Email subscription section -->
+            <div class="mt-[64px] text-center">
+              <p
+                class="font-medium text-[#020D23] text-[16px] leading-[24px] mb-1"
+              >
+                İşletmenizin potansiyelini gerçekleştirmek mi istiyorsunuz?
+              </p>
+              <p class="text-[16px] mb-4 text-[#020D23] italic font-medium">
+                Bizimle iletişime geçin
+              </p>
+              <div class="relative max-w-md mx-auto">
+                <input
+                  type="email"
+                  placeholder="E-posta adresi"
+                  class="w-full h-[42px] px-4 bg-[#111] text-[##C7C7C7] rounded-[25px] focus:outline-none placeholder:text-[#C7C7C7] placeholder:text-[14px] placeholder:font-normal pr-[120px]"
+                />
+                <button
+                  class="absolute right-[-3px] top-0 h-[42px] px-6 bg-[#FFFFFF] text-[#111111] rounded-[25px] font-[500] text-[14px] leading-[21px] font-poppins border border-[#EEEEEE]"
+                >
+                  Gönder
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <aside
+      class="fixed inset-y-0 left-0 w-64 bg-white p-9 flex flex-col border-r border-[#eee] transform -translate-x-full xl:translate-x-0 transition-transform duration-300 ease-in-out z-40"
+      id="sidebar"
+    >
+      <!-- Close button for mobile - adjusted top spacing -->
+      <button class="absolute top-8 right-8 xl:hidden" id="closeNav">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"
+          />
+        </svg>
+      </button>
+
+      <!-- Logo/Username -->
+      <div class="mb-[64px]">
+        <h2 class="text-2xl font-semibold leading-9">eteyit</h2>
+        <div class="h-0.5 bg-blue-500 w-12 mt-1"></div>
+      </div>
+
+      <!-- Menu Items -->
+      <nav class="flex flex-col gap-8">
+        <a
+          href="#"
+          class="group flex items-center relative text-[#999] hover:text-[#111] active:text-[#111]"
+        >
+          <div
+            class="absolute right-0 top-1/2 -translate-y-1/2 h-[24px] w-[4px] bg-[#2B2B2B] rounded-l-[5px] opacity-0 group-hover:opacity-100 transition-opacity"
+          ></div>
+          <svg
+            class="w-5 h-5 mr-5 text-[#999] group-hover:text-[#111] group-active:text-[#111] transition-colors"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M4 4H10V10H4V4Z" fill="currentColor" />
+            <path d="M14 4H20V10H14V4Z" fill="currentColor" />
+            <path d="M4 14H10V20H4V14Z" fill="currentColor" />
+            <path
+              d="M14 17C14 17.7956 14.3161 18.5587 14.8787 19.1213C15.4413 19.6839 16.2044 20 17 20C17.7956 20 18.5587 19.6839 19.1213 19.1213C19.6839 18.5587 20 17.7956 20 17C20 16.2044 19.6839 15.4413 19.1213 14.8787C18.5587 14.3161 17.7956 14 17 14C16.2044 14 15.4413 14.3161 14.8787 14.8787C14.3161 15.4413 14 16.2044 14 17Z"
+              fill="currentColor"
+            />
+            <path
+              d="M4 4H10V10H4V4Z"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M14 4H20V10H14V4Z"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M4 14H10V20H4V14Z"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M14 17C14 17.7956 14.3161 18.5587 14.8787 19.1213C15.4413 19.6839 16.2044 20 17 20C17.7956 20 18.5587 19.6839 19.1213 19.1213C19.6839 18.5587 20 17.7956 20 17C20 16.2044 19.6839 15.4413 19.1213 14.8787C18.5587 14.3161 17.7956 14 17 14C16.2044 14 15.4413 14.3161 14.8787 14.8787C14.3161 15.4413 14 16.2044 14 17Z"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <span
+            class="font-poppins text-xs leading-[18px] text-[#999] group-hover:text-[#111] transition-colors"
+            >Anasayfa</span
+          >
+        </a>
+
+        <a
+          href="#"
+          class="group flex items-center relative text-[#999] hover:text-[#111] active:text-[#111]"
+        >
+          <div
+            class="absolute right-0 top-1/2 -translate-y-1/2 h-[24px] w-[4px] bg-[#2B2B2B] rounded-l-[5px] opacity-0 group-hover:opacity-100 transition-opacity"
+          ></div>
+          <svg
+            class="w-5 h-5 mr-5 text-[#999] group-hover:text-[#111] group-active:text-[#111] transition-colors"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M9 11L12 14L20 6M20 12V18C20 18.5304 19.7893 19.0391 19.4142 19.4142C19.0391 19.7893 18.5304 20 18 20H6C5.46957 20 4.96086 19.7893 4.58579 19.4142C4.21071 19.0391 4 18.5304 4 18V6C4 5.46957 4.21071 4.96086 4.58579 4.58579C4.96086 4.21071 5.46957 4 6 4H15"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+
+          <span
+            class="font-poppins text-xs leading-[18px] text-[#999] group-hover:text-[#111] transition-colors"
+            >İşlem Tayiti</span
+          >
+        </a>
+
+        <a
+          href="#"
+          class="group flex items-center relative text-[#999] hover:text-[#111] active:text-[#111]"
+        >
+          <div
+            class="absolute right-0 top-1/2 -translate-y-1/2 h-[24px] w-[4px] bg-[#2B2B2B] rounded-l-[5px] opacity-0 group-hover:opacity-100 transition-opacity"
+          ></div>
+          <svg
+            class="w-5 h-5 mr-5 text-[#999] group-hover:text-[#111] group-active:text-[#111] transition-colors"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M8 9H16M8 13H14M18 4C18.7956 4 19.5587 4.31607 20.1213 4.87868C20.6839 5.44129 21 6.20435 21 7V15C21 15.7956 20.6839 16.5587 20.1213 17.1213C19.5587 17.6839 18.7956 18 18 18H13L8 21V18H6C5.20435 18 4.44129 17.6839 3.87868 17.1213C3.31607 16.5587 3 15.7956 3 15V7C3 6.20435 3.31607 5.44129 3.87868 4.87868C4.44129 4.31607 5.20435 4 6 4H18Z"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+
+          <span
+            class="font-poppins text-xs leading-[18px] text-[#999] group-hover:text-[#111] transition-colors"
+            >Değerlendirmeler</span
+          >
+        </a>
+
+        <a
+          href="#"
+          class="group flex items-center relative text-[#111] hover:text-[#111] active:text-[#111]"
+        >
+          <div
+            class="absolute right-0 top-1/2 -translate-y-1/2 h-[24px] w-[4px] bg-[#2B2B2B] rounded-l-[5px] opacity-0 group-hover:opacity-100 transition-opacity"
+          ></div>
+          <svg
+            class="w-5 h-5 mr-5 text-[#999] group-hover:text-[#111] group-active:text-[#111] transition-colors"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3 3V21H21M10.1602 10.6201L12.5002 13.5001M15.0879 13.3282L17.9249 8.74219M7 9C7 9.53043 7.21071 10.0391 7.58579 10.4142C7.96086 10.7893 8.46957 11 9 11C9.53043 11 10.0391 10.7893 10.4142 10.4142C10.7893 10.0391 11 9.53043 11 9C11 8.46957 10.7893 7.96086 10.4142 7.58579C10.0391 7.21071 9.53043 7 9 7C8.46957 7 7.96086 7.21071 7.58579 7.58579C7.21071 7.96086 7 8.46957 7 9ZM17 7C17 7.53043 17.2107 8.03914 17.5858 8.41421C17.9609 8.78929 18.4696 9 19 9C19.5304 9 20.0391 8.78929 20.4142 8.41421C20.7893 8.03914 21 7.53043 21 7C21 6.46957 20.7893 5.96086 20.4142 5.58579C20.0391 5.21071 19.5304 5 19 5C18.4696 5 17.9609 5.21071 17.5858 5.58579C17.2107 5.96086 17 6.46957 17 7ZM12 15C12 15.5304 12.2107 16.0391 12.5858 16.4142C12.9609 16.7893 13.4696 17 14 17C14.5304 17 15.0391 16.7893 15.4142 16.4142C15.7893 16.0391 16 15.5304 16 15C16 14.4696 15.7893 13.9609 15.4142 13.5858C15.0391 13.2107 14.5304 13 14 13C13.4696 13 12.9609 13.2107 12.5858 13.5858C12.2107 13.9609 12 14.4696 12 15Z"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <span
+            class="font-poppins text-xs leading-[18px] text-[#999] group-hover:text-[#111] transition-colors"
+            >İstatistikler</span
+          >
+        </a>
+
+        <a
+          href="#"
+          class="group flex items-center relative text-[#111] hover:text-[#111] active:text-[#111]"
+        >
+          <div
+            class="absolute right-0 top-1/2 -translate-y-1/2 h-[24px] w-[4px] bg-[#2B2B2B] rounded-l-[5px] opacity-0 group-hover:opacity-100 transition-opacity"
+          ></div>
+          <svg
+            class="w-5 h-5 mr-5 text-[#999] group-hover:text-[#111] group-active:text-[#111] transition-colors"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M9 5H7C6.46957 5 5.96086 5.21071 5.58579 5.58579C5.21071 5.96086 5 6.46957 5 7V19C5 19.5304 5.21071 20.0391 5.58579 20.4142C5.96086 20.7893 6.46957 21 7 21H17C17.5304 21 18.0391 20.7893 18.4142 20.4142C18.7893 20.0391 19 19.5304 19 19V7C19 6.46957 18.7893 5.96086 18.4142 5.58579C18.0391 5.21071 17.5304 5 17 5H15M9 5C9 4.46957 9.21071 3.96086 9.58579 3.58579C9.96086 3.21071 10.4696 3 11 3H13C13.5304 3 14.0391 3.21071 14.4142 3.58579C14.7893 3.96086 15 4.46957 15 5M9 5C9 5.53043 9.21071 6.03914 9.58579 6.41421C9.96086 6.78929 10.4696 7 11 7H13C13.5304 7 14.0391 6.78929 14.4142 6.41421C14.7893 6.03914 15 5.53043 15 5M9 17V12M12 17V16M15 17V14"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+
+          <span
+            class="font-poppins text-xs leading-[18px] text-[#999] group-hover:text-[#111] transition-colors"
+            >Aylık Analiz Raporları</span
+          >
+        </a>
+
+        <a
+          href="#"
+          class="group flex items-center relative text-[#111] hover:text-[#111] active:text-[#111]"
+        >
+          <div
+            class="absolute right-0 top-1/2 -translate-y-1/2 h-[24px] w-[4px] bg-[#2B2B2B] rounded-l-[5px] opacity-0 group-hover:opacity-100 transition-opacity"
+          ></div>
+          <svg
+            class="w-5 h-5 mr-5 text-[#999] group-hover:text-[#111] group-active:text-[#111] transition-colors"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M10.325 4.317C10.751 2.561 13.249 2.561 13.675 4.317C13.7389 4.5808 13.8642 4.82578 14.0407 5.032C14.2172 5.23822 14.4399 5.39985 14.6907 5.50375C14.9414 5.60764 15.2132 5.65085 15.4838 5.62987C15.7544 5.60889 16.0162 5.5243 16.248 5.383C17.791 4.443 19.558 6.209 18.618 7.753C18.4769 7.98466 18.3924 8.24634 18.3715 8.51677C18.3506 8.78721 18.3938 9.05877 18.4975 9.30938C18.6013 9.55999 18.7627 9.78258 18.9687 9.95905C19.1747 10.1355 19.4194 10.2609 19.683 10.325C21.439 10.751 21.439 13.249 19.683 13.675C19.4192 13.7389 19.1742 13.8642 18.968 14.0407C18.7618 14.2172 18.6001 14.4399 18.4963 14.6907C18.3924 14.9414 18.3491 15.2132 18.3701 15.4838C18.3911 15.7544 18.4757 16.0162 18.617 16.248C19.557 17.791 17.791 19.558 16.247 18.618C16.0153 18.4769 15.7537 18.3924 15.4832 18.3715C15.2128 18.3506 14.9412 18.3938 14.6906 18.4975C14.44 18.6013 14.2174 18.7627 14.0409 18.9687C13.8645 19.1747 13.7391 19.4194 13.675 19.683C13.249 21.439 10.751 21.439 10.325 19.683C10.2611 19.4192 10.1358 19.1742 9.95929 18.968C9.7828 18.7618 9.56011 18.6001 9.30935 18.4963C9.05859 18.3924 8.78683 18.3491 8.51621 18.3701C8.24559 18.3911 7.98375 18.4757 7.752 18.617C6.209 19.557 4.442 17.791 5.382 16.247C5.5231 16.0153 5.60755 15.7537 5.62848 15.4832C5.64942 15.2128 5.60624 14.9412 5.50247 14.6906C5.3987 14.44 5.23726 14.2174 5.03127 14.0409C4.82529 13.8645 4.58056 13.7391 4.317 13.675C2.561 13.249 2.561 10.751 4.317 10.325C4.5808 10.2611 4.82578 10.1358 5.032 9.95929C5.23822 9.7828 5.39985 9.56011 5.50375 9.30935C5.60764 9.05859 5.65085 8.78683 5.62987 8.51621C5.60889 8.24559 5.5243 7.98375 5.383 7.752C4.443 6.209 6.209 4.442 7.753 5.382C8.753 5.99 10.049 5.452 10.325 4.317Z"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M9 12C9 12.7956 9.31607 13.5587 9.87868 14.1213C10.4413 14.6839 11.2044 15 12 15C12.7956 15 13.5587 14.6839 14.1213 14.1213C14.6839 13.5587 15 12.7956 15 12C15 11.2044 14.6839 10.4413 14.1213 9.87868C13.5587 9.31607 12.7956 9 12 9C11.2044 9 10.4413 9.31607 9.87868 9.87868C9.31607 10.4413 9 11.2044 9 12Z"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+
+          <span
+            class="font-poppins text-xs leading-[18px] text-[#999] group-hover:text-[#111] transition-colors"
+            >Ayarlar</span
+          >
+        </a>
+
+        <a
+          href="#"
+          class="group flex items-center relative text-[#111] hover:text-[#111] active:text-[#111]"
+        >
+          <div
+            class="absolute right-0 top-1/2 -translate-y-1/2 h-[24px] w-[4px] bg-[#2B2B2B] rounded-l-[5px] opacity-0 group-hover:opacity-100 transition-opacity"
+          ></div>
+          <svg
+            class="w-5 h-5 mr-5 text-[#999] group-hover:text-[#111] group-active:text-[#111] transition-colors"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 16V16.01M12 12.9998C12.4498 13.0011 12.8868 12.8508 13.2407 12.5732C13.5945 12.2956 13.8444 11.9068 13.95 11.4696C14.0557 11.0324 14.0109 10.5724 13.8229 10.1638C13.6349 9.75524 13.3147 9.42195 12.914 9.21776C12.5162 9.01397 12.0611 8.95079 11.6228 9.03848C11.1845 9.12618 10.7888 9.3596 10.5 9.70076M12 3C19.2 3 21 4.8 21 12C21 19.2 19.2 21 12 21C4.8 21 3 19.2 3 12C3 4.8 4.8 3 12 3Z"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+
+          <span
+            class="font-poppins text-xs leading-[18px] text-[#999] group-hover:text-[#111] transition-colors"
+            >Yardım</span
+          >
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Comment slider structure -->
+    <div
+      id="commentSlider"
+      class="fixed inset-y-0 right-0 w-80 bg-white shadow-lg transform translate-x-full transition-transform duration-300 ease-in-out z-50 hidden"
+    >
+      <!-- Header -->
+      <div
+        class="flex items-center justify-between p-4 border-b border-[#EEEEEE]"
+      >
+        <div class="flex flex-col gap-1">
+          <h2 class="font-poppins text-[16px] font-[500] text-[#111111]">
+            Son Değerlendirmeler
+          </h2>
+          <span class="font-poppins text-[12px] text-[#FF2358]"
+            >5 yeni değerlendirme</span
+          >
+        </div>
+        <button id="closeCommentSlider" class="p-2">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M18 6L6 18M6 6L18 18"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Content container -->
+      <div id="sliderContent" class="h-[calc(100%-60px)] overflow-y-auto">
+        <!-- Content will be copied here -->
+      </div>
+    </div>
+
+    <script>
+      const sidebar = document.getElementById('sidebar');
+      const navToggle = document.getElementById('navToggle');
+      const closeNav = document.getElementById('closeNav');
+
+      navToggle.addEventListener('click', () => {
+        sidebar.classList.remove('-translate-x-full');
+      });
+
+      closeNav.addEventListener('click', () => {
+        sidebar.classList.add('-translate-x-full');
+      });
+
+      // Search functionality
+      const searchToggle = document.getElementById('mobileSearchBtn');
+      const searchOverlay = document.getElementById('searchOverlay');
+      const closeSearch = document.getElementById('closeSearch');
+      const searchInput = document.getElementById('searchInput');
+
+      searchToggle.addEventListener('click', () => {
+        searchOverlay.classList.remove('hidden');
+        searchInput.focus();
+      });
+
+      closeSearch.addEventListener('click', () => {
+        searchOverlay.classList.add('hidden');
+      });
+
+      searchOverlay.addEventListener('click', (e) => {
+        if (e.target === searchOverlay) {
+          searchOverlay.classList.add('hidden');
+        }
+      });
+
+      // Close search on escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !searchOverlay.classList.contains('hidden')) {
+          searchOverlay.classList.add('hidden');
+        }
+      });
+
+      // New click handlers
+      document
+        .getElementById('mobileSearchBtn')
+        .addEventListener('click', () => {
+          document.getElementById('searchOverlay').classList.remove('hidden');
+          document.getElementById('searchInput').focus();
+        });
+
+      closeSearch.addEventListener('click', () => {
+        document.getElementById('searchOverlay').classList.add('hidden');
+      });
+
+      // Optional: Close on escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          document.getElementById('searchOverlay').classList.add('hidden');
+        }
+      });
+    </script>
+    <script>
+      document
+        .querySelectorAll('.settings-profile-box button')
+        .forEach((button) => {
+          button.addEventListener('click', () => {
+            const content = button.nextElementSibling;
+            const isOpen = !content.classList.contains('hidden');
+
+            // Close all other sections
+            document
+              .querySelectorAll('.settings-profile-box button + div')
+              .forEach((div) => {
+                div.classList.add('hidden');
+              });
+
+            // Toggle current section
+            if (!isOpen) {
+              content.classList.remove('hidden');
+            }
+
+            // Rotate only the arrow icon (last svg in button)
+            const arrow = button.querySelector('svg:last-child');
+            document
+              .querySelectorAll('.settings-profile-box button svg:last-child')
+              .forEach((svg) => {
+                svg.style.transform = 'rotate(0deg)';
+              });
+            if (!isOpen) {
+              arrow.style.transform = 'rotate(180deg)';
+            }
+          });
+        });
+    </script>
+  </body>
+</html>
