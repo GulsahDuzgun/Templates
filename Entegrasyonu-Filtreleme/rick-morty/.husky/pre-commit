@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Check types
+npm run check-types || (
+  echo '❌ Type check failed. Make the necessary changes listed above and try again.'
+  false
+)
+
+# Run lint-staged
+npx lint-staged 

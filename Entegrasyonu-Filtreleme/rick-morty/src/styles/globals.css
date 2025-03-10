@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: white;
+  --foreground: black;
+  --card: white;
+  --card-foreground: black;
+  --primary: #1a202c;
+  --primary-foreground: white;
+  --secondary: #f7fafc;
+  --secondary-foreground: #1a202c;
+  --muted: #f7fafc;
+  --muted-foreground: #64748b;
+  --accent: #f7fafc;
+  --accent-foreground: #1a202c;
+  --destructive: #e53e3e;
+  --destructive-foreground: white;
+  --border: #e2e8f0;
+  --input: #e2e8f0;
+  --ring: #a0aec0;
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: #1a202c;
+  --foreground: white;
+  --card: #1a202c;
+  --card-foreground: white;
+  --primary: white;
+  --primary-foreground: #1a202c;
+  --secondary: #2d3748;
+  --secondary-foreground: white;
+  --muted: #2d3748;
+  --muted-foreground: #a0aec0;
+  --accent: #2d3748;
+  --accent-foreground: white;
+  --destructive: #f56565;
+  --destructive-foreground: white;
+  --border: #2d3748;
+  --input: #2d3748;
+  --ring: #a0aec0;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
