@@ -2,18 +2,16 @@ import { Suspense } from 'react';
 import FilterOptions from '@/components/FilterOptions';
 import CharacterList from '@/components/CharacterList';
 
-interface SearchParams {
-  status?: string;
-  gender?: string;
-  species?: string;
+interface PageProps {
+  searchParams: {
+    status?: string;
+    gender?: string;
+    species?: string;
+  };
 }
 
 // This is a Server Component
-export default async function Home({
-  searchParams,
-}: {
-  searchParams: SearchParams;
-}): Promise<JSX.Element> {
+export default function Page({ searchParams }: PageProps): JSX.Element {
   // Get filter parameters from URL
   const status = searchParams.status || '';
   const gender = searchParams.gender || '';

@@ -10,11 +10,11 @@ export const metadata: Metadata = {
   description: 'Browse Rick and Morty characters with filtering options',
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
+interface RootLayoutProps {
   children: React.ReactNode;
-}>) {
+}
+
+export default function RootLayout({ children }: RootLayoutProps): JSX.Element {
   return (
     <html lang="en">
       <body className={inter.className}>

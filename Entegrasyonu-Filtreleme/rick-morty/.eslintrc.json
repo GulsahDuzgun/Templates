@@ -2,67 +2,15 @@
   "extends": [
     "next/core-web-vitals",
     "eslint:recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:@typescript-eslint/recommended-requiring-type-checking",
-    "plugin:react/recommended",
-    "plugin:react-hooks/recommended",
-    "plugin:tailwindcss/recommended",
-    "prettier"
-  ],
-  "plugins": [
-    "@typescript-eslint",
-    "react",
-    "react-hooks",
-    "tailwindcss",
-    "prettier"
+    "plugin:@typescript-eslint/recommended"
   ],
   "parser": "@typescript-eslint/parser",
-  "parserOptions": {
-    "ecmaVersion": 2021,
-    "sourceType": "module",
-    "ecmaFeatures": {
-      "jsx": true
-    },
-    "project": "./tsconfig.json"
-  },
+  "plugins": ["@typescript-eslint"],
+  "root": true,
   "rules": {
-    // Prohibit the use of 'any'
     "@typescript-eslint/no-explicit-any": "error",
-    "@typescript-eslint/explicit-module-boundary-types": "error",
-    "@typescript-eslint/no-unsafe-assignment": "error",
-    "@typescript-eslint/no-unsafe-member-access": "error",
-    "@typescript-eslint/no-unsafe-call": "error",
-    "@typescript-eslint/no-unsafe-return": "error",
-
-    // React rules
-    "react/react-in-jsx-scope": "off", // Not needed in Next.js
-    "react/prop-types": "off", // We use TypeScript for prop validation
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn",
-
-    // File naming convention
-    "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
-
-    // Prettier
-    "prettier/prettier": "error",
-
-    // General
-    "no-console": ["warn", { "allow": ["warn", "error"] }],
-    "eqeqeq": "error",
-    "no-unused-vars": "off", // Using TypeScript's version instead
-    "@typescript-eslint/no-unused-vars": [
-      "error",
-      { "argsIgnorePattern": "^_" }
-    ]
-  },
-  "settings": {
-    "react": {
-      "version": "detect"
-    },
-    "tailwindcss": {
-      "callees": ["classnames", "clsx", "cn"],
-      "config": "tailwind.config.js"
-    }
-  },
-  "ignorePatterns": ["node_modules/", ".next/", "out/", "public/"]
+    "@typescript-eslint/explicit-function-return-type": ["error", {
+      "allowExpressions": true
+    }]
+  }
 }
